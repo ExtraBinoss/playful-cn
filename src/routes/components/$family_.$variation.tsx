@@ -2,15 +2,19 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import * as React from 'react'
 import {
   ButtonStatesPreview,
+  InputStatesPreview,
   VariationPreview,
 } from '../../components/docs/variation-preview'
 import {
+  BubbleFieldInput,
   BubbleGumButton,
   CandyFieldInput,
   FeatureStickerCard,
+  GlowFieldInput,
   NeonGradientButton,
   QuietGhostButton,
   SketchOutlineButton,
+  SketchFieldInput,
   SoftCandyButton,
   StickerPopButton,
 } from '../../components/playful'
@@ -18,6 +22,10 @@ import type {
   PlayfulButtonSize,
   PlayfulButtonTone,
 } from '../../components/playful/buttons'
+import type {
+  PlayfulInputSize,
+  PlayfulInputTone,
+} from '../../components/playful/inputs'
 import { getComponentFamily, getComponentVariation } from '../../lib/docs/registry'
 
 type InstallTab = 'npm' | 'ai'
@@ -76,6 +84,18 @@ function ComponentVariationPage() {
                 <p className="pc-kicker m-0">States</p>
                 <div className="mt-4">
                   <ButtonStatesPreview componentName={variation.componentName} />
+                </div>
+              </FeatureStickerCard>
+            </>
+          ) : null}
+
+          {family.familySlug === 'inputs' ? (
+            <>
+              <InputPlayground componentName={variation.componentName} />
+              <FeatureStickerCard>
+                <p className="pc-kicker m-0">States</p>
+                <div className="mt-4">
+                  <InputStatesPreview componentName={variation.componentName} />
                 </div>
               </FeatureStickerCard>
             </>
@@ -156,6 +176,91 @@ function ComponentVariationPage() {
         </aside>
       </div>
     </main>
+  )
+}
+
+function InputPlayground({ componentName }: { componentName: string }) {
+  const [value, setValue] = React.useState('hello@playful.dev')
+  const [tone, setTone] = React.useState<PlayfulInputTone>('default')
+  const [size, setSize] = React.useState<PlayfulInputSize>('md')
+  const [invalid, setInvalid] = React.useState(false)
+  const InputComponent = getInputComponent(componentName)
+
+  if (!InputComponent) {
+    return null
+  }
+
+  return (
+    <FeatureStickerCard>
+      <p className="pc-kicker m-0">Editable props</p>
+      <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_1.2fr]">
+        <div className="grid gap-3">
+          <label className="grid gap-1 text-sm font-black">
+            Value
+            <CandyFieldInput
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+            />
+          </label>
+          <label className="grid gap-1 text-sm font-black">
+            Tone
+            <select
+              className="pc-doc-select"
+              value={tone}
+              onChange={(event) =>
+                setTone(event.target.value as PlayfulInputTone)
+              }
+            >
+              <option value="default">default</option>
+              <option value="success">success</option>
+              <option value="error">error</option>
+              <option value="warning">warning</option>
+              <option value="info">info</option>
+              <option value="neutral">neutral</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-sm font-black">
+            Size
+            <select
+              className="pc-doc-select"
+              value={size}
+              onChange={(event) =>
+                setSize(event.target.value as PlayfulInputSize)
+              }
+            >
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+              <option value="xl">xl</option>
+            </select>
+          </label>
+          <label className="pc-checkbox pc-checkbox-star-check">
+            <input
+              checked={invalid}
+              onChange={(event) => setInvalid(event.target.checked)}
+              type="checkbox"
+            />
+            <span className="pc-checkbox-box" aria-hidden />
+            <span className="pc-checkbox-label">invalid</span>
+          </label>
+        </div>
+        <div className="grid min-h-56 place-items-center rounded-[var(--pc-radius-xl)] bg-[var(--pc-surface-soft)] p-6">
+          <div className="w-full max-w-md">
+            <InputComponent
+              error="Use a valid email address."
+              hint="This field accepts native input props."
+              inputSize={size}
+              invalid={invalid}
+              label="Email"
+              onChange={(event) => setValue(event.target.value)}
+              placeholder="hello@playful.dev"
+              tone={tone}
+              value={value}
+            />
+          </div>
+        </div>
+      </div>
+    </FeatureStickerCard>
   )
 }
 
@@ -253,9 +358,28 @@ function getButtonComponent(componentName: string) {
   }
 }
 
+function getInputComponent(componentName: string) {
+  switch (componentName) {
+    case 'CandyFieldInput':
+      return CandyFieldInput
+    case 'BubbleFieldInput':
+      return BubbleFieldInput
+    case 'GlowFieldInput':
+      return GlowFieldInput
+    case 'SketchFieldInput':
+      return SketchFieldInput
+    default:
+      return null
+  }
+}
+
 function getUsageSnippet(componentName: string) {
   if (componentName.endsWith('Button')) {
     return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return (\n    <div className="flex flex-wrap gap-3">\n      <${componentName}>Default</${componentName}>\n      <${componentName} tone="success">Success</${componentName}>\n      <${componentName} tone="error">Delete</${componentName}>\n      <${componentName} loading>Saving</${componentName}>\n    </div>\n  )\n}`
+  }
+
+  if (componentName.endsWith('Input')) {
+    return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return (\n    <${componentName}\n      label="Email"\n      placeholder="hello@playful.dev"\n      hint="We will only use this for account updates."\n    />\n  )\n}`
   }
 
   return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return <${componentName} />\n}`

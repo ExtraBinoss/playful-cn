@@ -98,11 +98,128 @@
 }
 
 .pc-input-candy-field {
+  --pc-input-bg: var(--pc-color-surface);
+  --pc-input-fg: var(--pc-color-ink);
+  --pc-input-accent: var(--pc-color-pink);
   border-radius: var(--pc-radius-lg);
-  background: var(--pc-color-surface);
+  background: var(--pc-input-bg);
   box-shadow: var(--pc-input-shadow);
   font-weight: 800;
   outline: none;
+}
+
+.pc-input-bubble-field {
+  --pc-input-bg: color-mix(in srgb, var(--pc-color-blue) 18%, white);
+  --pc-input-fg: #082f49;
+  --pc-input-accent: var(--pc-color-blue);
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-input-bg);
+  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.12), 0 9px 18px rgb(56 189 248 / 0.18);
+}
+
+.pc-input-glow-field {
+  --pc-input-bg: #16151f;
+  --pc-input-fg: white;
+  --pc-input-accent: var(--pc-color-purple);
+  border-color: color-mix(in srgb, var(--pc-color-purple) 54%, var(--pc-border-color));
+  background:
+    linear-gradient(#16151f, #16151f) padding-box,
+    linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple), var(--pc-color-blue)) border-box;
+  color: var(--pc-input-fg);
+  box-shadow: 0 0 0 0 rgb(168 85 247 / 0), 0 14px 30px rgb(24 24 27 / 0.16);
+}
+
+.pc-input-sketch-field {
+  --pc-input-bg: var(--pc-color-background-soft);
+  --pc-input-fg: var(--pc-color-ink);
+  --pc-input-accent: var(--pc-color-yellow);
+  background: var(--pc-input-bg);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--pc-border-color) 86%, transparent);
+}
+
+.pc-input {
+  border: var(--pc-border-strong);
+  color: var(--pc-input-fg, var(--pc-color-ink));
+  transition:
+    border-color var(--pc-duration-fast) ease,
+    box-shadow var(--pc-duration-fast) ease,
+    background var(--pc-duration-fast) ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.pc-input::placeholder {
+  color: color-mix(in srgb, var(--pc-input-fg, var(--pc-color-ink)) 52%, transparent);
+}
+
+.pc-input[data-tone="success"] {
+  --pc-input-accent: var(--pc-color-green);
+  border-color: color-mix(in srgb, var(--pc-color-green) 62%, var(--pc-border-color));
+  background: color-mix(in srgb, var(--pc-color-green) 12%, var(--pc-input-bg, white));
+}
+
+.pc-input[data-tone="error"] {
+  --pc-input-accent: var(--pc-color-red);
+  border-color: var(--pc-color-red);
+  background: color-mix(in srgb, var(--pc-color-red) 10%, var(--pc-input-bg, white));
+}
+
+.pc-input[data-tone="warning"] {
+  --pc-input-accent: var(--pc-color-orange);
+  border-color: color-mix(in srgb, var(--pc-color-orange) 64%, var(--pc-border-color));
+  background: color-mix(in srgb, var(--pc-color-yellow) 18%, var(--pc-input-bg, white));
+}
+
+.pc-input[data-tone="info"] {
+  --pc-input-accent: var(--pc-color-blue);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 66%, var(--pc-border-color));
+  background: color-mix(in srgb, var(--pc-color-blue) 12%, var(--pc-input-bg, white));
+}
+
+.pc-input[data-tone="neutral"] {
+  --pc-input-accent: #a1a1aa;
+  border-color: #71717a;
+  background: color-mix(in srgb, #f4f4f5 64%, var(--pc-input-bg, white));
+}
+
+.pc-input:focus-visible {
+  border-color: var(--pc-input-accent, var(--pc-border-color));
+}
+
+.pc-input-field {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.pc-input-label {
+  color: var(--pc-color-ink);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.pc-input-message {
+  color: var(--pc-color-ink-soft);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.pc-input-message[data-tone="success"] {
+  color: color-mix(in srgb, var(--pc-color-green) 54%, #064e3b);
+}
+
+.pc-input-message[data-tone="error"] {
+  color: color-mix(in srgb, var(--pc-color-red) 78%, #7f1d1d);
+}
+
+.pc-input-message[data-tone="warning"] {
+  color: #9a3412;
+}
+
+.pc-input-message[data-tone="info"] {
+  color: #075985;
 }
 
 .pc-switch-mint-toggle[aria-checked="true"] {
@@ -311,6 +428,19 @@
 
 .pc-button-state-scroll .pc-button {
   white-space: nowrap;
+}
+
+.pc-input-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 0.85rem;
+  padding: 0.25rem 0.4rem 0.65rem 0;
+  overflow: visible;
+}
+
+.pc-input-state-grid .pc-input {
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 980px) {

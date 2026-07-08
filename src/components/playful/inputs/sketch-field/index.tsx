@@ -1,11 +1,11 @@
 import { InputBase } from '../input-base'
 import type { PlayfulInputBaseProps } from '../input.types'
 
-export function CandyFieldInput(props: PlayfulInputBaseProps) {
+export function SketchFieldInput(props: PlayfulInputBaseProps) {
   return (
     <InputBase
       motionPreset="lift"
-      variationClassName="pc-input-candy-field"
+      variationClassName="pc-input-sketch-field"
       {...props}
     />
   )

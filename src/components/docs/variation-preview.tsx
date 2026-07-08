@@ -1,15 +1,18 @@
 import { Sparkles } from 'lucide-react'
 import {
+  BubbleFieldInput,
   BubbleGumButton,
   CandyFieldInput,
   FeatureStickerBadge,
   FeatureStickerCard,
+  GlowFieldInput,
   MintToggleSwitch,
   NeonGradientButton,
   PopToast,
   PopoverTipTooltip,
   QuietGhostButton,
   SketchOutlineButton,
+  SketchFieldInput,
   SoftCandyButton,
   StarCheckCheckbox,
   StickerPopButton,
@@ -58,6 +61,12 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       )
     case 'CandyFieldInput':
       return <CandyFieldInput placeholder="Search components..." />
+    case 'BubbleFieldInput':
+      return <BubbleFieldInput placeholder="Email address" />
+    case 'GlowFieldInput':
+      return <GlowFieldInput placeholder="Search the galaxy..." />
+    case 'SketchFieldInput':
+      return <SketchFieldInput placeholder="Project name" />
     case 'MintToggleSwitch':
       return <MintToggleSwitch defaultChecked aria-label="Preview switch" />
     case 'StarCheckCheckbox':
@@ -78,6 +87,23 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     default:
       return null
   }
+}
+
+export function InputStatesPreview({ componentName }: { componentName: string }) {
+  const InputComponent = getInputComponent(componentName)
+
+  if (!InputComponent) {
+    return null
+  }
+
+  return (
+    <div className="pc-input-state-grid">
+      <InputComponent inputSize="sm" placeholder="Default" />
+      <InputComponent inputSize="sm" tone="success" defaultValue="Accepted" />
+      <InputComponent inputSize="sm" invalid defaultValue="Invalid" />
+      <InputComponent inputSize="sm" tone="warning" placeholder="Warning" />
+    </div>
+  )
 }
 
 export function ButtonStatesPreview({
@@ -117,6 +143,21 @@ function getButtonComponent(componentName: string) {
       return SketchOutlineButton
     case 'QuietGhostButton':
       return QuietGhostButton
+    default:
+      return null
+  }
+}
+
+function getInputComponent(componentName: string) {
+  switch (componentName) {
+    case 'CandyFieldInput':
+      return CandyFieldInput
+    case 'BubbleFieldInput':
+      return BubbleFieldInput
+    case 'GlowFieldInput':
+      return GlowFieldInput
+    case 'SketchFieldInput':
+      return SketchFieldInput
     default:
       return null
   }
