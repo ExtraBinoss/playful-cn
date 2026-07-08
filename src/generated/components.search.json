@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "button",
+    "name": "Button",
+    "description": "Primary playful CTA with sticker, bubble, soft and gradient variants.",
+    "tags": ["button", "cta", "motion", "form"]
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "description": "Small animated labels for tags, status and categories.",
+    "tags": ["badge", "status", "label"]
+  },
+  {
+    "slug": "color-picker",
+    "name": "ColorPicker",
+    "description": "Swatch based custom color picker with HEX input and animated preview.",
+    "tags": ["color", "picker", "swatch", "form"]
+  }
+]

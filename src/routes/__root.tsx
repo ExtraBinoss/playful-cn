@@ -3,12 +3,9 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-
-import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
+import { PlayfulMotionProvider } from '../lib/animation/playful-motion-provider'
 
 import appCss from '../styles.css?url'
 
@@ -31,7 +28,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Playful Components',
+      },
+      {
+        name: 'description',
+        content:
+          'A playful React component library with expressive styles, accessible APIs, and Motion animations.',
       },
     ],
     links: [
@@ -52,21 +54,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
-        <Header />
-        {children}
-        <Footer />
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-            TanStackQueryDevtools,
-          ]}
-        />
+        <PlayfulMotionProvider>
+          <Header />
+          {children}
+          <Footer />
+        </PlayfulMotionProvider>
         <Scripts />
       </body>
     </html>
