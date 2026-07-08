@@ -40,6 +40,32 @@
   box-sizing: border-box;
 }
 
+* {
+  scrollbar-color: var(--pc-color-pink) var(--pc-color-surface-soft);
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+*::-webkit-scrollbar-track {
+  border: 2px solid var(--pc-border-color);
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-color-surface-soft);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid var(--pc-border-color);
+  border-radius: var(--pc-radius-full);
+  background: linear-gradient(180deg, var(--pc-color-pink), var(--pc-color-yellow));
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--pc-color-purple), var(--pc-color-blue));
+}
+
 html,
 body,
 #app {
@@ -325,9 +351,14 @@ a {
 }
 
 .pc-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: var(--pc-border-strong);
   color: var(--pc-button-fg);
+  min-height: 2rem;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .pc-badge-pill,
@@ -349,7 +380,7 @@ a {
   border-radius: var(--pc-radius-full);
   background: white;
   color: var(--pc-ink);
-  padding: 0.45rem 0.7rem;
+  padding: 0 0.7rem;
 }
 
 .pc-badge-dot {

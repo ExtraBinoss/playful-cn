@@ -1,6 +1,9 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import {
+  ButtonStatesPreview,
+  VariationPreview,
+} from '../../components/docs/variation-preview'
 import { FeatureStickerCard } from '../../components/playful'
-import { VariationPreview } from '../../components/docs/variation-preview'
 import { getComponentFamily } from '../../lib/docs/registry'
 
 export const Route = createFileRoute('/components/$family')({
@@ -26,7 +29,7 @@ function ComponentFamilyPage() {
         {family.description}
       </p>
 
-      <div className="pc-grid mt-8">
+      <div className="pc-variation-grid mt-8">
         {family.variations.map((variation) => (
           <Link
             className="no-underline"
@@ -34,13 +37,27 @@ function ComponentFamilyPage() {
             to="/components/$family/$variation"
             params={{ family: family.familySlug, variation: variation.slug }}
           >
-            <FeatureStickerCard className="h-full">
-              <div className="mb-5 grid min-h-28 place-items-center rounded-[var(--pc-radius-lg)] bg-[var(--pc-surface-soft)] p-4">
+            <FeatureStickerCard className="pc-variation-card">
+              <div className="pc-variation-preview">
                 <VariationPreview componentName={variation.componentName} />
               </div>
-              <h2 className="m-0 text-xl font-black">{variation.name}</h2>
-              <p className="text-[var(--pc-ink-soft)]">{variation.description}</p>
-              <div className="pc-row">
+              <div>
+                <h2 className="m-0 text-xl font-black">{variation.name}</h2>
+                <p className="pc-variation-description">
+                  {variation.description}
+                </p>
+              </div>
+              {family.familySlug === 'buttons' ? (
+                <div className="pc-variation-states">
+                  <ButtonStatesPreview componentName={variation.componentName} />
+                </div>
+              ) : (
+                <div />
+              )}
+              <div
+                className="pc-horizontal-scroll pc-tag-scroll"
+                aria-label={`${variation.name} tags`}
+              >
                 {variation.tags.map((tag) => (
                   <span className="pc-badge pc-badge-outline" key={tag}>
                     {tag}

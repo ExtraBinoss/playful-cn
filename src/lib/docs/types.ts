@@ -23,6 +23,10 @@ export type ComponentFamilyDoc = {
   familySlug: string
   familyName: string
   description: string
+  packageName: string
+  cliCommand: string
+  aiPrompt: string
   tags: Array<string>
+  props: Array<ComponentPropDoc>
   variations: Array<ComponentVariationDoc>
 }

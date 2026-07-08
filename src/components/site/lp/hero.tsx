@@ -33,7 +33,7 @@ export function Hero() {
       </div>
 
       <div className="pc-showcase" aria-label="Playful component preview">
-        <FeatureStickerCard>
+        <FeatureStickerCard interactive>
           <div className="mb-4 flex items-center justify-between gap-3">
             <FeatureStickerBadge>
               New

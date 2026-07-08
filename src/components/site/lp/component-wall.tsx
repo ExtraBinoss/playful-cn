@@ -20,7 +20,7 @@ export function ComponentWall() {
         </h2>
       </div>
       <div className="pc-grid">
-        <FeatureStickerCard>
+        <FeatureStickerCard interactive>
           <FeatureStickerBadge>Buttons</FeatureStickerBadge>
           <div className="mt-4 pc-row">
             <StickerPopButton size="sm">Small</StickerPopButton>
@@ -29,20 +29,20 @@ export function ComponentWall() {
             </SoftCandyButton>
           </div>
         </FeatureStickerCard>
-        <FeatureStickerCard>
+        <FeatureStickerCard interactive>
           <FeatureStickerBadge>Forms</FeatureStickerBadge>
           <div className="mt-4 grid gap-3">
             <CandyFieldInput placeholder="Candy input" />
             <StarCheckCheckbox defaultChecked label="Accessible by default" />
           </div>
         </FeatureStickerCard>
-        <FeatureStickerCard>
+        <FeatureStickerCard interactive>
           <FeatureStickerBadge>Color</FeatureStickerBadge>
           <div className="mt-4">
             <SwatchPartyColorPicker showPreview={false} showHexInput={false} />
           </div>
         </FeatureStickerCard>
-        <FeatureStickerCard>
+        <FeatureStickerCard interactive>
           <FeatureStickerBadge>Docs</FeatureStickerBadge>
           <div className="mt-4">
             <StickerTabs

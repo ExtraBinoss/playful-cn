@@ -7,10 +7,12 @@ export type FeatureStickerCardProps = Omit<
   HTMLMotionProps<'div'>,
   'children' | 'ref'
 > & {
+  interactive?: boolean
   children?: ReactNode
 }
 
 export function FeatureStickerCard({
+  interactive = false,
   className,
   children,
   ...props
@@ -18,8 +20,8 @@ export function FeatureStickerCard({
   return (
     <m.div
       className={cn('pc-card pc-card-feature-sticker', className)}
-      whileHover={{ y: -4, rotate: -0.4 }}
-      whileTap={{ y: 1, scale: 0.99 }}
+      whileHover={interactive ? { y: -2, rotate: -0.2 } : undefined}
+      whileTap={interactive ? { y: 1, scale: 0.99 } : undefined}
       {...props}
     >
       {children}

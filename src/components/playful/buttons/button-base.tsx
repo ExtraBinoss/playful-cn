@@ -16,6 +16,7 @@ type ButtonBaseProps = PlayfulButtonBaseProps & {
 
 export function ButtonBase({
   size = 'md',
+  tone = 'default',
   motionPreset = 'pop',
   loading = false,
   leftIcon,
@@ -35,6 +36,7 @@ export function ButtonBase({
         className,
       )}
       disabled={disabled || loading}
+      data-tone={tone}
       {...buttonMotionPresets[motionPreset]}
       {...props}
     >

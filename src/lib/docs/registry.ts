@@ -2,9 +2,15 @@ import type { ComponentFamilyDoc } from './types'
 
 const buttonProps = [
   { name: 'size', type: 'sm | md | lg | xl', defaultValue: 'md', description: 'Control height, padding, and text size.' },
+  { name: 'tone', type: 'default | success | error | warning | info | neutral', defaultValue: 'default', description: 'Semantic state color for the same visual variation.' },
   { name: 'motionPreset', type: 'none | pop | squish | wiggle', defaultValue: 'pop', description: 'Interaction animation preset.' },
   { name: 'loading', type: 'boolean', defaultValue: 'false', description: 'Disables the button and shows a spinner.' },
   { name: 'leftIcon / rightIcon', type: 'ReactNode', description: 'Optional icons around the label.' },
+]
+
+const basicHtmlProps = [
+  { name: 'className', type: 'string', description: 'Optional class override.' },
+  { name: 'children', type: 'ReactNode', description: 'Visible component content.' },
 ]
 
 export const componentRegistry: Array<ComponentFamilyDoc> = [
@@ -12,7 +18,11 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'buttons',
     familyName: 'Buttons',
     description: 'CTA components with separate named visual variations.',
+    packageName: '@playful/components/buttons',
+    cliCommand: 'npx playful-ui add buttons',
+    aiPrompt: 'Use Playful Components button variations. Prefer named imports like StickerPopButton or BubbleGumButton from the buttons family. Pick tone="success" for positive actions, tone="error" for destructive actions, loading for pending actions, and QuietGhostButton for low-emphasis actions. Keep className overrides scoped with CSS variables.',
     tags: ['button', 'cta', 'motion'],
+    props: buttonProps,
     variations: [
       {
         slug: 'sticker-pop',
@@ -86,7 +96,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'tooltips',
     familyName: 'Tooltips',
     description: 'Small explainers for props, tokens, and compact UI hints.',
+    packageName: '@playful/components/tooltips',
+    cliCommand: 'npx playful-ui add tooltips',
+    aiPrompt: 'Use PopoverTipTooltip for short hover/focus help. Keep content concise, wrap an existing trigger, and do not use it for critical mobile-only information.',
     tags: ['tooltip', 'overlay', 'help'],
+    props: [
+      { name: 'content', type: 'ReactNode', description: 'Tooltip body.' },
+      { name: 'children', type: 'ReactNode', description: 'Trigger content.' },
+      { name: 'className', type: 'string', description: 'Optional wrapper class.' },
+    ],
     variations: [
       {
         slug: 'popover-tip',
@@ -109,7 +127,14 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'badges',
     familyName: 'Badges',
     description: 'Compact tags for statuses, labels, and release notes.',
+    packageName: '@playful/components/badges',
+    cliCommand: 'npx playful-ui add badges',
+    aiPrompt: 'Use FeatureStickerBadge for compact labels such as Beta, New, Stable, or status chips. Keep badge text short.',
     tags: ['badge', 'status', 'label'],
+    props: [
+      { name: 'dot', type: 'boolean', defaultValue: 'true', description: 'Show the leading dot.' },
+      ...basicHtmlProps,
+    ],
     variations: [
       {
         slug: 'feature-sticker',
@@ -131,7 +156,14 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'cards',
     familyName: 'Cards',
     description: 'Framed surfaces for previews, docs, and feature callouts.',
+    packageName: '@playful/components/cards',
+    cliCommand: 'npx playful-ui add cards',
+    aiPrompt: 'Use FeatureStickerCard as a framed surface. Set interactive only when the whole card behaves like an action or clickable preview.',
     tags: ['card', 'surface', 'preview'],
+    props: [
+      { name: 'interactive', type: 'boolean', defaultValue: 'false', description: 'Enable subtle hover/tap motion.' },
+      ...basicHtmlProps,
+    ],
     variations: [
       {
         slug: 'feature-sticker',
@@ -153,7 +185,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'inputs',
     familyName: 'Inputs',
     description: 'Form controls with strong focus states and candy styling.',
+    packageName: '@playful/components/inputs',
+    cliCommand: 'npx playful-ui add inputs',
+    aiPrompt: 'Use CandyFieldInput for text fields and search-like inputs. Keep native input props and use inputSize for sizing.',
     tags: ['input', 'form', 'field'],
+    props: [
+      { name: 'inputSize', type: 'sm | md | lg', defaultValue: 'md', description: 'Input height and text size.' },
+      { name: 'placeholder', type: 'string', description: 'Native input placeholder.' },
+      { name: 'className', type: 'string', description: 'Optional class override.' },
+    ],
     variations: [
       {
         slug: 'candy-field',
@@ -175,7 +215,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'switches',
     familyName: 'Switches',
     description: 'Accessible toggle controls with animated thumbs.',
+    packageName: '@playful/components/switches',
+    cliCommand: 'npx playful-ui add switches',
+    aiPrompt: 'Use MintToggleSwitch for boolean settings. Provide aria-label when no visible label exists, and use checked/onChange for controlled state.',
     tags: ['switch', 'toggle', 'form'],
+    props: [
+      { name: 'checked', type: 'boolean', description: 'Controlled checked state.' },
+      { name: 'defaultChecked', type: 'boolean', defaultValue: 'false', description: 'Initial uncontrolled state.' },
+      { name: 'onChange', type: '(checked: boolean) => void', description: 'Called when the value changes.' },
+    ],
     variations: [
       {
         slug: 'mint-toggle',
@@ -198,7 +246,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'checkboxes',
     familyName: 'Checkboxes',
     description: 'Playful checkbox controls that keep native input behavior.',
+    packageName: '@playful/components/checkboxes',
+    cliCommand: 'npx playful-ui add checkboxes',
+    aiPrompt: 'Use StarCheckCheckbox for opt-in form choices. Prefer visible labels; use checked/onChange when controlled.',
     tags: ['checkbox', 'form', 'input'],
+    props: [
+      { name: 'label', type: 'ReactNode', description: 'Optional visible label.' },
+      { name: 'checked', type: 'boolean', description: 'Controlled checked state.' },
+      { name: 'onChange', type: '(checked: boolean) => void', description: 'Called when the value changes.' },
+    ],
     variations: [
       {
         slug: 'star-check',
@@ -221,7 +277,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'tabs',
     familyName: 'Tabs',
     description: 'Tabbed panels for preview, code, props, and token docs.',
+    packageName: '@playful/components/tabs',
+    cliCommand: 'npx playful-ui add tabs',
+    aiPrompt: 'Use StickerTabs for local view switching such as Preview, Code, Props, and Tokens. Keep tab labels short.',
     tags: ['tabs', 'navigation', 'docs'],
+    props: [
+      { name: 'items', type: 'Array<{ value; label; content }>', description: 'Tabs and panels.' },
+      { name: 'value', type: 'string', description: 'Controlled selected value.' },
+      { name: 'onChange', type: '(value: string) => void', description: 'Called when selected tab changes.' },
+    ],
     variations: [
       {
         slug: 'sticker-tabs',
@@ -244,7 +308,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'color-pickers',
     familyName: 'Color Pickers',
     description: 'Color selection tools with custom swatches and HEX editing.',
+    packageName: '@playful/components/color-pickers',
+    cliCommand: 'npx playful-ui add color-pickers',
+    aiPrompt: 'Use SwatchPartyColorPicker for simple palette selection. Use value/onChange for controlled forms and pass a custom palette for brand colors.',
     tags: ['color', 'picker', 'form'],
+    props: [
+      { name: 'value', type: 'string', description: 'Controlled HEX color.' },
+      { name: 'palette', type: 'PlayfulColor[]', description: 'Swatch list.' },
+      { name: 'onChange', type: '(color: string) => void', description: 'Called when color changes.' },
+    ],
     variations: [
       {
         slug: 'swatch-party',
@@ -267,7 +339,15 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familySlug: 'toasts',
     familyName: 'Toasts',
     description: 'Notification surfaces for app feedback.',
+    packageName: '@playful/components/toasts',
+    cliCommand: 'npx playful-ui add toasts',
+    aiPrompt: 'Use PopToast for short feedback. Choose success, info, warning, or danger tone and keep descriptions one sentence.',
     tags: ['toast', 'notification', 'feedback'],
+    props: [
+      { name: 'tone', type: 'success | info | warning | danger', defaultValue: 'success', description: 'Toast tone.' },
+      { name: 'title', type: 'ReactNode', description: 'Toast heading.' },
+      { name: 'description', type: 'ReactNode', description: 'Optional supporting copy.' },
+    ],
     variations: [
       {
         slug: 'pop-toast',

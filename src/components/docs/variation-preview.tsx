@@ -17,6 +17,13 @@ import {
   SwatchPartyColorPicker,
 } from '../playful'
 
+const buttonExamples = [
+  { label: 'Default', props: {} },
+  { label: 'Success', props: { tone: 'success' as const } },
+  { label: 'Error', props: { tone: 'error' as const } },
+  { label: 'Loading', props: { loading: true } },
+]
+
 export function VariationPreview({ componentName }: { componentName: string }) {
   switch (componentName) {
     case 'StickerPopButton':
@@ -41,7 +48,7 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <FeatureStickerBadge>Beta</FeatureStickerBadge>
     case 'FeatureStickerCard':
       return (
-        <FeatureStickerCard className="max-w-sm">
+        <FeatureStickerCard className="max-w-sm" interactive>
           <FeatureStickerBadge>Preview</FeatureStickerBadge>
           <h3 className="pc-display mt-4 mb-2 text-3xl">Sticker surface</h3>
           <p className="m-0 text-[var(--pc-ink-soft)]">
@@ -68,6 +75,48 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <SwatchPartyColorPicker showHexInput={false} />
     case 'PopToast':
       return <PopToast title="Saved" description="The component is ready to reuse." />
+    default:
+      return null
+  }
+}
+
+export function ButtonStatesPreview({
+  componentName,
+}: {
+  componentName: string
+}) {
+  const ButtonComponent = getButtonComponent(componentName)
+
+  if (!ButtonComponent) {
+    return null
+  }
+
+  return (
+    <div className="pc-horizontal-scroll pc-button-state-scroll">
+      {buttonExamples.map((example) => (
+        <ButtonComponent key={example.label} size="sm" {...example.props}>
+          {example.label}
+        </ButtonComponent>
+      ))}
+      <QuietGhostButton size="sm">Ghost</QuietGhostButton>
+    </div>
+  )
+}
+
+function getButtonComponent(componentName: string) {
+  switch (componentName) {
+    case 'StickerPopButton':
+      return StickerPopButton
+    case 'BubbleGumButton':
+      return BubbleGumButton
+    case 'NeonGradientButton':
+      return NeonGradientButton
+    case 'SoftCandyButton':
+      return SoftCandyButton
+    case 'SketchOutlineButton':
+      return SketchOutlineButton
+    case 'QuietGhostButton':
+      return QuietGhostButton
     default:
       return null
   }
