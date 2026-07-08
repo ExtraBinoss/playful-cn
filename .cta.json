@@ -1,0 +1,24 @@
+{
+  "projectName": "playful-components-lib",
+  "mode": "file-router",
+  "typescript": true,
+  "packageManager": "npm",
+  "includeExamples": true,
+  "tailwind": true,
+  "addOnOptions": {},
+  "envVarValues": {},
+  "git": true,
+  "install": true,
+  "routerOnly": false,
+  "version": 1,
+  "framework": "react",
+  "chosenAddOns": [
+    "biome",
+    "nitro",
+    "tanstack-query",
+    "table",
+    "mcp",
+    "form",
+    "compiler"
+  ]
+}
