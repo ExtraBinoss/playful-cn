@@ -19,6 +19,8 @@ export function ButtonBase({
   tone = 'default',
   motionPreset = 'pop',
   loading = false,
+  icon,
+  iconPosition = 'left',
   leftIcon,
   rightIcon,
   className,
@@ -27,6 +29,9 @@ export function ButtonBase({
   disabled,
   ...props
 }: ButtonBaseProps) {
+  const resolvedLeftIcon = leftIcon ?? (iconPosition === 'left' ? icon : null)
+  const resolvedRightIcon = rightIcon ?? (iconPosition === 'right' ? icon : null)
+
   return (
     <m.button
       className={cn(
@@ -40,9 +45,13 @@ export function ButtonBase({
       {...buttonMotionPresets[motionPreset]}
       {...props}
     >
-      {loading ? <span className="pc-button-loader" aria-hidden /> : leftIcon}
+      {loading ? (
+        <span className="pc-button-loader" aria-hidden />
+      ) : (
+        resolvedLeftIcon
+      )}
       <span>{children}</span>
-      {rightIcon}
+      {resolvedRightIcon}
     </m.button>
   )
 }

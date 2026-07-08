@@ -19,6 +19,8 @@ export type PlayfulButtonBaseProps = Omit<
   tone?: PlayfulButtonTone
   motionPreset?: PlayfulButtonMotion
   loading?: boolean
+  icon?: ReactNode
+  iconPosition?: 'left' | 'right'
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   children?: ReactNode

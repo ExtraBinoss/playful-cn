@@ -19,6 +19,10 @@ export type PlayfulInputBaseProps = Omit<
   tone?: PlayfulInputTone
   motionPreset?: PlayfulInputMotion
   invalid?: boolean
+  icon?: ReactNode
+  iconPosition?: 'left' | 'right'
+  leftIcon?: ReactNode
+  rightIcon?: ReactNode
   label?: ReactNode
   hint?: ReactNode
   error?: ReactNode

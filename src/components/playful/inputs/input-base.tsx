@@ -19,6 +19,10 @@ export function InputBase({
   tone = 'default',
   motionPreset = 'lift',
   invalid = false,
+  icon,
+  iconPosition = 'left',
+  leftIcon,
+  rightIcon,
   label,
   hint,
   error,
@@ -32,23 +36,41 @@ export function InputBase({
   const message = invalid ? error : hint
   const messageId = id && message ? `${id}-message` : undefined
   const describedBy = [ariaDescribedBy, messageId].filter(Boolean).join(' ')
+  const resolvedLeftIcon = leftIcon ?? (iconPosition === 'left' ? icon : null)
+  const resolvedRightIcon = rightIcon ?? (iconPosition === 'right' ? icon : null)
+  const hasIcon = Boolean(resolvedLeftIcon || resolvedRightIcon)
 
   const input = (
-    <m.input
-      id={id}
-      className={cn(
-        'pc-input w-full font-bold outline-none disabled:cursor-not-allowed disabled:opacity-55',
-        sizeClasses[inputSize],
-        variationClassName,
-        className,
-      )}
-      data-tone={invalid ? 'error' : tone}
-      data-invalid={invalid ? 'true' : undefined}
-      aria-invalid={ariaInvalid ?? (invalid ? true : undefined)}
-      aria-describedby={describedBy || undefined}
-      {...inputMotionPresets[motionPreset]}
-      {...props}
-    />
+    <span className="pc-input-control">
+      {resolvedLeftIcon ? (
+        <span className="pc-input-icon pc-input-icon-left" aria-hidden>
+          {resolvedLeftIcon}
+        </span>
+      ) : null}
+      <m.input
+        id={id}
+        className={cn(
+          'pc-input w-full font-bold outline-none disabled:cursor-not-allowed disabled:opacity-55',
+          sizeClasses[inputSize],
+          hasIcon && 'pc-input-has-icon',
+          resolvedLeftIcon && 'pc-input-has-left-icon',
+          resolvedRightIcon && 'pc-input-has-right-icon',
+          variationClassName,
+          className,
+        )}
+        data-tone={invalid ? 'error' : tone}
+        data-invalid={invalid ? 'true' : undefined}
+        aria-invalid={ariaInvalid ?? (invalid ? true : undefined)}
+        aria-describedby={describedBy || undefined}
+        {...inputMotionPresets[motionPreset]}
+        {...props}
+      />
+      {resolvedRightIcon ? (
+        <span className="pc-input-icon pc-input-icon-right" aria-hidden>
+          {resolvedRightIcon}
+        </span>
+      ) : null}
+    </span>
   )
 
   if (!label && !message) {
