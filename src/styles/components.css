@@ -167,6 +167,9 @@
   color: color-mix(in srgb, var(--pc-input-fg, var(--pc-color-ink)) 72%, transparent);
   pointer-events: none;
   transform: translateY(-50%);
+  transition:
+    color var(--pc-duration-fast) ease,
+    transform var(--pc-duration-fast) ease;
 }
 
 .pc-input-icon svg {
@@ -189,6 +192,22 @@
 
 .pc-input-has-right-icon {
   padding-right: 2.8rem;
+}
+
+.pc-input-control:hover .pc-input-icon,
+.pc-input-control:focus-within .pc-input-icon {
+  color: var(--pc-input-accent, var(--pc-input-fg, var(--pc-color-ink)));
+  transform: translateY(calc(-50% - 2px)) scale(1.03);
+}
+
+.pc-input-control:has(.pc-input-bubble-field:hover) .pc-input-icon,
+.pc-input-control:has(.pc-input-bubble-field:focus-visible) .pc-input-icon {
+  transform: translateY(-50%) scaleX(1.03) scaleY(0.97);
+}
+
+.pc-input-control:has(.pc-input-glow-field:hover) .pc-input-icon,
+.pc-input-control:has(.pc-input-glow-field:focus-visible) .pc-input-icon {
+  transform: translateY(calc(-50% - 1px)) scale(1.04);
 }
 
 .pc-input::placeholder {

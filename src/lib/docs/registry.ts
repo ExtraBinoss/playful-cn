@@ -5,7 +5,9 @@ const buttonProps = [
   { name: 'tone', type: 'default | success | error | warning | info | neutral', defaultValue: 'default', description: 'Semantic state color for the same visual variation.' },
   { name: 'motionPreset', type: 'none | pop | squish | wiggle', defaultValue: 'pop', description: 'Interaction animation preset.' },
   { name: 'loading', type: 'boolean', defaultValue: 'false', description: 'Disables the button and shows a spinner.' },
-  { name: 'leftIcon / rightIcon', type: 'ReactNode', description: 'Optional icons around the label.' },
+  { name: 'icon', type: 'ReactNode', description: 'Optional icon slot from any icon library.' },
+  { name: 'iconPosition', type: 'left | right', defaultValue: 'left', description: 'Places the icon before or after the label.' },
+  { name: 'leftIcon / rightIcon', type: 'ReactNode', description: 'Explicit icon slots around the label.' },
 ]
 
 const inputProps = [
@@ -13,6 +15,9 @@ const inputProps = [
   { name: 'tone', type: 'default | success | error | warning | info | neutral', defaultValue: 'default', description: 'Semantic state color for the same visual variation.' },
   { name: 'motionPreset', type: 'none | lift | squish | glow', defaultValue: 'lift', description: 'Focus and hover animation preset.' },
   { name: 'invalid', type: 'boolean', defaultValue: 'false', description: 'Marks the field invalid and applies the error tone.' },
+  { name: 'icon', type: 'ReactNode', description: 'Optional icon slot from any icon library.' },
+  { name: 'iconPosition', type: 'left | right', defaultValue: 'left', description: 'Places the icon inside the field.' },
+  { name: 'leftIcon / rightIcon', type: 'ReactNode', description: 'Explicit icon slots inside the field.' },
   { name: 'label', type: 'ReactNode', description: 'Optional visible field label.' },
   { name: 'hint / error', type: 'ReactNode', description: 'Optional helper or validation message below the input.' },
   { name: 'placeholder', type: 'string', description: 'Native input placeholder.' },

@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react'
+import { Search, Sparkles } from 'lucide-react'
 import {
   BubbleFieldInput,
   BubbleGumButton,
@@ -60,13 +60,13 @@ export function VariationPreview({ componentName }: { componentName: string }) {
         </FeatureStickerCard>
       )
     case 'CandyFieldInput':
-      return <CandyFieldInput placeholder="Search components..." />
+      return <CandyFieldInput icon={<Search />} placeholder="Search components..." />
     case 'BubbleFieldInput':
-      return <BubbleFieldInput placeholder="Email address" />
+      return <BubbleFieldInput icon={<Search />} placeholder="Search people..." />
     case 'GlowFieldInput':
-      return <GlowFieldInput placeholder="Search the galaxy..." />
+      return <GlowFieldInput icon={<Search />} placeholder="Search the galaxy..." />
     case 'SketchFieldInput':
-      return <SketchFieldInput placeholder="Project name" />
+      return <SketchFieldInput icon={<Search />} placeholder="Search projects..." />
     case 'MintToggleSwitch':
       return <MintToggleSwitch defaultChecked aria-label="Preview switch" />
     case 'StarCheckCheckbox':
@@ -98,10 +98,25 @@ export function InputStatesPreview({ componentName }: { componentName: string })
 
   return (
     <div className="pc-input-state-grid">
-      <InputComponent inputSize="sm" placeholder="Default" />
-      <InputComponent inputSize="sm" tone="success" defaultValue="Accepted" />
-      <InputComponent inputSize="sm" invalid defaultValue="Invalid" />
-      <InputComponent inputSize="sm" tone="warning" placeholder="Warning" />
+      <InputComponent inputSize="sm" icon={<Search />} placeholder="Default" />
+      <InputComponent
+        inputSize="sm"
+        icon={<Search />}
+        tone="success"
+        defaultValue="Accepted"
+      />
+      <InputComponent
+        inputSize="sm"
+        icon={<Search />}
+        invalid
+        defaultValue="Invalid"
+      />
+      <InputComponent
+        inputSize="sm"
+        icon={<Search />}
+        tone="warning"
+        placeholder="Warning"
+      />
     </div>
   )
 }

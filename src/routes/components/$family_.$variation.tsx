@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { Search } from 'lucide-react'
 import * as React from 'react'
 import {
   ButtonStatesPreview,
@@ -249,11 +250,12 @@ function InputPlayground({ componentName }: { componentName: string }) {
             <InputComponent
               error="Use a valid email address."
               hint="This field accepts native input props."
+              icon={<Search />}
               inputSize={size}
               invalid={invalid}
-              label="Email"
+              label="Search"
               onChange={(event) => setValue(event.target.value)}
-              placeholder="hello@playful.dev"
+              placeholder="Search components..."
               tone={tone}
               value={value}
             />
@@ -379,7 +381,7 @@ function getUsageSnippet(componentName: string) {
   }
 
   if (componentName.endsWith('Input')) {
-    return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return (\n    <${componentName}\n      label="Email"\n      placeholder="hello@playful.dev"\n      hint="We will only use this for account updates."\n    />\n  )\n}`
+    return `import { Search } from 'lucide-react'\nimport { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return (\n    <${componentName}\n      icon={<Search />}\n      label="Search"\n      placeholder="Search components..."\n      hint="Icons are ReactNode slots, so any icon library works."\n    />\n  )\n}`
   }
 
   return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return <${componentName} />\n}`
