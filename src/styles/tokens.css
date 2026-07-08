@@ -14,6 +14,8 @@
   --pc-color-orange: #fb923c;
   --pc-color-green: #3ee98f;
   --pc-color-red: #ff5a5f;
+  --pc-color-on-accent: #18181b;
+  --pc-color-on-strong: #fff7fb;
   --pc-button-shadow: 0 4px 0 var(--pc-border-color);
   --pc-card-shadow: 0 4px 0 var(--pc-border-color);
   --pc-input-shadow: 0 4px 0 var(--pc-border-color);
@@ -36,4 +38,26 @@
   --pc-orange: var(--pc-color-orange);
   --pc-green: var(--pc-color-green);
   --pc-red: var(--pc-color-red);
+  --pc-on-accent: var(--pc-color-on-accent);
+  --pc-on-strong: var(--pc-color-on-strong);
+}
+
+:root.dark {
+  --pc-color-background: #17131f;
+  --pc-color-background-soft: #22192c;
+  --pc-color-ink: #fff7fb;
+  --pc-color-ink-soft: #d8cfe3;
+  --pc-border-color: #f8f2ff;
+  --pc-color-surface: #2c2138;
+  --pc-color-surface-soft: #382844;
+  --pc-color-pink: #ff72d7;
+  --pc-color-purple: #c084fc;
+  --pc-color-blue: #67e8f9;
+  --pc-color-mint: #7dd3c7;
+  --pc-color-yellow: #fde68a;
+  --pc-color-orange: #fdba74;
+  --pc-color-green: #86efac;
+  --pc-color-red: #fb7185;
+  --pc-color-on-accent: #17131f;
+  --pc-color-on-strong: #17131f;
 }

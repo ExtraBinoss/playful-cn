@@ -9,21 +9,6 @@
 }
 
 :root {
-  --pc-bg: #fff7fb;
-  --pc-bg-soft: #fffdf7;
-  --pc-ink: #18181b;
-  --pc-ink-soft: #52525b;
-  --pc-line: #18181b;
-  --pc-surface: #ffffff;
-  --pc-surface-soft: #fff0fa;
-  --pc-pink: #ff4ecd;
-  --pc-purple: #a855f7;
-  --pc-blue: #38bdf8;
-  --pc-mint: #5eead4;
-  --pc-yellow: #fde047;
-  --pc-orange: #fb923c;
-  --pc-green: #3ee98f;
-  --pc-red: #ff5a5f;
   --pc-radius-xs: 0.5rem;
   --pc-radius-sm: 0.75rem;
   --pc-radius-md: 1rem;
@@ -127,7 +112,7 @@ a {
   top: 0;
   z-index: 50;
   border-bottom: var(--pc-border-strong);
-  background: rgb(255 255 255 / 0.82);
+  background: color-mix(in srgb, var(--pc-surface) 82%, transparent);
   backdrop-filter: blur(14px);
 }
 
@@ -181,19 +166,56 @@ a {
 .pc-nav-link:hover,
 .pc-nav-link.is-active {
   border-color: var(--pc-line);
-  background: white;
+  background: var(--pc-surface);
+  color: var(--pc-ink);
+}
+
+.pc-theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border: var(--pc-border-strong);
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-surface);
+  color: var(--pc-ink);
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--pc-line);
+}
+
+.pc-theme-toggle:hover {
+  background: var(--pc-yellow);
+}
+
+.pc-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  border: 2px solid transparent;
+  border-radius: var(--pc-radius-full);
+  color: var(--pc-ink-soft);
+  padding: 0.35rem 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.pc-back-link:hover {
+  border-color: var(--pc-line);
+  background: var(--pc-surface);
   color: var(--pc-ink);
 }
 
 .pc-site-footer {
   margin-top: 5rem;
   border-top: var(--pc-border-strong);
-  background: white;
+  background: var(--pc-surface);
   padding: 2rem 1rem;
 }
 
 .pc-section {
-  padding-block: clamp(3rem, 7vw, 6rem);
+  padding-block: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .pc-hero {
@@ -253,7 +275,7 @@ a {
 .pc-switch:focus-visible,
 .pc-checkbox input:focus-visible + .pc-checkbox-box,
 .pc-tabs-trigger:focus-visible {
-  box-shadow: 0 0 0 4px white, 0 0 0 7px var(--pc-line);
+  box-shadow: 0 0 0 4px var(--pc-bg), 0 0 0 7px var(--pc-line);
 }
 
 .pc-button-loader {
@@ -265,17 +287,14 @@ a {
   animation: pc-spin 700ms linear infinite;
 }
 
-.pc-button-solid,
-.pc-button-sticker {
+.pc-button-solid {
   background: var(--pc-button-bg);
 }
 
-.pc-button-sticker,
 .pc-icon-button-sticker {
   box-shadow: var(--pc-shadow-sticker);
 }
 
-.pc-button-bubble,
 .pc-icon-button-round {
   border-radius: var(--pc-radius-full);
   background: var(--pc-button-bg);
@@ -286,13 +305,13 @@ a {
 
 .pc-button-soft,
 .pc-icon-button-soft {
-  background: color-mix(in srgb, var(--pc-button-bg) 18%, white);
+  background: color-mix(in srgb, var(--pc-button-bg) 18%, var(--pc-surface));
   color: var(--pc-ink);
 }
 
 .pc-button-outline,
 .pc-icon-button-square {
-  background: white;
+  background: var(--pc-surface);
   color: var(--pc-ink);
 }
 
@@ -306,7 +325,7 @@ a {
 
 .pc-button-gradient {
   background: linear-gradient(135deg, var(--pc-pink), var(--pc-purple), var(--pc-blue));
-  color: white;
+  color: var(--pc-on-strong);
 }
 
 .pc-tone-pink {
@@ -316,31 +335,31 @@ a {
 
 .pc-tone-purple {
   --pc-button-bg: var(--pc-purple);
-  --pc-button-fg: white;
+  --pc-button-fg: var(--pc-on-strong);
 }
 
 .pc-tone-blue {
   --pc-button-bg: var(--pc-blue);
-  --pc-button-fg: #082f49;
+  --pc-button-fg: var(--pc-on-accent);
 }
 
 .pc-tone-mint {
   --pc-button-bg: var(--pc-mint);
-  --pc-button-fg: #042f2e;
+  --pc-button-fg: var(--pc-on-accent);
 }
 
 .pc-tone-yellow {
   --pc-button-bg: var(--pc-yellow);
-  --pc-button-fg: #422006;
+  --pc-button-fg: var(--pc-on-accent);
 }
 
 .pc-tone-orange {
   --pc-button-bg: var(--pc-orange);
-  --pc-button-fg: #431407;
+  --pc-button-fg: var(--pc-on-accent);
 }
 
 .pc-tone-neutral {
-  --pc-button-bg: #f4f4f5;
+  --pc-button-bg: color-mix(in srgb, var(--pc-ink) 8%, var(--pc-surface));
   --pc-button-fg: var(--pc-ink);
 }
 
@@ -378,13 +397,19 @@ a {
 
 .pc-badge-outline {
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
   color: var(--pc-ink);
   padding: 0 0.7rem;
 }
 
+.pc-badge-tag {
+  flex: 0 0 auto;
+  margin-bottom: 0.25rem;
+  box-shadow: var(--pc-shadow-sticker);
+}
+
 .pc-badge-dot {
-  background: white;
+  background: var(--pc-surface);
   color: var(--pc-ink);
 }
 
@@ -413,13 +438,13 @@ a {
 }
 
 .pc-card-glass {
-  background: rgb(255 255 255 / 0.72);
+  background: color-mix(in srgb, var(--pc-surface) 72%, transparent);
   box-shadow: var(--pc-shadow-soft);
   backdrop-filter: blur(14px);
 }
 
 .pc-card-gradient {
-  background: linear-gradient(135deg, #fff, #fff0fa 38%, #e0f7ff);
+  background: linear-gradient(135deg, var(--pc-surface), var(--pc-surface-soft) 38%, color-mix(in srgb, var(--pc-blue) 18%, var(--pc-surface)));
 }
 
 .pc-card-dashed {
@@ -437,7 +462,7 @@ a {
 
 .pc-input-sticker {
   border-radius: var(--pc-radius-lg);
-  background: white;
+  background: var(--pc-surface);
   box-shadow: var(--pc-shadow-sticker);
 }
 
@@ -448,7 +473,7 @@ a {
 
 .pc-input-bubble {
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
 }
 
 .pc-input-underline {
@@ -463,7 +488,7 @@ a {
   gap: 0.65rem;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
   padding: 0.35rem 0.5rem 0.35rem 1rem;
   box-shadow: var(--pc-shadow-sticker);
 }
@@ -481,7 +506,7 @@ a {
   height: 2.25rem;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
   padding: 0.2rem;
   cursor: pointer;
 }
@@ -496,7 +521,7 @@ a {
   height: 1.55rem;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
   box-shadow: 0 2px 0 var(--pc-line);
 }
 
@@ -524,7 +549,7 @@ a {
   place-items: center;
   border: var(--pc-border-strong);
   border-radius: 0.45rem;
-  background: white;
+  background: var(--pc-surface);
   box-shadow: 0 3px 0 var(--pc-line);
 }
 
@@ -547,7 +572,7 @@ a {
   position: relative;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-full);
-  background: white;
+  background: var(--pc-surface);
   padding: 0.6rem 0.9rem;
   font-weight: 900;
   overflow: hidden;
@@ -567,7 +592,7 @@ a {
 .pc-tabs-panel {
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-lg);
-  background: white;
+  background: var(--pc-surface);
   padding: 1rem;
 }
 
@@ -587,7 +612,7 @@ a {
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-md);
   background: var(--pc-ink);
-  color: white;
+  color: var(--pc-bg);
   padding: 0.55rem 0.7rem;
   font-size: 0.82rem;
   font-weight: 800;
@@ -599,7 +624,7 @@ a {
   gap: 0.9rem;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-lg);
-  background: white;
+  background: var(--pc-surface);
   padding: 1rem;
 }
 
@@ -649,7 +674,7 @@ a {
 }
 
 .pc-color-swatch[data-selected="true"] {
-  outline: 3px solid white;
+  outline: 3px solid var(--pc-bg);
   box-shadow:
     0 0 0 5px var(--pc-line),
     0 5px 0 var(--pc-line);
@@ -670,7 +695,7 @@ a {
   align-items: flex-start;
   border: var(--pc-border-strong);
   border-radius: var(--pc-radius-lg);
-  background: white;
+  background: var(--pc-surface);
   padding: 1rem;
   box-shadow: var(--pc-shadow-sticker);
 }
@@ -687,19 +712,19 @@ a {
 }
 
 .pc-toast-success {
-  background: #ecfff5;
+  background: color-mix(in srgb, var(--pc-green) 16%, var(--pc-surface));
 }
 
 .pc-toast-info {
-  background: #eff9ff;
+  background: color-mix(in srgb, var(--pc-blue) 14%, var(--pc-surface));
 }
 
 .pc-toast-warning {
-  background: #fff9db;
+  background: color-mix(in srgb, var(--pc-yellow) 22%, var(--pc-surface));
 }
 
 .pc-toast-danger {
-  background: #fff0f0;
+  background: color-mix(in srgb, var(--pc-red) 14%, var(--pc-surface));
 }
 
 @keyframes pc-spin {

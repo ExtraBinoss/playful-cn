@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { Search } from 'lucide-react'
+import { ArrowLeft, Search } from 'lucide-react'
 import * as React from 'react'
 import {
   ButtonStatesPreview,
@@ -9,7 +9,6 @@ import {
 import {
   BubbleFieldInput,
   BubbleGumButton,
-  CandyFieldInput,
   FeatureStickerCard,
   GlowFieldInput,
   NeonGradientButton,
@@ -17,6 +16,7 @@ import {
   SketchOutlineButton,
   SketchFieldInput,
   SoftCandyButton,
+  StickerFieldInput,
   StickerPopButton,
 } from '../../components/playful'
 import type {
@@ -52,14 +52,13 @@ function ComponentVariationPage() {
   return (
     <main className="pc-page pc-section">
       <div className="pc-row">
-        <Link className="pc-nav-link inline-flex" to="/components">
-          Components
-        </Link>
         <Link
-          className="pc-nav-link inline-flex"
+          className="pc-back-link"
           to="/components/$family"
           params={{ family: family.familySlug }}
+          aria-label={`Back to ${family.familyName}`}
         >
+          <ArrowLeft size={18} />
           {family.familyName}
         </Link>
       </div>
@@ -198,7 +197,8 @@ function InputPlayground({ componentName }: { componentName: string }) {
         <div className="grid gap-3">
           <label className="grid gap-1 text-sm font-black">
             Value
-            <CandyFieldInput
+            <input
+              className="pc-doc-input"
               value={value}
               onChange={(event) => setValue(event.target.value)}
             />
@@ -284,7 +284,8 @@ function ButtonPlayground({ componentName }: { componentName: string }) {
         <div className="grid gap-3">
           <label className="grid gap-1 text-sm font-black">
             Label
-            <CandyFieldInput
+            <input
+              className="pc-doc-input"
               value={label}
               onChange={(event) => setLabel(event.target.value)}
             />
@@ -362,8 +363,8 @@ function getButtonComponent(componentName: string) {
 
 function getInputComponent(componentName: string) {
   switch (componentName) {
-    case 'CandyFieldInput':
-      return CandyFieldInput
+    case 'StickerFieldInput':
+      return StickerFieldInput
     case 'BubbleFieldInput':
       return BubbleFieldInput
     case 'GlowFieldInput':

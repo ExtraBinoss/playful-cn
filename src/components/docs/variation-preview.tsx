@@ -1,4 +1,5 @@
 import { Search, Sparkles } from 'lucide-react'
+import { SideScroll } from '../SideScroll'
 import {
   BubbleFieldInput,
   BubbleGumButton,
@@ -14,6 +15,7 @@ import {
   SketchOutlineButton,
   SketchFieldInput,
   SoftCandyButton,
+  StickerFieldInput,
   StarCheckCheckbox,
   StickerPopButton,
   StickerTabs,
@@ -30,7 +32,11 @@ const buttonExamples = [
 export function VariationPreview({ componentName }: { componentName: string }) {
   switch (componentName) {
     case 'StickerPopButton':
-      return <StickerPopButton leftIcon={<Sparkles size={18} />}>Launch it</StickerPopButton>
+      return (
+        <StickerPopButton leftIcon={<Sparkles size={18} />}>
+          Launch it
+        </StickerPopButton>
+      )
     case 'BubbleGumButton':
       return <BubbleGumButton>Bubble action</BubbleGumButton>
     case 'NeonGradientButton':
@@ -44,7 +50,9 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     case 'PopoverTipTooltip':
       return (
         <PopoverTipTooltip content="Tooltip content can explain props or tokens.">
-          <StickerPopButton size="sm">Hover me</StickerPopButton>
+          <button type="button" className="pc-doc-demo-trigger">
+            Hover me
+          </button>
         </PopoverTipTooltip>
       )
     case 'FeatureStickerBadge':
@@ -52,12 +60,19 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     case 'FeatureStickerCard':
       return (
         <FeatureStickerCard className="max-w-sm" interactive>
-          <FeatureStickerBadge>Preview</FeatureStickerBadge>
+          <span className="pc-doc-demo-label">Preview</span>
           <h3 className="pc-display mt-4 mb-2 text-3xl">Sticker surface</h3>
           <p className="m-0 text-[var(--pc-ink-soft)]">
             A framed card for component demos and feature callouts.
           </p>
         </FeatureStickerCard>
+      )
+    case 'StickerFieldInput':
+      return (
+        <StickerFieldInput
+          icon={<Search />}
+          placeholder="Search components..."
+        />
       )
     case 'CandyFieldInput':
       return <CandyFieldInput icon={<Search />} placeholder="Search components..." />
@@ -83,10 +98,36 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     case 'SwatchPartyColorPicker':
       return <SwatchPartyColorPicker showHexInput={false} />
     case 'PopToast':
-      return <PopToast title="Saved" description="The component is ready to reuse." />
+      return (
+        <PopToast title="Saved" description="The component is ready to reuse." />
+      )
     default:
       return null
   }
+}
+
+export function CorePairPreview({ componentName }: { componentName: string }) {
+  const pair = getCorePair(componentName)
+
+  if (!pair) {
+    return <VariationPreview componentName={componentName} />
+  }
+
+  const ButtonComponent = pair.button
+  const InputComponent = pair.input
+
+  return (
+    <div className="grid w-full max-w-md gap-3">
+      <ButtonComponent size="sm" icon={<Sparkles size={16} />}>
+        {pair.label}
+      </ButtonComponent>
+      <InputComponent
+        inputSize="sm"
+        icon={<Search />}
+        placeholder={pair.placeholder}
+      />
+    </div>
+  )
 }
 
 export function InputStatesPreview({ componentName }: { componentName: string }) {
@@ -133,14 +174,13 @@ export function ButtonStatesPreview({
   }
 
   return (
-    <div className="pc-horizontal-scroll pc-button-state-scroll">
+    <SideScroll viewportClassName="pc-button-state-scroll">
       {buttonExamples.map((example) => (
         <ButtonComponent key={example.label} size="sm" {...example.props}>
           {example.label}
         </ButtonComponent>
       ))}
-      <QuietGhostButton size="sm">Ghost</QuietGhostButton>
-    </div>
+    </SideScroll>
   )
 }
 
@@ -165,6 +205,8 @@ function getButtonComponent(componentName: string) {
 
 function getInputComponent(componentName: string) {
   switch (componentName) {
+    case 'StickerFieldInput':
+      return StickerFieldInput
     case 'CandyFieldInput':
       return CandyFieldInput
     case 'BubbleFieldInput':
@@ -173,6 +215,46 @@ function getInputComponent(componentName: string) {
       return GlowFieldInput
     case 'SketchFieldInput':
       return SketchFieldInput
+    default:
+      return null
+  }
+}
+
+function getCorePair(componentName: string) {
+  switch (componentName) {
+    case 'StickerPopButton':
+    case 'StickerFieldInput':
+    case 'CandyFieldInput':
+      return {
+        button: StickerPopButton,
+        input: StickerFieldInput,
+        label: 'Sticker action',
+        placeholder: 'Sticker field',
+      }
+    case 'BubbleGumButton':
+    case 'BubbleFieldInput':
+      return {
+        button: BubbleGumButton,
+        input: BubbleFieldInput,
+        label: 'Bubble action',
+        placeholder: 'Bubble field',
+      }
+    case 'NeonGradientButton':
+    case 'GlowFieldInput':
+      return {
+        button: NeonGradientButton,
+        input: GlowFieldInput,
+        label: 'Glow action',
+        placeholder: 'Glow field',
+      }
+    case 'SketchOutlineButton':
+    case 'SketchFieldInput':
+      return {
+        button: SketchOutlineButton,
+        input: SketchFieldInput,
+        label: 'Sketch action',
+        placeholder: 'Sketch field',
+      }
     default:
       return null
   }

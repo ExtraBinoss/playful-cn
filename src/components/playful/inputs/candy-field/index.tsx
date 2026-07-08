@@ -1,12 +1,6 @@
-import { InputBase } from '../input-base'
 import type { PlayfulInputBaseProps } from '../input.types'
+import { StickerFieldInput } from '../sticker-field'
 
 export function CandyFieldInput(props: PlayfulInputBaseProps) {
-  return (
-    <InputBase
-      motionPreset="lift"
-      variationClassName="pc-input-candy-field"
-      {...props}
-    />
-  )
+  return <StickerFieldInput {...props} />
 }

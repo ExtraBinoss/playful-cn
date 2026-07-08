@@ -1,6 +1,28 @@
 import { Link } from '@tanstack/react-router'
+import { Moon, Sun } from 'lucide-react'
+import * as React from 'react'
 
 export default function Header() {
+  const [theme, setTheme] = React.useState<'light' | 'dark'>('light')
+
+  React.useEffect(() => {
+    const root = document.documentElement
+    const currentTheme = root.classList.contains('dark') ? 'dark' : 'light'
+    setTheme(currentTheme)
+  }, [])
+
+  function toggleTheme() {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    const root = document.documentElement
+
+    root.classList.remove('light', 'dark')
+    root.classList.add(nextTheme)
+    root.dataset.theme = nextTheme
+    root.style.colorScheme = nextTheme
+    window.localStorage.setItem('theme', nextTheme)
+    setTheme(nextTheme)
+  }
+
   return (
     <header className="pc-site-header">
       <nav className="pc-page pc-site-nav">
@@ -26,6 +48,16 @@ export default function Header() {
           <a className="pc-nav-link" href="https://github.com">
             GitHub
           </a>
+          <button
+            type="button"
+            className="pc-theme-toggle"
+            onClick={toggleTheme}
+            aria-label={
+              theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+            }
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
       </nav>
     </header>

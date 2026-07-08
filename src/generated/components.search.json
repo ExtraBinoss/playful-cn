@@ -2,9 +2,9 @@
   {
     "familySlug": "buttons",
     "familyName": "Buttons",
-    "description": "CTA components with separate named visual variations.",
+    "description": "CTA components built on the shared sticker, bubble, glow, and sketch visual vocabulary.",
     "tags": ["button", "cta", "motion"],
-    "variations": ["sticker-pop", "bubble-gum", "neon-gradient", "soft-candy", "sketch-outline", "quiet-ghost"]
+    "variations": ["sticker", "bubble", "glow", "sketch", "soft-candy", "quiet-ghost"]
   },
   {
     "familySlug": "tooltips",
@@ -30,9 +30,9 @@
   {
     "familySlug": "inputs",
     "familyName": "Inputs",
-    "description": "Form controls with strong focus states and candy styling.",
-    "tags": ["input", "form", "field"],
-    "variations": ["candy-field"]
+    "description": "Text fields built on the shared sticker, bubble, glow, and sketch visual vocabulary.",
+    "tags": ["input", "form", "field", "motion"],
+    "variations": ["sticker", "bubble", "glow", "sketch"]
   },
   {
     "familySlug": "switches",

@@ -13,6 +13,8 @@ export type ComponentVariationDoc = {
   description: string
   componentName: string
   importPath: string
+  coreVariant?: 'sticker' | 'bubble' | 'glow' | 'sketch'
+  category?: 'core' | 'extra'
   tags: Array<string>
   status: ComponentStatus
   tokens: Array<string>

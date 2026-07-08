@@ -5,7 +5,7 @@ export function BubbleGumButton(props: PlayfulButtonBaseProps) {
   return (
     <ButtonBase
       motionPreset="squish"
-      variationClassName="pc-button-bubble-gum"
+      variationClassName="pc-button-bubble pc-button-bubble-gum"
       {...props}
     />
   )

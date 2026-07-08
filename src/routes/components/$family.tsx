@@ -1,4 +1,6 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { ArrowLeft } from 'lucide-react'
+import { SideScroll } from '../../components/SideScroll'
 import {
   ButtonStatesPreview,
   VariationPreview,
@@ -20,7 +22,12 @@ function ComponentFamilyPage() {
 
   return (
     <main className="pc-page pc-section">
-      <Link className="pc-nav-link inline-flex" to="/components">
+      <Link
+        className="pc-back-link"
+        to="/components"
+        aria-label="Back to components"
+      >
+        <ArrowLeft size={18} />
         Components
       </Link>
       <p className="pc-kicker mt-8">Family</p>
@@ -29,7 +36,11 @@ function ComponentFamilyPage() {
         {family.description}
       </p>
 
-      <div className="pc-variation-grid mt-8">
+      <div className="mt-8">
+        <p className="pc-kicker m-0">Presets</p>
+      </div>
+
+      <div className="pc-variation-grid mt-4">
         {family.variations.map((variation) => (
           <FeatureStickerCard className="pc-variation-card" key={variation.slug}>
             <div className="pc-variation-preview">
@@ -55,12 +66,15 @@ function ComponentFamilyPage() {
             ) : (
               <div />
             )}
-            <div
-              className="pc-horizontal-scroll pc-tag-scroll"
+            <SideScroll
+              viewportClassName="pc-tag-scroll"
               aria-label={`${variation.name} tags`}
             >
-              {variation.tags.map((tag) => (
-                <span className="pc-badge pc-badge-outline" key={tag}>
+              {getVisibleTags(family.familyName, variation.tags).map((tag) => (
+                <span
+                  className="pc-badge pc-badge-outline pc-badge-tag"
+                  key={tag}
+                >
                   {tag}
                 </span>
               ))}
@@ -74,10 +88,19 @@ function ComponentFamilyPage() {
               >
                 View docs
               </Link>
-            </div>
+            </SideScroll>
           </FeatureStickerCard>
         ))}
       </div>
     </main>
   )
+}
+
+function getVisibleTags(familyName: string, tags: Array<string>) {
+  const normalizedFamily = familyName.toLowerCase().replace(/s$/, '')
+
+  return tags.filter((tag) => {
+    const normalizedTag = tag.toLowerCase().replace(/s$/, '')
+    return normalizedTag !== normalizedFamily
+  })
 }

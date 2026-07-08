@@ -5,7 +5,7 @@ export function SketchFieldInput(props: PlayfulInputBaseProps) {
   return (
     <InputBase
       motionPreset="lift"
-      variationClassName="pc-input-sketch-field"
+      variationClassName="pc-input-sketch pc-input-sketch-field"
       {...props}
     />
   )

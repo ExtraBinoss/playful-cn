@@ -38,7 +38,9 @@ export function InputBase({
   const describedBy = [ariaDescribedBy, messageId].filter(Boolean).join(' ')
   const resolvedLeftIcon = leftIcon ?? (iconPosition === 'left' ? icon : null)
   const resolvedRightIcon = rightIcon ?? (iconPosition === 'right' ? icon : null)
-  const hasIcon = Boolean(resolvedLeftIcon || resolvedRightIcon)
+  const hasLeftIcon = Boolean(resolvedLeftIcon)
+  const hasRightIcon = Boolean(resolvedRightIcon)
+  const hasIcon = hasLeftIcon || hasRightIcon
 
   const input = (
     <span className="pc-input-control">
@@ -53,8 +55,8 @@ export function InputBase({
           'pc-input w-full font-bold outline-none disabled:cursor-not-allowed disabled:opacity-55',
           sizeClasses[inputSize],
           hasIcon && 'pc-input-has-icon',
-          resolvedLeftIcon && 'pc-input-has-left-icon',
-          resolvedRightIcon && 'pc-input-has-right-icon',
+          hasLeftIcon && 'pc-input-has-left-icon',
+          hasRightIcon && 'pc-input-has-right-icon',
           variationClassName,
           className,
         )}

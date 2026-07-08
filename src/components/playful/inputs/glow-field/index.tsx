@@ -5,7 +5,7 @@ export function GlowFieldInput(props: PlayfulInputBaseProps) {
   return (
     <InputBase
       motionPreset="glow"
-      variationClassName="pc-input-glow-field"
+      variationClassName="pc-input-glow pc-input-glow-field"
       {...props}
     />
   )
