@@ -31,41 +31,51 @@ function ComponentFamilyPage() {
 
       <div className="pc-variation-grid mt-8">
         {family.variations.map((variation) => (
-          <Link
-            className="no-underline"
-            key={variation.slug}
-            to="/components/$family/$variation"
-            params={{ family: family.familySlug, variation: variation.slug }}
-          >
-            <FeatureStickerCard className="pc-variation-card">
-              <div className="pc-variation-preview">
-                <VariationPreview componentName={variation.componentName} />
-              </div>
-              <div>
-                <h2 className="m-0 text-xl font-black">{variation.name}</h2>
-                <p className="pc-variation-description">
-                  {variation.description}
-                </p>
-              </div>
-              {family.familySlug === 'buttons' ? (
-                <div className="pc-variation-states">
-                  <ButtonStatesPreview componentName={variation.componentName} />
-                </div>
-              ) : (
-                <div />
-              )}
-              <div
-                className="pc-horizontal-scroll pc-tag-scroll"
-                aria-label={`${variation.name} tags`}
+          <FeatureStickerCard className="pc-variation-card" key={variation.slug}>
+            <div className="pc-variation-preview">
+              <VariationPreview componentName={variation.componentName} />
+            </div>
+            <div>
+              <Link
+                className="no-underline text-[var(--pc-ink)]"
+                to="/components/$family/$variation"
+                params={{
+                  family: family.familySlug,
+                  variation: variation.slug,
+                }}
               >
-                {variation.tags.map((tag) => (
-                  <span className="pc-badge pc-badge-outline" key={tag}>
-                    {tag}
-                  </span>
-                ))}
+                <h2 className="m-0 text-xl font-black">{variation.name}</h2>
+              </Link>
+              <p className="pc-variation-description">{variation.description}</p>
+            </div>
+            {family.familySlug === 'buttons' ? (
+              <div className="pc-variation-states">
+                <ButtonStatesPreview componentName={variation.componentName} />
               </div>
-            </FeatureStickerCard>
-          </Link>
+            ) : (
+              <div />
+            )}
+            <div
+              className="pc-horizontal-scroll pc-tag-scroll"
+              aria-label={`${variation.name} tags`}
+            >
+              {variation.tags.map((tag) => (
+                <span className="pc-badge pc-badge-outline" key={tag}>
+                  {tag}
+                </span>
+              ))}
+              <Link
+                className="pc-variation-doc-link"
+                to="/components/$family/$variation"
+                params={{
+                  family: family.familySlug,
+                  variation: variation.slug,
+                }}
+              >
+                View docs
+              </Link>
+            </div>
+          </FeatureStickerCard>
         ))}
       </div>
     </main>

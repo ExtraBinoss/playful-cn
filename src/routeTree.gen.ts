@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsIndexRouteImport } from './routes/components/index'
 import { Route as ComponentsFamilyRouteImport } from './routes/components/$family'
-import { Route as ComponentsFamilyVariationRouteImport } from './routes/components/$family.$variation'
+import { Route as ComponentsFamilyVariationRouteImport } from './routes/components/$family_.$variation'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -31,29 +31,29 @@ const ComponentsFamilyRoute = ComponentsFamilyRouteImport.update({
 } as any)
 const ComponentsFamilyVariationRoute =
   ComponentsFamilyVariationRouteImport.update({
-    id: '/$variation',
-    path: '/$variation',
-    getParentRoute: () => ComponentsFamilyRoute,
+    id: '/components/$family_/$variation',
+    path: '/components/$family/$variation',
+    getParentRoute: () => rootRouteImport,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/components/$family': typeof ComponentsFamilyRouteWithChildren
+  '/components/$family': typeof ComponentsFamilyRoute
   '/components/': typeof ComponentsIndexRoute
   '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/components/$family': typeof ComponentsFamilyRouteWithChildren
+  '/components/$family': typeof ComponentsFamilyRoute
   '/components': typeof ComponentsIndexRoute
   '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/components/$family': typeof ComponentsFamilyRouteWithChildren
+  '/components/$family': typeof ComponentsFamilyRoute
   '/components/': typeof ComponentsIndexRoute
-  '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
+  '/components/$family_/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -73,13 +73,14 @@ export interface FileRouteTypes {
     | '/'
     | '/components/$family'
     | '/components/'
-    | '/components/$family/$variation'
+    | '/components/$family_/$variation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ComponentsFamilyRoute: typeof ComponentsFamilyRouteWithChildren
+  ComponentsFamilyRoute: typeof ComponentsFamilyRoute
   ComponentsIndexRoute: typeof ComponentsIndexRoute
+  ComponentsFamilyVariationRoute: typeof ComponentsFamilyVariationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -105,31 +106,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsFamilyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/components/$family/$variation': {
-      id: '/components/$family/$variation'
-      path: '/$variation'
+    '/components/$family_/$variation': {
+      id: '/components/$family_/$variation'
+      path: '/components/$family/$variation'
       fullPath: '/components/$family/$variation'
       preLoaderRoute: typeof ComponentsFamilyVariationRouteImport
-      parentRoute: typeof ComponentsFamilyRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface ComponentsFamilyRouteChildren {
-  ComponentsFamilyVariationRoute: typeof ComponentsFamilyVariationRoute
-}
-
-const ComponentsFamilyRouteChildren: ComponentsFamilyRouteChildren = {
-  ComponentsFamilyVariationRoute: ComponentsFamilyVariationRoute,
-}
-
-const ComponentsFamilyRouteWithChildren =
-  ComponentsFamilyRoute._addFileChildren(ComponentsFamilyRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ComponentsFamilyRoute: ComponentsFamilyRouteWithChildren,
+  ComponentsFamilyRoute: ComponentsFamilyRoute,
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsFamilyVariationRoute: ComponentsFamilyVariationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

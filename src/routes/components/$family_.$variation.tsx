@@ -22,7 +22,7 @@ import { getComponentFamily, getComponentVariation } from '../../lib/docs/regist
 
 type InstallTab = 'npm' | 'ai'
 
-export const Route = createFileRoute('/components/$family/$variation')({
+export const Route = createFileRoute('/components/$family_/$variation')({
   component: ComponentVariationPage,
 })
 
