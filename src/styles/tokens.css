@@ -1,0 +1,39 @@
+:root {
+  --pc-color-background: #fff7fb;
+  --pc-color-background-soft: #fffdf7;
+  --pc-color-ink: #18181b;
+  --pc-color-ink-soft: #52525b;
+  --pc-border-color: #18181b;
+  --pc-color-surface: #ffffff;
+  --pc-color-surface-soft: #fff0fa;
+  --pc-color-pink: #ff4ecd;
+  --pc-color-purple: #a855f7;
+  --pc-color-blue: #38bdf8;
+  --pc-color-mint: #5eead4;
+  --pc-color-yellow: #fde047;
+  --pc-color-orange: #fb923c;
+  --pc-color-green: #3ee98f;
+  --pc-color-red: #ff5a5f;
+  --pc-button-shadow: 0 4px 0 var(--pc-border-color);
+  --pc-card-shadow: 0 4px 0 var(--pc-border-color);
+  --pc-input-shadow: 0 4px 0 var(--pc-border-color);
+  --pc-button-inset-shadow: inset 0 -4px 0 rgb(0 0 0 / 0.16), 0 12px 24px rgb(0 0 0 / 0.12);
+  --pc-duration-fast: 140ms;
+  --pc-duration-normal: 180ms;
+
+  --pc-bg: var(--pc-color-background);
+  --pc-bg-soft: var(--pc-color-background-soft);
+  --pc-ink: var(--pc-color-ink);
+  --pc-ink-soft: var(--pc-color-ink-soft);
+  --pc-line: var(--pc-border-color);
+  --pc-surface: var(--pc-color-surface);
+  --pc-surface-soft: var(--pc-color-surface-soft);
+  --pc-pink: var(--pc-color-pink);
+  --pc-purple: var(--pc-color-purple);
+  --pc-blue: var(--pc-color-blue);
+  --pc-mint: var(--pc-color-mint);
+  --pc-yellow: var(--pc-color-yellow);
+  --pc-orange: var(--pc-color-orange);
+  --pc-green: var(--pc-color-green);
+  --pc-red: var(--pc-color-red);
+}

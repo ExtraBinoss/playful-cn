@@ -1,15 +1,28 @@
 export type ComponentStatus = 'ready' | 'beta' | 'planned'
 
-export type ComponentDoc = {
+export type ComponentPropDoc = {
+  name: string
+  type: string
+  defaultValue?: string
+  description: string
+}
+
+export type ComponentVariationDoc = {
   slug: string
   name: string
   description: string
+  componentName: string
+  importPath: string
   tags: Array<string>
   status: ComponentStatus
-  props: Array<{
-    name: string
-    type: string
-    defaultValue?: string
-    description: string
-  }>
+  tokens: Array<string>
+  props: Array<ComponentPropDoc>
+}
+
+export type ComponentFamilyDoc = {
+  familySlug: string
+  familyName: string
+  description: string
+  tags: Array<string>
+  variations: Array<ComponentVariationDoc>
 }

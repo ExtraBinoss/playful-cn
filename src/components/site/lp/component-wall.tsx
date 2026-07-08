@@ -1,12 +1,13 @@
 import {
-  PlayfulBadge,
-  PlayfulButton,
-  PlayfulCard,
-  PlayfulCheckbox,
-  PlayfulColorPicker,
-  PlayfulInput,
-  PlayfulTabs,
-  PlayfulTooltip,
+  CandyFieldInput,
+  FeatureStickerBadge,
+  FeatureStickerCard,
+  PopoverTipTooltip,
+  SoftCandyButton,
+  StarCheckCheckbox,
+  StickerPopButton,
+  StickerTabs,
+  SwatchPartyColorPicker,
 } from '../../playful'
 
 export function ComponentWall() {
@@ -19,32 +20,32 @@ export function ComponentWall() {
         </h2>
       </div>
       <div className="pc-grid">
-        <PlayfulCard variant="sticker" interactive>
-          <PlayfulBadge tone="pink">Buttons</PlayfulBadge>
+        <FeatureStickerCard>
+          <FeatureStickerBadge>Buttons</FeatureStickerBadge>
           <div className="mt-4 pc-row">
-            <PlayfulButton size="sm">Small</PlayfulButton>
-            <PlayfulButton variant="soft" tone="mint">
+            <StickerPopButton size="sm">Small</StickerPopButton>
+            <SoftCandyButton>
               Soft
-            </PlayfulButton>
+            </SoftCandyButton>
           </div>
-        </PlayfulCard>
-        <PlayfulCard variant="gradient" interactive>
-          <PlayfulBadge tone="blue">Forms</PlayfulBadge>
+        </FeatureStickerCard>
+        <FeatureStickerCard>
+          <FeatureStickerBadge>Forms</FeatureStickerBadge>
           <div className="mt-4 grid gap-3">
-            <PlayfulInput placeholder="Candy input" />
-            <PlayfulCheckbox defaultChecked label="Accessible by default" />
+            <CandyFieldInput placeholder="Candy input" />
+            <StarCheckCheckbox defaultChecked label="Accessible by default" />
           </div>
-        </PlayfulCard>
-        <PlayfulCard variant="sticker" interactive>
-          <PlayfulBadge tone="yellow">Color</PlayfulBadge>
+        </FeatureStickerCard>
+        <FeatureStickerCard>
+          <FeatureStickerBadge>Color</FeatureStickerBadge>
           <div className="mt-4">
-            <PlayfulColorPicker showPreview={false} showHexInput={false} />
+            <SwatchPartyColorPicker showPreview={false} showHexInput={false} />
           </div>
-        </PlayfulCard>
-        <PlayfulCard variant="glass" interactive>
-          <PlayfulBadge tone="purple">Docs</PlayfulBadge>
+        </FeatureStickerCard>
+        <FeatureStickerCard>
+          <FeatureStickerBadge>Docs</FeatureStickerBadge>
           <div className="mt-4">
-            <PlayfulTabs
+            <StickerTabs
               items={[
                 { value: 'preview', label: 'Preview', content: 'Live examples' },
                 { value: 'props', label: 'Props', content: 'Typed APIs' },
@@ -52,13 +53,13 @@ export function ComponentWall() {
             />
           </div>
           <p className="mt-4 text-sm font-bold text-[var(--pc-ink-soft)]">
-            <PlayfulTooltip content="Generated docs are scaffolded for V1.">
+            <PopoverTipTooltip content="Generated docs are scaffolded for V1.">
               <button className="underline decoration-2 underline-offset-4" type="button">
                 Hover docs hint
               </button>
-            </PlayfulTooltip>
+            </PopoverTipTooltip>
           </p>
-        </PlayfulCard>
+        </FeatureStickerCard>
       </div>
     </section>
   )

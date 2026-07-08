@@ -1,16 +1,12 @@
 [
-  {
-    "slug": "button",
-    "name": "Button",
-    "description": "Primary playful CTA with sticker, bubble, soft and gradient variants.",
-    "tags": ["button", "cta", "motion", "form"],
-    "status": "ready"
-  },
-  {
-    "slug": "color-picker",
-    "name": "ColorPicker",
-    "description": "Swatch based custom color picker with HEX input and animated preview.",
-    "tags": ["color", "picker", "swatch", "form"],
-    "status": "ready"
-  }
+  { "familySlug": "buttons", "familyName": "Buttons", "variationCount": 6, "status": "ready" },
+  { "familySlug": "tooltips", "familyName": "Tooltips", "variationCount": 1, "status": "ready" },
+  { "familySlug": "badges", "familyName": "Badges", "variationCount": 1, "status": "ready" },
+  { "familySlug": "cards", "familyName": "Cards", "variationCount": 1, "status": "ready" },
+  { "familySlug": "inputs", "familyName": "Inputs", "variationCount": 1, "status": "ready" },
+  { "familySlug": "switches", "familyName": "Switches", "variationCount": 1, "status": "ready" },
+  { "familySlug": "checkboxes", "familyName": "Checkboxes", "variationCount": 1, "status": "ready" },
+  { "familySlug": "tabs", "familyName": "Tabs", "variationCount": 1, "status": "ready" },
+  { "familySlug": "color-pickers", "familyName": "Color Pickers", "variationCount": 1, "status": "ready" },
+  { "familySlug": "toasts", "familyName": "Toasts", "variationCount": 1, "status": "ready" }
 ]

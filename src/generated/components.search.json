@@ -1,20 +1,72 @@
 [
   {
-    "slug": "button",
-    "name": "Button",
-    "description": "Primary playful CTA with sticker, bubble, soft and gradient variants.",
-    "tags": ["button", "cta", "motion", "form"]
+    "familySlug": "buttons",
+    "familyName": "Buttons",
+    "description": "CTA components with separate named visual variations.",
+    "tags": ["button", "cta", "motion"],
+    "variations": ["sticker-pop", "bubble-gum", "neon-gradient", "soft-candy", "sketch-outline", "quiet-ghost"]
   },
   {
-    "slug": "badge",
-    "name": "Badge",
-    "description": "Small animated labels for tags, status and categories.",
-    "tags": ["badge", "status", "label"]
+    "familySlug": "tooltips",
+    "familyName": "Tooltips",
+    "description": "Small explainers for props, tokens, and compact UI hints.",
+    "tags": ["tooltip", "overlay", "help"],
+    "variations": ["popover-tip"]
   },
   {
-    "slug": "color-picker",
-    "name": "ColorPicker",
-    "description": "Swatch based custom color picker with HEX input and animated preview.",
-    "tags": ["color", "picker", "swatch", "form"]
+    "familySlug": "badges",
+    "familyName": "Badges",
+    "description": "Compact tags for statuses, labels, and release notes.",
+    "tags": ["badge", "status", "label"],
+    "variations": ["feature-sticker"]
+  },
+  {
+    "familySlug": "cards",
+    "familyName": "Cards",
+    "description": "Framed surfaces for previews, docs, and feature callouts.",
+    "tags": ["card", "surface", "preview"],
+    "variations": ["feature-sticker"]
+  },
+  {
+    "familySlug": "inputs",
+    "familyName": "Inputs",
+    "description": "Form controls with strong focus states and candy styling.",
+    "tags": ["input", "form", "field"],
+    "variations": ["candy-field"]
+  },
+  {
+    "familySlug": "switches",
+    "familyName": "Switches",
+    "description": "Accessible toggle controls with animated thumbs.",
+    "tags": ["switch", "toggle", "form"],
+    "variations": ["mint-toggle"]
+  },
+  {
+    "familySlug": "checkboxes",
+    "familyName": "Checkboxes",
+    "description": "Playful checkbox controls that keep native input behavior.",
+    "tags": ["checkbox", "form", "input"],
+    "variations": ["star-check"]
+  },
+  {
+    "familySlug": "tabs",
+    "familyName": "Tabs",
+    "description": "Tabbed panels for preview, code, props, and token docs.",
+    "tags": ["tabs", "navigation", "docs"],
+    "variations": ["sticker-tabs"]
+  },
+  {
+    "familySlug": "color-pickers",
+    "familyName": "Color Pickers",
+    "description": "Color selection tools with custom swatches and HEX editing.",
+    "tags": ["color", "picker", "form"],
+    "variations": ["swatch-party"]
+  },
+  {
+    "familySlug": "toasts",
+    "familyName": "Toasts",
+    "description": "Notification surfaces for app feedback.",
+    "tags": ["toast", "notification", "feedback"],
+    "variations": ["pop-toast"]
   }
 ]

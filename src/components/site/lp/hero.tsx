@@ -1,12 +1,14 @@
 import { ArrowRight, Sparkles } from 'lucide-react'
 import {
-  PlayfulBadge,
-  PlayfulButton,
-  PlayfulCard,
-  PlayfulColorPicker,
-  PlayfulInput,
-  PlayfulSwitch,
-  PlayfulToast,
+  BubbleGumButton,
+  CandyFieldInput,
+  FeatureStickerBadge,
+  FeatureStickerCard,
+  MintToggleSwitch,
+  NeonGradientButton,
+  PopToast,
+  StickerPopButton,
+  SwatchPartyColorPicker,
 } from '../../playful'
 
 export function Hero() {
@@ -21,50 +23,48 @@ export function Hero() {
           stay production-ready.
         </p>
         <div className="pc-hero-actions">
-          <PlayfulButton rightIcon={<ArrowRight size={18} />}>
+          <StickerPopButton rightIcon={<ArrowRight size={18} />}>
             Browse components
-          </PlayfulButton>
-          <PlayfulButton variant="outline" tone="neutral">
+          </StickerPopButton>
+          <NeonGradientButton>
             View tokens
-          </PlayfulButton>
+          </NeonGradientButton>
         </div>
       </div>
 
       <div className="pc-showcase" aria-label="Playful component preview">
-        <PlayfulCard variant="sticker" interactive>
+        <FeatureStickerCard>
           <div className="mb-4 flex items-center justify-between gap-3">
-            <PlayfulBadge tone="yellow" variant="sticker">
+            <FeatureStickerBadge>
               New
-            </PlayfulBadge>
-            <PlayfulSwitch defaultChecked aria-label="Preview switch" />
+            </FeatureStickerBadge>
+            <MintToggleSwitch defaultChecked aria-label="Preview switch" />
           </div>
           <h2 className="pc-display m-0 text-4xl">Squishy but serious.</h2>
           <p className="text-[var(--pc-ink-soft)]">
             Components ship with className escape hatches, CSS variables and
             reduced-motion support.
           </p>
-          <PlayfulInput placeholder="Search buttons, cards, tabs..." />
-        </PlayfulCard>
+          <CandyFieldInput placeholder="Search buttons, cards, tabs..." />
+        </FeatureStickerCard>
 
         <div className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr]">
-          <PlayfulColorPicker showHexInput={false} size="sm" />
-          <PlayfulToast
+          <SwatchPartyColorPicker showHexInput={false} size="sm" />
+          <PopToast
             title="Motion ready"
             description="LazyMotion is wired from the root."
           />
         </div>
 
         <div className="pc-row">
-          <PlayfulButton
-            variant="bubble"
-            tone="blue"
+          <BubbleGumButton
             leftIcon={<Sparkles size={18} />}
           >
             Bubble CTA
-          </PlayfulButton>
-          <PlayfulButton variant="gradient" tone="purple">
+          </BubbleGumButton>
+          <NeonGradientButton>
             Gradient
-          </PlayfulButton>
+          </NeonGradientButton>
         </div>
       </div>
     </section>

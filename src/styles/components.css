@@ -1,0 +1,102 @@
+.pc-button-sticker-pop {
+  --pc-button-bg: var(--pc-color-pink);
+  --pc-button-fg: var(--pc-color-ink);
+  background: var(--pc-button-bg);
+  box-shadow: var(--pc-button-shadow);
+}
+
+.pc-button-bubble-gum {
+  --pc-button-bg: var(--pc-color-blue);
+  --pc-button-fg: #082f49;
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-button-bg);
+  box-shadow: var(--pc-button-inset-shadow);
+}
+
+.pc-button-neon-gradient {
+  --pc-button-fg: white;
+  background: linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple), var(--pc-color-blue));
+  box-shadow: var(--pc-button-shadow);
+}
+
+.pc-button-soft-candy {
+  --pc-button-fg: #042f2e;
+  background: color-mix(in srgb, var(--pc-color-mint) 32%, white);
+  border-color: color-mix(in srgb, var(--pc-color-mint) 48%, var(--pc-border-color));
+}
+
+.pc-button-sketch-outline {
+  --pc-button-fg: var(--pc-color-ink);
+  background: var(--pc-color-surface);
+  box-shadow: var(--pc-button-shadow);
+}
+
+.pc-button-quiet-ghost {
+  --pc-button-fg: var(--pc-color-ink);
+  border-color: transparent;
+  background: color-mix(in srgb, var(--pc-color-surface-soft) 74%, transparent);
+  box-shadow: none;
+}
+
+.pc-badge-feature-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-color-yellow);
+  color: var(--pc-color-ink);
+  padding: 0.45rem 0.7rem;
+  box-shadow: 0 3px 0 var(--pc-border-color);
+}
+
+.pc-badge-feature-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 2px solid var(--pc-border-color);
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-color-pink);
+}
+
+.pc-card-feature-sticker {
+  background: var(--pc-color-surface);
+  box-shadow: var(--pc-card-shadow);
+}
+
+.pc-input-candy-field {
+  border-radius: var(--pc-radius-lg);
+  background: var(--pc-color-surface);
+  box-shadow: var(--pc-input-shadow);
+  font-weight: 800;
+  outline: none;
+}
+
+.pc-switch-mint-toggle[aria-checked="true"] {
+  background: var(--pc-color-mint);
+}
+
+.pc-checkbox-star-check .pc-checkbox-box {
+  color: var(--pc-color-ink);
+}
+
+.pc-checkbox-star-check input:checked + .pc-checkbox-box {
+  background: var(--pc-color-yellow);
+}
+
+.pc-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.pc-doc-table th,
+.pc-doc-table td {
+  border-bottom: 2px solid color-mix(in srgb, var(--pc-border-color) 16%, transparent);
+  padding: 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pc-doc-table th {
+  color: var(--pc-color-ink);
+  font-weight: 900;
+}

@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComponentsIndexRouteImport } from './routes/components/index'
+import { Route as ComponentsFamilyRouteImport } from './routes/components/$family'
+import { Route as ComponentsFamilyVariationRouteImport } from './routes/components/$family.$variation'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +24,61 @@ const ComponentsIndexRoute = ComponentsIndexRouteImport.update({
   path: '/components/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComponentsFamilyRoute = ComponentsFamilyRouteImport.update({
+  id: '/components/$family',
+  path: '/components/$family',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsFamilyVariationRoute =
+  ComponentsFamilyVariationRouteImport.update({
+    id: '/$variation',
+    path: '/$variation',
+    getParentRoute: () => ComponentsFamilyRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components/$family': typeof ComponentsFamilyRouteWithChildren
   '/components/': typeof ComponentsIndexRoute
+  '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components/$family': typeof ComponentsFamilyRouteWithChildren
   '/components': typeof ComponentsIndexRoute
+  '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/components/$family': typeof ComponentsFamilyRouteWithChildren
   '/components/': typeof ComponentsIndexRoute
+  '/components/$family/$variation': typeof ComponentsFamilyVariationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/components/'
+  fullPaths:
+    | '/'
+    | '/components/$family'
+    | '/components/'
+    | '/components/$family/$variation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/components'
-  id: '__root__' | '/' | '/components/'
+  to:
+    | '/'
+    | '/components/$family'
+    | '/components'
+    | '/components/$family/$variation'
+  id:
+    | '__root__'
+    | '/'
+    | '/components/$family'
+    | '/components/'
+    | '/components/$family/$variation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsFamilyRoute: typeof ComponentsFamilyRouteWithChildren
   ComponentsIndexRoute: typeof ComponentsIndexRoute
 }
 
@@ -65,11 +98,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components/$family': {
+      id: '/components/$family'
+      path: '/components/$family'
+      fullPath: '/components/$family'
+      preLoaderRoute: typeof ComponentsFamilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/$family/$variation': {
+      id: '/components/$family/$variation'
+      path: '/$variation'
+      fullPath: '/components/$family/$variation'
+      preLoaderRoute: typeof ComponentsFamilyVariationRouteImport
+      parentRoute: typeof ComponentsFamilyRoute
+    }
   }
 }
 
+interface ComponentsFamilyRouteChildren {
+  ComponentsFamilyVariationRoute: typeof ComponentsFamilyVariationRoute
+}
+
+const ComponentsFamilyRouteChildren: ComponentsFamilyRouteChildren = {
+  ComponentsFamilyVariationRoute: ComponentsFamilyVariationRoute,
+}
+
+const ComponentsFamilyRouteWithChildren =
+  ComponentsFamilyRoute._addFileChildren(ComponentsFamilyRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsFamilyRoute: ComponentsFamilyRouteWithChildren,
   ComponentsIndexRoute: ComponentsIndexRoute,
 }
 export const routeTree = rootRouteImport

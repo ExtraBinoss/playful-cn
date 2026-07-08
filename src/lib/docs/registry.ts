@@ -1,29 +1,299 @@
-import type { ComponentDoc } from './types'
+import type { ComponentFamilyDoc } from './types'
 
-export const componentRegistry: Array<ComponentDoc> = [
+const buttonProps = [
+  { name: 'size', type: 'sm | md | lg | xl', defaultValue: 'md', description: 'Control height, padding, and text size.' },
+  { name: 'motionPreset', type: 'none | pop | squish | wiggle', defaultValue: 'pop', description: 'Interaction animation preset.' },
+  { name: 'loading', type: 'boolean', defaultValue: 'false', description: 'Disables the button and shows a spinner.' },
+  { name: 'leftIcon / rightIcon', type: 'ReactNode', description: 'Optional icons around the label.' },
+]
+
+export const componentRegistry: Array<ComponentFamilyDoc> = [
   {
-    slug: 'button',
-    name: 'Button',
-    description: 'Primary playful CTA with sticker, bubble, soft and gradient variants.',
-    tags: ['button', 'cta', 'motion', 'form'],
-    status: 'ready',
-    props: [
-      { name: 'variant', type: 'solid | sticker | bubble | soft | outline | ghost | gradient', defaultValue: 'sticker', description: 'Visual treatment.' },
-      { name: 'tone', type: 'pink | purple | blue | mint | yellow | orange | neutral', defaultValue: 'pink', description: 'Semantic color family.' },
-      { name: 'size', type: 'sm | md | lg | xl', defaultValue: 'md', description: 'Button size.' },
-      { name: 'motionPreset', type: 'none | pop | squish | wiggle', defaultValue: 'pop', description: 'Interaction animation.' },
+    familySlug: 'buttons',
+    familyName: 'Buttons',
+    description: 'CTA components with separate named visual variations.',
+    tags: ['button', 'cta', 'motion'],
+    variations: [
+      {
+        slug: 'sticker-pop',
+        name: 'Sticker Pop Button',
+        description: 'Chunky sticker CTA with a hard shadow and candy-pink fill.',
+        componentName: 'StickerPopButton',
+        importPath: '@/components/playful/buttons/sticker-pop',
+        tags: ['button', 'sticker', 'cta'],
+        status: 'ready',
+        tokens: ['--pc-color-pink', '--pc-button-shadow', '--pc-radius-lg'],
+        props: buttonProps,
+      },
+      {
+        slug: 'bubble-gum',
+        name: 'Bubble Gum Button',
+        description: 'Round pill button with glossy inset pressure and squishy motion.',
+        componentName: 'BubbleGumButton',
+        importPath: '@/components/playful/buttons/bubble-gum',
+        tags: ['button', 'bubble', 'pill'],
+        status: 'ready',
+        tokens: ['--pc-color-blue', '--pc-button-inset-shadow', '--pc-radius-full'],
+        props: buttonProps,
+      },
+      {
+        slug: 'neon-gradient',
+        name: 'Neon Gradient Button',
+        description: 'High-energy gradient action for hero and upgrade flows.',
+        componentName: 'NeonGradientButton',
+        importPath: '@/components/playful/buttons/neon-gradient',
+        tags: ['button', 'gradient', 'hero'],
+        status: 'ready',
+        tokens: ['--pc-color-pink', '--pc-color-purple', '--pc-color-blue'],
+        props: buttonProps,
+      },
+      {
+        slug: 'soft-candy',
+        name: 'Soft Candy Button',
+        description: 'Lower-emphasis candy button for secondary actions.',
+        componentName: 'SoftCandyButton',
+        importPath: '@/components/playful/buttons/soft-candy',
+        tags: ['button', 'soft', 'secondary'],
+        status: 'ready',
+        tokens: ['--pc-color-mint', '--pc-surface-soft', '--pc-radius-lg'],
+        props: buttonProps,
+      },
+      {
+        slug: 'sketch-outline',
+        name: 'Sketch Outline Button',
+        description: 'White outline button with a hand-cut sticker attitude.',
+        componentName: 'SketchOutlineButton',
+        importPath: '@/components/playful/buttons/sketch-outline',
+        tags: ['button', 'outline', 'neutral'],
+        status: 'ready',
+        tokens: ['--pc-border-color', '--pc-shadow-sticker', '--pc-surface'],
+        props: buttonProps,
+      },
+      {
+        slug: 'quiet-ghost',
+        name: 'Quiet Ghost Button',
+        description: 'Minimal action that still inherits playful focus and motion.',
+        componentName: 'QuietGhostButton',
+        importPath: '@/components/playful/buttons/quiet-ghost',
+        tags: ['button', 'ghost', 'minimal'],
+        status: 'ready',
+        tokens: ['--pc-ink', '--pc-surface-soft', '--pc-radius-md'],
+        props: buttonProps,
+      },
     ],
   },
   {
-    slug: 'color-picker',
-    name: 'ColorPicker',
-    description: 'Swatch based custom color picker with HEX input and animated preview.',
-    tags: ['color', 'picker', 'swatch', 'form'],
-    status: 'ready',
-    props: [
-      { name: 'value', type: 'string', description: 'Controlled HEX value.' },
-      { name: 'defaultValue', type: 'string', defaultValue: '#ff4ecd', description: 'Initial HEX value.' },
-      { name: 'onChange', type: '(color: string) => void', description: 'Called when the color changes.' },
+    familySlug: 'tooltips',
+    familyName: 'Tooltips',
+    description: 'Small explainers for props, tokens, and compact UI hints.',
+    tags: ['tooltip', 'overlay', 'help'],
+    variations: [
+      {
+        slug: 'popover-tip',
+        name: 'Popover Tip Tooltip',
+        description: 'A compact focus and hover tooltip with a sticker-like panel.',
+        componentName: 'PopoverTipTooltip',
+        importPath: '@/components/playful/tooltips/popover-tip',
+        tags: ['tooltip', 'focus', 'hover'],
+        status: 'ready',
+        tokens: ['--pc-ink', '--pc-surface', '--pc-shadow-sticker'],
+        props: [
+          { name: 'content', type: 'ReactNode', description: 'Tooltip body.' },
+          { name: 'children', type: 'ReactNode', description: 'Trigger content.' },
+          { name: 'className', type: 'string', description: 'Optional wrapper class.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'badges',
+    familyName: 'Badges',
+    description: 'Compact tags for statuses, labels, and release notes.',
+    tags: ['badge', 'status', 'label'],
+    variations: [
+      {
+        slug: 'feature-sticker',
+        name: 'Feature Sticker Badge',
+        description: 'Tiny pill sticker with an optional colored dot.',
+        componentName: 'FeatureStickerBadge',
+        importPath: '@/components/playful/badges/feature-sticker',
+        tags: ['badge', 'sticker', 'status'],
+        status: 'ready',
+        tokens: ['--pc-color-yellow', '--pc-border-color', '--pc-radius-full'],
+        props: [
+          { name: 'dot', type: 'boolean', defaultValue: 'true', description: 'Show the leading dot.' },
+          { name: 'children', type: 'ReactNode', description: 'Badge label.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'cards',
+    familyName: 'Cards',
+    description: 'Framed surfaces for previews, docs, and feature callouts.',
+    tags: ['card', 'surface', 'preview'],
+    variations: [
+      {
+        slug: 'feature-sticker',
+        name: 'Feature Sticker Card',
+        description: 'A solid bordered card with sticker shadow and hover lift.',
+        componentName: 'FeatureStickerCard',
+        importPath: '@/components/playful/cards/feature-sticker',
+        tags: ['card', 'sticker', 'surface'],
+        status: 'ready',
+        tokens: ['--pc-surface', '--pc-card-shadow', '--pc-radius-xl'],
+        props: [
+          { name: 'children', type: 'ReactNode', description: 'Card content.' },
+          { name: 'className', type: 'string', description: 'Optional class override.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'inputs',
+    familyName: 'Inputs',
+    description: 'Form controls with strong focus states and candy styling.',
+    tags: ['input', 'form', 'field'],
+    variations: [
+      {
+        slug: 'candy-field',
+        name: 'Candy Field Input',
+        description: 'Sticker input for search and form fields.',
+        componentName: 'CandyFieldInput',
+        importPath: '@/components/playful/inputs/candy-field',
+        tags: ['input', 'form', 'sticker'],
+        status: 'ready',
+        tokens: ['--pc-surface', '--pc-input-shadow', '--pc-radius-lg'],
+        props: [
+          { name: 'inputSize', type: 'sm | md | lg', defaultValue: 'md', description: 'Input height and text size.' },
+          { name: 'placeholder', type: 'string', description: 'Native input placeholder.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'switches',
+    familyName: 'Switches',
+    description: 'Accessible toggle controls with animated thumbs.',
+    tags: ['switch', 'toggle', 'form'],
+    variations: [
+      {
+        slug: 'mint-toggle',
+        name: 'Mint Toggle Switch',
+        description: 'A mint on/off switch with a chunky thumb.',
+        componentName: 'MintToggleSwitch',
+        importPath: '@/components/playful/switches/mint-toggle',
+        tags: ['switch', 'toggle', 'form'],
+        status: 'ready',
+        tokens: ['--pc-color-mint', '--pc-border-color', '--pc-radius-full'],
+        props: [
+          { name: 'checked', type: 'boolean', description: 'Controlled checked state.' },
+          { name: 'defaultChecked', type: 'boolean', defaultValue: 'false', description: 'Initial uncontrolled state.' },
+          { name: 'onChange', type: '(checked: boolean) => void', description: 'Called when the value changes.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'checkboxes',
+    familyName: 'Checkboxes',
+    description: 'Playful checkbox controls that keep native input behavior.',
+    tags: ['checkbox', 'form', 'input'],
+    variations: [
+      {
+        slug: 'star-check',
+        name: 'Star Check Checkbox',
+        description: 'A checkbox that fills with a star when selected.',
+        componentName: 'StarCheckCheckbox',
+        importPath: '@/components/playful/checkboxes/star-check',
+        tags: ['checkbox', 'star', 'form'],
+        status: 'ready',
+        tokens: ['--pc-color-yellow', '--pc-border-color', '--pc-radius-sm'],
+        props: [
+          { name: 'label', type: 'ReactNode', description: 'Optional visible label.' },
+          { name: 'checked', type: 'boolean', description: 'Controlled checked state.' },
+          { name: 'onChange', type: '(checked: boolean) => void', description: 'Called when the value changes.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'tabs',
+    familyName: 'Tabs',
+    description: 'Tabbed panels for preview, code, props, and token docs.',
+    tags: ['tabs', 'navigation', 'docs'],
+    variations: [
+      {
+        slug: 'sticker-tabs',
+        name: 'Sticker Tabs',
+        description: 'Pill tabs with an animated sticker indicator.',
+        componentName: 'StickerTabs',
+        importPath: '@/components/playful/tabs/sticker-tabs',
+        tags: ['tabs', 'indicator', 'docs'],
+        status: 'ready',
+        tokens: ['--pc-color-yellow', '--pc-surface', '--pc-radius-full'],
+        props: [
+          { name: 'items', type: 'Array<{ value; label; content }>', description: 'Tabs and panels.' },
+          { name: 'value', type: 'string', description: 'Controlled selected value.' },
+          { name: 'onChange', type: '(value: string) => void', description: 'Called when selected tab changes.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'color-pickers',
+    familyName: 'Color Pickers',
+    description: 'Color selection tools with custom swatches and HEX editing.',
+    tags: ['color', 'picker', 'form'],
+    variations: [
+      {
+        slug: 'swatch-party',
+        name: 'Swatch Party Color Picker',
+        description: 'A swatch grid color picker with animated preview.',
+        componentName: 'SwatchPartyColorPicker',
+        importPath: '@/components/playful/color-pickers/swatch-party',
+        tags: ['color', 'swatch', 'picker'],
+        status: 'ready',
+        tokens: ['--pc-color-pink', '--pc-surface', '--pc-radius-lg'],
+        props: [
+          { name: 'value', type: 'string', description: 'Controlled HEX color.' },
+          { name: 'palette', type: 'PlayfulColor[]', description: 'Swatch list.' },
+          { name: 'onChange', type: '(color: string) => void', description: 'Called when color changes.' },
+        ],
+      },
+    ],
+  },
+  {
+    familySlug: 'toasts',
+    familyName: 'Toasts',
+    description: 'Notification surfaces for app feedback.',
+    tags: ['toast', 'notification', 'feedback'],
+    variations: [
+      {
+        slug: 'pop-toast',
+        name: 'Pop Toast',
+        description: 'A compact notification with tone-specific iconography.',
+        componentName: 'PopToast',
+        importPath: '@/components/playful/toasts/pop-toast',
+        tags: ['toast', 'feedback', 'motion'],
+        status: 'ready',
+        tokens: ['--pc-surface', '--pc-card-shadow', '--pc-radius-lg'],
+        props: [
+          { name: 'tone', type: 'success | info | warning | danger', defaultValue: 'success', description: 'Toast tone.' },
+          { name: 'title', type: 'ReactNode', description: 'Toast heading.' },
+          { name: 'description', type: 'ReactNode', description: 'Optional supporting copy.' },
+        ],
+      },
     ],
   },
 ]
+
+export function getComponentFamily(familySlug: string) {
+  return componentRegistry.find((family) => family.familySlug === familySlug)
+}
+
+export function getComponentVariation(familySlug: string, variationSlug: string) {
+  return getComponentFamily(familySlug)?.variations.find(
+    (variation) => variation.slug === variationSlug,
+  )
+}
