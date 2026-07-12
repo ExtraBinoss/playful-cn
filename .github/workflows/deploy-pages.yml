@@ -39,11 +39,11 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Prepare Pages artifact
-        run: touch .output/public/.nojekyll
+        run: touch dist/client/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist/client
 
   deploy:
     needs: build

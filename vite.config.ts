@@ -11,11 +11,12 @@ import { nitro } from 'nitro/vite'
 const config = defineConfig({
   base: process.env.GITHUB_PAGES === 'true' ? '/playful-cn/' : '/',
   resolve: { tsconfigPaths: true },
+  build: process.env.GITHUB_PAGES === 'true' ? { outDir: 'dist' } : undefined,
   plugins: [
     devtools(),
     tailwindcss(),
-    tanstackStart(),
-    nitro({ preset: process.env.GITHUB_PAGES === 'true' ? 'github-pages' : undefined, rollupConfig: { external: [/^@sentry\//] } }),
+    tanstackStart(process.env.GITHUB_PAGES === 'true' ? { prerender: { enabled: true, crawlLinks: true } } : undefined),
+    ...(process.env.GITHUB_PAGES === 'true' ? [] : [nitro({ rollupConfig: { external: [/^@sentry\//] } })]),
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
