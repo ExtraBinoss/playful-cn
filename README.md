@@ -6,6 +6,8 @@ Documentation: [extrabinoss.github.io/playful-cn](https://extrabinoss.github.io/
 
 The documentation site is deployed automatically to GitHub Pages after every
 push to `main` through [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+In the repository settings, set **Pages → Build and deployment → Source** to
+**GitHub Actions** once; after that, pushes to `main` publish the site.
 
 The V1 goal is to prove the visual system and API shape with a TanStack Start
 documentation site, Motion-powered interactions, CSS tokens, and a first set of

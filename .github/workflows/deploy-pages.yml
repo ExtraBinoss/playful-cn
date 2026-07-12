@@ -36,6 +36,8 @@ jobs:
           node packages/cli/dist/index.js diff buttons --registry-url "file://${{ github.workspace }}/registry/index.json"
       - name: Build static site
         run: npm run build:pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
       - name: Prepare Pages artifact
         run: touch .output/public/.nojekyll
       - name: Upload Pages artifact
