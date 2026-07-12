@@ -19,7 +19,6 @@ export default function Header() {
     root.classList.add(nextTheme)
     root.dataset.theme = nextTheme
     root.style.colorScheme = nextTheme
-    window.localStorage.setItem('theme', nextTheme)
     setTheme(nextTheme)
   }
 
