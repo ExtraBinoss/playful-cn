@@ -27,6 +27,8 @@ such as `soft-candy` do not replace a canonical skin.
 - [x] **Label, Field**: shared accessible form composition primitives.
 - [x] **Card, Badge, Alert, Empty, Skeleton, Spinner, Progress**: 3/3 canonical
   skins, shared primitives, pure SVG defaults, motion, and docs registration.
+- [x] **Dialog, Alert Dialog, Drawer, Sheet, Popover, Hover Card, Menus**: 3/3
+  canonical skins with shared overlay behavior, keyboard dismissal, and docs registration.
 - [~] **Extensions**: IconButton, SearchInput, and ColorPicker exist but are
   outside the shadcn list and are not yet 3/3.
 
@@ -45,7 +47,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 
 - [ ] Accordion
 - [x] Alert — 3/3
-- [ ] Alert Dialog
+- [x] Alert Dialog — 3/3
 - [ ] Aspect Ratio
 - [ ] Attachment
 - [ ] Avatar
@@ -65,13 +67,13 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 - [ ] Context Menu
 - [ ] Data Table
 - [ ] Date Picker
-- [ ] Dialog
+- [x] Dialog — 3/3
 - [ ] Direction
-- [ ] Drawer
-- [ ] Dropdown Menu
+- [x] Drawer — 3/3
+- [x] Dropdown Menu — 3/3
 - [x] Empty — 3/3
 - [x] Field
-- [ ] Hover Card
+- [x] Hover Card — 3/3
 - [x] Input — 4/4
 - [x] Input Group — 3/3
 - [x] Input OTP — 3/3
@@ -85,14 +87,14 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 - [ ] Native Select
 - [ ] Navigation Menu
 - [ ] Pagination
-- [ ] Popover
+- [x] Popover — 3/3
 - [x] Progress — 3/3
 - [x] Radio Group — 4/4
 - [ ] Resizable
 - [ ] Scroll Area
 - [ ] Select
 - [ ] Separator
-- [ ] Sheet
+- [x] Sheet — 3/3
 - [ ] Sidebar
 - [x] Skeleton — 3/3
 - [ ] Slider

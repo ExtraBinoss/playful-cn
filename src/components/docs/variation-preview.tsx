@@ -42,6 +42,10 @@ import {
   StickerAlert, BubbleAlert, SketchAlert, StickerEmpty, BubbleEmpty, SketchEmpty,
   StickerSkeleton, BubbleSkeleton, SketchSkeleton, StickerSpinner, BubbleSpinner, SketchSpinner,
   StickerProgress, BubbleProgress, SketchProgress,
+  StickerDialog, BubbleDialog, SketchDialog, StickerAlertDialog, BubbleAlertDialog, SketchAlertDialog,
+  StickerDrawer, BubbleDrawer, SketchDrawer, StickerSheet, BubbleSheet, SketchSheet,
+  StickerPopover, BubblePopover, SketchPopover, StickerHoverCard, BubbleHoverCard, SketchHoverCard,
+  StickerMenu, BubbleMenu, SketchMenu,
 } from '../playful'
 
 const buttonExamples = [
@@ -108,6 +112,27 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     case 'StickerProgress': return <StickerProgress value={68} label="Uploading" showValue />
     case 'BubbleProgress': return <BubbleProgress value={42} label="Syncing" showValue />
     case 'SketchProgress': return <SketchProgress value={84} label="Finishing" showValue />
+    case 'StickerDialog': return <StickerDialog trigger={<button type="button" className="pc-doc-demo-trigger">Open dialog</button>} title="Sticker dialog">A focused modal surface.</StickerDialog>
+    case 'BubbleDialog': return <BubbleDialog trigger={<button type="button" className="pc-doc-demo-trigger">Open dialog</button>} title="Bubble dialog">A soft modal surface.</BubbleDialog>
+    case 'SketchDialog': return <SketchDialog trigger={<button type="button" className="pc-doc-demo-trigger">Open dialog</button>} title="Sketch dialog">A hand-drawn modal surface.</SketchDialog>
+    case 'StickerAlertDialog': return <StickerAlertDialog trigger={<button type="button" className="pc-doc-demo-trigger">Delete</button>} title="Delete item?">This action needs confirmation.</StickerAlertDialog>
+    case 'BubbleAlertDialog': return <BubbleAlertDialog trigger={<button type="button" className="pc-doc-demo-trigger">Confirm</button>} title="Confirm action">This action is safe to continue.</BubbleAlertDialog>
+    case 'SketchAlertDialog': return <SketchAlertDialog trigger={<button type="button" className="pc-doc-demo-trigger">Review</button>} title="Review changes">Please check before saving.</SketchAlertDialog>
+    case 'StickerDrawer': return <StickerDrawer trigger={<button type="button" className="pc-doc-demo-trigger">Open drawer</button>} title="Quick settings">Drawer content.</StickerDrawer>
+    case 'BubbleDrawer': return <BubbleDrawer trigger={<button type="button" className="pc-doc-demo-trigger">Open drawer</button>} title="Quick settings">Drawer content.</BubbleDrawer>
+    case 'SketchDrawer': return <SketchDrawer trigger={<button type="button" className="pc-doc-demo-trigger">Open drawer</button>} title="Quick settings">Drawer content.</SketchDrawer>
+    case 'StickerSheet': return <StickerSheet trigger={<button type="button" className="pc-doc-demo-trigger">Open sheet</button>} title="Details">Sheet content.</StickerSheet>
+    case 'BubbleSheet': return <BubbleSheet trigger={<button type="button" className="pc-doc-demo-trigger">Open sheet</button>} title="Details">Sheet content.</BubbleSheet>
+    case 'SketchSheet': return <SketchSheet trigger={<button type="button" className="pc-doc-demo-trigger">Open sheet</button>} title="Details">Sheet content.</SketchSheet>
+    case 'StickerPopover': return <StickerPopover trigger={<button type="button" className="pc-doc-demo-trigger">Popover</button>} title="Sticker popover">Anchored content.</StickerPopover>
+    case 'BubblePopover': return <BubblePopover trigger={<button type="button" className="pc-doc-demo-trigger">Popover</button>} title="Bubble popover">Anchored content.</BubblePopover>
+    case 'SketchPopover': return <SketchPopover trigger={<button type="button" className="pc-doc-demo-trigger">Popover</button>} title="Sketch popover">Anchored content.</SketchPopover>
+    case 'StickerHoverCard': return <StickerHoverCard trigger={<button type="button" className="pc-doc-demo-trigger">Hover me</button>} title="Sticker preview">Preview content.</StickerHoverCard>
+    case 'BubbleHoverCard': return <BubbleHoverCard trigger={<button type="button" className="pc-doc-demo-trigger">Hover me</button>} title="Bubble preview">Preview content.</BubbleHoverCard>
+    case 'SketchHoverCard': return <SketchHoverCard trigger={<button type="button" className="pc-doc-demo-trigger">Hover me</button>} title="Sketch preview">Preview content.</SketchHoverCard>
+    case 'StickerMenu': return <StickerMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Rename' }, { label: 'Delete', disabled: true }]} />
+    case 'BubbleMenu': return <BubbleMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Share' }, { label: 'Archive' }]} />
+    case 'SketchMenu': return <SketchMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Duplicate' }, { label: 'Delete' }]} />
     case 'StickerFieldInput':
       return (
         <StickerFieldInput

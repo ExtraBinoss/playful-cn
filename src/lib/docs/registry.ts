@@ -483,6 +483,13 @@ function createCollectionFamilies(): Array<ComponentFamilyDoc> {
     ['skeletons', 'Skeletons', 'Reduced-motion friendly loading placeholders.', 'Skeleton', 'skeletons', ['lines']],
     ['spinners', 'Spinners', 'Small loading indicators with a pure SVG default.', 'Spinner', 'spinners', ['label', 'size', 'icon']],
     ['progresses', 'Progress', 'Animated determinate progress indicators.', 'Progress', 'progresses', ['value', 'max', 'label', 'showValue']],
+    ['dialogs', 'Dialogs', 'Modal conversations with focus management and escape-to-close.', 'Dialog', 'dialogs', ['trigger', 'title', 'description', 'open']],
+    ['alert-dialogs', 'Alert Dialogs', 'Modal confirmations for destructive or consequential actions.', 'AlertDialog', 'alert-dialogs', ['trigger', 'title', 'description', 'open']],
+    ['drawers', 'Drawers', 'Side-anchored modal panels for focused workflows.', 'Drawer', 'drawers', ['trigger', 'title', 'side', 'open']],
+    ['sheets', 'Sheets', 'Responsive modal surfaces for secondary content.', 'Sheet', 'sheets', ['trigger', 'title', 'side', 'open']],
+    ['popovers', 'Popovers', 'Anchored interactive content with keyboard dismissal.', 'Popover', 'popovers', ['trigger', 'title', 'side', 'open']],
+    ['hover-cards', 'Hover Cards', 'Preview panels revealed on hover or focus.', 'HoverCard', 'hover-cards', ['trigger', 'title', 'description']],
+    ['menus', 'Menus', 'Keyboard-friendly action menus with disabled items.', 'Menu', 'menus', ['trigger', 'items', 'open']],
   ] as const
   return definitions.map(([familySlug, familyName, description, baseName, folder, propNames]) => ({
     familySlug,
