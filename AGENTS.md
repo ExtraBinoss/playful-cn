@@ -5,6 +5,7 @@ Before adding or declaring a component complete, consult
 
 - The four canonical visual variations are `sticker`, `bubble`, `glow`, and
   `sketch`.
+- The canonical variations needs to live inside their subfolders (buttons/sticker/, buttons/bubble/, etc).
 - Mark a component **4/4** only when all four variations exist, are exported,
   documented, registered, and share the same behavior/API.
 - Keep shadcn-compatible semantics: keyboard interaction, focus management,

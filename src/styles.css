@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "./styles/tokens.css";
 @import "./styles/components.css";
+@import "./components/playful/checkboxes/checkbox.styles.css";
+@import "./components/playful/switches/switch.styles.css";
+@import "./components/playful/radio-groups/radio-group.styles.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 

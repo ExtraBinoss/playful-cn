@@ -308,6 +308,68 @@
   background: var(--pc-color-yellow);
 }
 
+/* Form controls share one semantic primitive and differ only in skin tokens. */
+.pc-checkbox,
+.pc-switch-field,
+.pc-radio-item {
+  color: var(--pc-color-ink);
+}
+
+.pc-checkbox {
+  min-width: 12rem;
+  align-items: flex-start;
+  border-radius: var(--pc-radius-md);
+  padding: 0.35rem;
+  transition: transform var(--pc-duration-fast) ease;
+}
+
+.pc-checkbox:hover:not(.is-disabled) { transform: translateY(-1px); }
+.pc-checkbox input { width: 1px; height: 1px; }
+.pc-checkbox-box {
+  flex: 0 0 auto;
+  width: 1.8rem;
+  height: 1.8rem;
+  transition: background var(--pc-duration-fast) ease, transform var(--pc-duration-fast) ease;
+}
+.pc-checkbox-copy, .pc-radio-copy { display: grid; gap: 0.15rem; padding-top: 0.1rem; }
+.pc-checkbox-icon { display: inline-flex; align-items: center; justify-content: center; color: var(--pc-control-accent, var(--pc-color-ink-soft)); }
+.pc-checkbox-label, .pc-radio-label, .pc-switch-label { font-weight: 900; line-height: 1.2; }
+.pc-checkbox-description, .pc-radio-description { color: var(--pc-color-ink-soft); font-size: 0.78rem; font-weight: 700; line-height: 1.3; }
+.pc-checkbox.is-disabled, .pc-switch-field.is-disabled, .pc-radio-item.is-disabled { cursor: not-allowed; opacity: 0.52; }
+.pc-checkbox.is-invalid .pc-checkbox-box, .pc-radio-group.is-invalid { border-color: var(--pc-color-red); }
+.pc-checkbox-minus { width: 0.8rem; height: 0.2rem; border-radius: var(--pc-radius-full); background: currentColor; }
+
+.pc-checkbox-bubble, .pc-radio-group-bubble { --pc-control-accent: var(--pc-color-blue); }
+.pc-checkbox-bubble .pc-checkbox-box, .pc-radio-group-bubble .pc-radio-dot { border-radius: var(--pc-radius-full); background: color-mix(in srgb, var(--pc-color-blue) 18%, var(--pc-color-surface)); box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.12), 0 7px 14px rgb(56 189 248 / 0.18); }
+.pc-checkbox-bubble input:checked + .pc-checkbox-box, .pc-radio-group-bubble .pc-radio-item.is-selected .pc-radio-dot { background: var(--pc-color-blue); }
+.pc-checkbox-glow, .pc-radio-group-glow { --pc-control-accent: var(--pc-color-purple); }
+.pc-checkbox-glow .pc-checkbox-box, .pc-radio-group-glow .pc-radio-dot { border-color: var(--pc-color-purple); background: linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple), var(--pc-color-blue)); color: var(--pc-color-on-strong); box-shadow: 0 0 18px rgb(168 85 247 / 0.3); }
+.pc-checkbox-sketch, .pc-radio-group-sketch { --pc-control-accent: var(--pc-color-yellow); }
+.pc-checkbox-sketch .pc-checkbox-box, .pc-radio-group-sketch .pc-radio-dot { background: var(--pc-color-background-soft); box-shadow: 4px 4px 0 var(--pc-border-color); transform: rotate(-2deg); }
+.pc-checkbox-sketch input:checked + .pc-checkbox-box, .pc-radio-group-sketch .pc-radio-item.is-selected .pc-radio-dot { background: var(--pc-color-yellow); }
+
+.pc-control-loader { display: block; width: 0.8rem; height: 0.8rem; border: 2px solid currentColor; border-right-color: transparent; border-radius: var(--pc-radius-full); animation: pc-spin 700ms linear infinite; }
+.pc-switch-field { display: inline-flex; align-items: center; gap: 0.7rem; }
+.pc-switch { display: inline-flex; align-items: center; gap: 0.45rem; width: 4.35rem; height: 2.45rem; border: var(--pc-border-strong); border-radius: var(--pc-radius-full); background: var(--pc-color-surface); padding: 0.25rem; cursor: pointer; transition: background var(--pc-duration-fast) ease, transform var(--pc-duration-fast) ease; }
+.pc-switch:hover:not(:disabled) { transform: translateY(-1px); }
+.pc-switch[aria-checked="true"] { background: var(--pc-control-accent, var(--pc-color-mint)); }
+.pc-switch-thumb { display: grid; flex: 0 0 auto; width: 1.65rem; height: 1.65rem; place-items: center; border: var(--pc-border-strong); border-radius: var(--pc-radius-full); background: var(--pc-color-surface); box-shadow: 0 2px 0 var(--pc-border-color); transition: transform var(--pc-duration-fast) ease; }
+.pc-switch[aria-checked="true"] .pc-switch-thumb { transform: translateX(1.9rem); }
+.pc-switch-sticker { --pc-control-accent: var(--pc-color-pink); box-shadow: var(--pc-shadow-sticker); }
+.pc-switch-glow { --pc-control-accent: var(--pc-color-purple); background: linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple)); }
+.pc-switch-sketch { --pc-control-accent: var(--pc-color-yellow); background: var(--pc-color-background-soft); box-shadow: 4px 4px 0 var(--pc-border-color); }
+
+.pc-radio-group { display: grid; gap: 0.55rem; width: min(100%, 28rem); }
+.pc-radio-group[data-orientation="horizontal"] { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
+.pc-radio-item { display: flex; align-items: flex-start; gap: 0.65rem; border: 2px solid transparent; border-radius: var(--pc-radius-md); padding: 0.55rem; cursor: pointer; transition: background var(--pc-duration-fast) ease, transform var(--pc-duration-fast) ease; }
+.pc-radio-item:hover:not(.is-disabled) { transform: translateY(-1px); }
+.pc-radio-item input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.pc-radio-dot { display: grid; flex: 0 0 auto; width: 1.35rem; height: 1.35rem; place-items: center; border: var(--pc-border-strong); border-radius: var(--pc-radius-full); background: var(--pc-color-surface); }
+.pc-radio-item.is-selected .pc-radio-dot::after { width: 0.55rem; height: 0.55rem; border-radius: var(--pc-radius-full); background: currentColor; content: ''; }
+.pc-radio-group-sticker .pc-radio-item.is-selected { background: color-mix(in srgb, var(--pc-color-pink) 15%, var(--pc-color-surface)); box-shadow: var(--pc-shadow-sticker); }
+.pc-radio-group-glow .pc-radio-item.is-selected { color: var(--pc-color-on-strong); background: linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple)); }
+.pc-radio-group-sketch .pc-radio-item.is-selected { background: var(--pc-color-background-soft); box-shadow: 4px 4px 0 var(--pc-border-color); }
+
 .pc-toast-icon {
   display: grid;
   width: 1.4rem;

@@ -21,8 +21,10 @@ such as `soft-candy` do not replace a canonical skin.
   sketch-outline (plus soft-candy and quiet-ghost).
 - [x] **Input — 4/4**: sticker-field, bubble-field, glow-field,
   sketch-field (plus candy-field).
-- [~] **Checkbox, Card, Badge, Switch, Tabs, Tooltip, Toast**: base behavior
-  exists, but the four canonical skins and/or parity audit are incomplete.
+- [x] **Checkbox, Radio Group, Switch**: 4/4 canonical skins with shared
+  behavior, keyboard support, loading/error states, and docs registration.
+- [~] **Card, Badge, Tabs, Tooltip, Toast**: base behavior exists, but the four
+  canonical skins and/or parity audit are incomplete.
 - [~] **Extensions**: IconButton, SearchInput, and ColorPicker exist but are
   outside the shadcn list and are not yet 4/4.
 
@@ -54,7 +56,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [~] Card
 - [ ] Carousel
 - [ ] Chart
-- [~] Checkbox
+- [x] Checkbox — 4/4
 - [ ] Collapsible
 - [ ] Combobox
 - [ ] Command
@@ -83,7 +85,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Pagination
 - [ ] Popover
 - [ ] Progress
-- [ ] Radio Group
+- [x] Radio Group — 4/4
 - [ ] Resizable
 - [ ] Scroll Area
 - [ ] Select
@@ -94,7 +96,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Slider
 - [ ] Sonner
 - [ ] Spinner
-- [~] Switch
+- [x] Switch — 4/4
 - [ ] Table
 - [~] Tabs
 - [ ] Textarea
