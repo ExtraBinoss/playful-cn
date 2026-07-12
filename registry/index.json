@@ -1,0 +1,404 @@
+{
+	"$schema": "./schema.json",
+	"name": "playful-cn",
+	"source": {
+		"type": "github-raw",
+		"owner": "ExtraBinoss",
+		"repo": "playful-cn",
+		"branch": "main"
+	},
+	"styles": {
+		"name": "styles",
+		"files": [
+			"src/styles/tokens.css",
+			"src/styles/components.css"
+		]
+	},
+	"items": [
+		{
+			"name": "cn",
+			"type": "lib",
+			"files": ["src/lib/styling/cn.ts"],
+			"dependencies": [],
+			"registryDependencies": []
+		},
+		{
+			"name": "use-controllable-state",
+			"type": "lib",
+			"files": ["src/lib/react/use-controllable-state.ts"],
+			"dependencies": [],
+			"registryDependencies": []
+		},
+		{
+			"name": "animation-variants",
+			"type": "lib",
+			"files": ["src/lib/animation/variants.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": []
+		},
+		{
+			"name": "button-base",
+			"type": "lib",
+			"files": [
+				"src/components/playful/buttons/button-base.tsx",
+				"src/components/playful/buttons/button-motion.ts",
+				"src/components/playful/buttons/button.types.ts"
+			],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "input-base",
+			"type": "lib",
+			"files": [
+				"src/components/playful/inputs/input-base.tsx",
+				"src/components/playful/inputs/input-motion.ts",
+				"src/components/playful/inputs/input.types.ts"
+			],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "icon-button",
+			"type": "component",
+			"title": "Icon Button",
+			"files": ["src/components/playful/icon-button/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "button", "animation-variants"]
+		},
+		{
+			"name": "button",
+			"type": "component",
+			"title": "Button",
+			"files": [
+				"src/components/playful/button/button.tsx",
+				"src/components/playful/button/button.styles.ts",
+				"src/components/playful/button/button.types.ts",
+				"src/components/playful/button/index.ts"
+			],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "buttons/sticker-pop",
+			"type": "component",
+			"title": "Sticker Pop Button",
+			"files": ["src/components/playful/buttons/sticker-pop/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons/bubble-gum",
+			"type": "component",
+			"title": "Bubble Gum Button",
+			"files": ["src/components/playful/buttons/bubble-gum/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons/neon-gradient",
+			"type": "component",
+			"title": "Neon Gradient Button",
+			"files": ["src/components/playful/buttons/neon-gradient/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons/sketch-outline",
+			"type": "component",
+			"title": "Sketch Outline Button",
+			"files": ["src/components/playful/buttons/sketch-outline/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons/soft-candy",
+			"type": "component",
+			"title": "Soft Candy Button",
+			"files": ["src/components/playful/buttons/soft-candy/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons/quiet-ghost",
+			"type": "component",
+			"title": "Quiet Ghost Button",
+			"files": ["src/components/playful/buttons/quiet-ghost/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["button-base"]
+		},
+		{
+			"name": "buttons",
+			"type": "component",
+			"title": "Buttons",
+			"files": ["src/components/playful/buttons/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": [
+				"buttons/sticker-pop",
+				"buttons/bubble-gum",
+				"buttons/neon-gradient",
+				"buttons/sketch-outline",
+				"buttons/soft-candy",
+				"buttons/quiet-ghost"
+			]
+		},
+		{
+			"name": "badge",
+			"type": "component",
+			"title": "Badge",
+			"files": ["src/components/playful/badge/index.tsx"],
+			"dependencies": [],
+			"registryDependencies": ["cn", "button"]
+		},
+		{
+			"name": "badges/feature-sticker",
+			"type": "component",
+			"title": "Feature Sticker Badge",
+			"files": ["src/components/playful/badges/feature-sticker/index.tsx"],
+			"dependencies": [],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "badges",
+			"type": "component",
+			"title": "Badges",
+			"files": ["src/components/playful/badges/index.ts"],
+			"dependencies": [],
+			"registryDependencies": ["badges/feature-sticker"]
+		},
+		{
+			"name": "card",
+			"type": "component",
+			"title": "Card",
+			"files": ["src/components/playful/card/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "animation-variants"]
+		},
+		{
+			"name": "cards/feature-sticker",
+			"type": "component",
+			"title": "Feature Sticker Card",
+			"files": ["src/components/playful/cards/feature-sticker/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "cards",
+			"type": "component",
+			"title": "Cards",
+			"files": ["src/components/playful/cards/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cards/feature-sticker"]
+		},
+		{
+			"name": "input",
+			"type": "component",
+			"title": "Input",
+			"files": ["src/components/playful/input/index.tsx"],
+			"dependencies": [],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "inputs/sticker-field",
+			"type": "component",
+			"title": "Sticker Field Input",
+			"files": ["src/components/playful/inputs/sticker-field/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["input-base"]
+		},
+		{
+			"name": "inputs/bubble-field",
+			"type": "component",
+			"title": "Bubble Field Input",
+			"files": ["src/components/playful/inputs/bubble-field/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["input-base"]
+		},
+		{
+			"name": "inputs/glow-field",
+			"type": "component",
+			"title": "Glow Field Input",
+			"files": ["src/components/playful/inputs/glow-field/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["input-base"]
+		},
+		{
+			"name": "inputs/sketch-field",
+			"type": "component",
+			"title": "Sketch Field Input",
+			"files": ["src/components/playful/inputs/sketch-field/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["input-base"]
+		},
+		{
+			"name": "inputs/candy-field",
+			"type": "component",
+			"title": "Candy Field Input",
+			"files": ["src/components/playful/inputs/candy-field/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["inputs/sticker-field"]
+		},
+		{
+			"name": "inputs",
+			"type": "component",
+			"title": "Inputs",
+			"files": ["src/components/playful/inputs/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": [
+				"inputs/sticker-field",
+				"inputs/bubble-field",
+				"inputs/glow-field",
+				"inputs/sketch-field",
+				"inputs/candy-field"
+			]
+		},
+		{
+			"name": "checkbox",
+			"type": "component",
+			"title": "Checkbox",
+			"files": ["src/components/playful/checkbox/index.tsx"],
+			"dependencies": [],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "checkboxes/star-check",
+			"type": "component",
+			"title": "Star Check Checkbox",
+			"files": ["src/components/playful/checkboxes/star-check/index.tsx"],
+			"dependencies": [],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "checkboxes",
+			"type": "component",
+			"title": "Checkboxes",
+			"files": ["src/components/playful/checkboxes/index.ts"],
+			"dependencies": [],
+			"registryDependencies": ["checkboxes/star-check"]
+		},
+		{
+			"name": "switch",
+			"type": "component",
+			"title": "Switch",
+			"files": ["src/components/playful/switch/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "switches/mint-toggle",
+			"type": "component",
+			"title": "Mint Toggle Switch",
+			"files": ["src/components/playful/switches/mint-toggle/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "switches",
+			"type": "component",
+			"title": "Switches",
+			"files": ["src/components/playful/switches/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["switches/mint-toggle"]
+		},
+		{
+			"name": "tabs",
+			"type": "component",
+			"title": "Tabs",
+			"files": ["src/components/playful/tabs/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "tabs/sticker-tabs",
+			"type": "component",
+			"title": "Sticker Tabs",
+			"files": ["src/components/playful/tabs/sticker-tabs/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["tabs"]
+		},
+		{
+			"name": "tooltip",
+			"type": "component",
+			"title": "Tooltip",
+			"files": ["src/components/playful/tooltip/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "tooltips/popover-tip",
+			"type": "component",
+			"title": "Popover Tip Tooltip",
+			"files": ["src/components/playful/tooltips/popover-tip/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "tooltips",
+			"type": "component",
+			"title": "Tooltips",
+			"files": ["src/components/playful/tooltips/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["tooltips/popover-tip"]
+		},
+		{
+			"name": "color-picker",
+			"type": "component",
+			"title": "Color Picker",
+			"files": [
+				"src/components/playful/color-picker/index.tsx",
+				"src/components/playful/color-picker/color-picker.types.ts",
+				"src/lib/colors/color-utils.ts"
+			],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "use-controllable-state"]
+		},
+		{
+			"name": "color-pickers/swatch-party",
+			"type": "component",
+			"title": "Swatch Party Color Picker",
+			"files": ["src/components/playful/color-pickers/swatch-party/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["color-picker"]
+		},
+		{
+			"name": "color-pickers",
+			"type": "component",
+			"title": "Color Pickers",
+			"files": ["src/components/playful/color-pickers/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["color-pickers/swatch-party"]
+		},
+		{
+			"name": "toast",
+			"type": "component",
+			"title": "Toast",
+			"files": ["src/components/playful/toast/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn"]
+		},
+		{
+			"name": "toasts/pop-toast",
+			"type": "component",
+			"title": "Pop Toast",
+			"files": ["src/components/playful/toasts/pop-toast/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["toast"]
+		},
+		{
+			"name": "toasts",
+			"type": "component",
+			"title": "Toasts",
+			"files": ["src/components/playful/toasts/index.ts"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["toasts/pop-toast"]
+		},
+		{
+			"name": "search-input",
+			"type": "component",
+			"title": "Search Input",
+			"files": ["src/components/playful/search-input/index.tsx"],
+			"dependencies": ["motion"],
+			"registryDependencies": ["cn", "icon-button"]
+		}
+	]
+}

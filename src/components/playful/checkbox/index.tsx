@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react'
 import type { InputHTMLAttributes, ReactNode } from 'react'
 import { useControllableState } from '../../../lib/react/use-controllable-state'
 import { cn } from '../../../lib/styling/cn'
@@ -12,6 +11,7 @@ export type PlayfulCheckboxProps = Omit<
   onChange?: (checked: boolean) => void
   label?: ReactNode
   variant?: 'bubble' | 'sticker' | 'soft'
+  checkedIcon?: ReactNode
 }
 
 export function PlayfulCheckbox({
@@ -20,6 +20,7 @@ export function PlayfulCheckbox({
   onChange,
   label,
   variant = 'sticker',
+  checkedIcon,
   className,
   ...props
 }: PlayfulCheckboxProps) {
@@ -38,9 +39,26 @@ export function PlayfulCheckbox({
         {...props}
       />
       <span className="pc-checkbox-box" aria-hidden>
-        {isChecked ? <Check size={16} strokeWidth={4} /> : null}
+        {isChecked ? (checkedIcon ?? <DefaultCheckIcon />) : null}
       </span>
       {label ? <span className="pc-checkbox-label">{label}</span> : null}
     </label>
+  )
+}
+
+function DefaultCheckIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="4"
+    >
+      <path d="M3 8.5 6.5 12 13 4" />
+    </svg>
   )
 }

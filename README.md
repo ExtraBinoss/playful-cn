@@ -49,6 +49,17 @@ src/
 npm run generate-routes
 npm run check
 npm run build
+npm run build:cli
+```
+
+## CLI
+
+The experimental CLI lives in `packages/cli` and installs components from the
+GitHub Raw registry.
+
+```bash
+npm run build:cli
+npx ./packages/cli add buttons/sticker-pop --registry-url "file://$PWD/registry/index.json"
 ```
 
 The dev server is intentionally left to the local workflow:

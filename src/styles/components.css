@@ -308,6 +308,20 @@
   background: var(--pc-color-yellow);
 }
 
+.pc-toast-icon {
+  display: grid;
+  width: 1.4rem;
+  height: 1.4rem;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 2px solid var(--pc-border-color);
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-color-surface);
+  font-size: 0.85rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
 .pc-doc-table {
   width: 100%;
   border-collapse: collapse;

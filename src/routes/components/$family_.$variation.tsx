@@ -46,8 +46,9 @@ function ComponentVariationPage() {
   }
 
   const usageSnippet = getUsageSnippet(variation.componentName)
-  const scopedCliCommand = `npx playful-ui add ${family.familySlug}/${variation.slug}`
+  const scopedCliCommand = `npx playful-cn add ${family.familySlug}/${variation.slug}`
   const aiInstallPrompt = `Add ${variation.name} to this React project. Use the ${variation.componentName} component from Playful Components. Preserve accessibility, Motion reduced-motion behavior, and CSS variable overrides. Import from '${variation.importPath}'. ${family.aiPrompt}`
+  const installDependencies = getInstallDependencies(family.familySlug)
 
   return (
     <main className="pc-page pc-section">
@@ -173,10 +174,36 @@ function ComponentVariationPage() {
               ))}
             </div>
           </FeatureStickerCard>
+
+          <FeatureStickerCard>
+            <p className="pc-kicker m-0">Dependencies</p>
+            <div className="pc-row mt-3">
+              {installDependencies.map((dependency) => (
+                <code key={dependency}>{dependency}</code>
+              ))}
+            </div>
+          </FeatureStickerCard>
         </aside>
       </div>
     </main>
   )
+}
+
+function getInstallDependencies(familySlug: string) {
+  const dependenciesByFamily: Record<string, Array<string>> = {
+    badges: ['react'],
+    buttons: ['react', 'motion'],
+    cards: ['react', 'motion'],
+    checkboxes: ['react'],
+    'color-pickers': ['react', 'motion'],
+    inputs: ['react', 'motion'],
+    switches: ['react', 'motion'],
+    tabs: ['react', 'motion'],
+    tooltips: ['react', 'motion'],
+    toasts: ['react', 'motion'],
+  }
+
+  return dependenciesByFamily[familySlug] ?? ['react']
 }
 
 function InputPlayground({ componentName }: { componentName: string }) {
@@ -382,7 +409,7 @@ function getUsageSnippet(componentName: string) {
   }
 
   if (componentName.endsWith('Input')) {
-    return `import { Search } from 'lucide-react'\nimport { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return (\n    <${componentName}\n      icon={<Search />}\n      label="Search"\n      placeholder="Search components..."\n      hint="Icons are ReactNode slots, so any icon library works."\n    />\n  )\n}`
+    return `import { ${componentName} } from '@/components/playful'\n\nfunction SearchIcon() {\n  return <span aria-hidden>Search</span>\n}\n\nexport function Example() {\n  return (\n    <${componentName}\n      icon={<SearchIcon />}\n      label="Search"\n      placeholder="Search components..."\n      hint="Icons are ReactNode slots, so any icon library works."\n    />\n  )\n}`
   }
 
   return `import { ${componentName} } from '@/components/playful'\n\nexport function Example() {\n  return <${componentName} />\n}`

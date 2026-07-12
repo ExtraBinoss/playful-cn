@@ -34,7 +34,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Buttons',
     description: 'CTA components built on the shared sticker, bubble, glow, and sketch visual vocabulary.',
     packageName: '@playful/components/buttons',
-    cliCommand: 'npx playful-ui add buttons',
+    cliCommand: 'npx playful-cn add buttons',
     aiPrompt: 'Use Playful Components core button variations: StickerPopButton, BubbleGumButton, NeonGradientButton, and SketchOutlineButton. Pick tone="success" for positive actions, tone="error" for destructive actions, loading for pending actions, and QuietGhostButton for low-emphasis button-only actions. Keep className overrides scoped with CSS variables.',
     tags: ['button', 'cta', 'motion'],
     props: buttonProps,
@@ -122,7 +122,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Tooltips',
     description: 'Small explainers for props, tokens, and compact UI hints.',
     packageName: '@playful/components/tooltips',
-    cliCommand: 'npx playful-ui add tooltips',
+    cliCommand: 'npx playful-cn add tooltips',
     aiPrompt: 'Use PopoverTipTooltip for short hover/focus help. Keep content concise, wrap an existing trigger, and do not use it for critical mobile-only information.',
     tags: ['tooltip', 'overlay', 'help'],
     props: [
@@ -153,7 +153,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Badges',
     description: 'Compact tags for statuses, labels, and release notes.',
     packageName: '@playful/components/badges',
-    cliCommand: 'npx playful-ui add badges',
+    cliCommand: 'npx playful-cn add badges',
     aiPrompt: 'Use FeatureStickerBadge for compact labels such as Beta, New, Stable, or status chips. Keep badge text short.',
     tags: ['badge', 'status', 'label'],
     props: [
@@ -182,7 +182,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Cards',
     description: 'Framed surfaces for previews, docs, and feature callouts.',
     packageName: '@playful/components/cards',
-    cliCommand: 'npx playful-ui add cards',
+    cliCommand: 'npx playful-cn add cards',
     aiPrompt: 'Use FeatureStickerCard as a framed surface. Set interactive only when the whole card behaves like an action or clickable preview.',
     tags: ['card', 'surface', 'preview'],
     props: [
@@ -211,7 +211,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Inputs',
     description: 'Text fields built on the shared sticker, bubble, glow, and sketch visual vocabulary.',
     packageName: '@playful/components/inputs',
-    cliCommand: 'npx playful-ui add inputs',
+    cliCommand: 'npx playful-cn add inputs',
     aiPrompt: 'Use Playful Components core input variations: StickerFieldInput, BubbleFieldInput, GlowFieldInput, and SketchFieldInput. CandyFieldInput remains a backward-compatible alias for StickerFieldInput. Pick tone="success" for accepted values, tone="error" or invalid for validation errors, and provide label plus hint/error when the field needs context. Keep native input props and use inputSize for sizing.',
     tags: ['input', 'form', 'field', 'motion'],
     props: inputProps,
@@ -275,7 +275,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Switches',
     description: 'Accessible toggle controls with animated thumbs.',
     packageName: '@playful/components/switches',
-    cliCommand: 'npx playful-ui add switches',
+    cliCommand: 'npx playful-cn add switches',
     aiPrompt: 'Use MintToggleSwitch for boolean settings. Provide aria-label when no visible label exists, and use checked/onChange for controlled state.',
     tags: ['switch', 'toggle', 'form'],
     props: [
@@ -306,7 +306,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Checkboxes',
     description: 'Playful checkbox controls that keep native input behavior.',
     packageName: '@playful/components/checkboxes',
-    cliCommand: 'npx playful-ui add checkboxes',
+    cliCommand: 'npx playful-cn add checkboxes',
     aiPrompt: 'Use StarCheckCheckbox for opt-in form choices. Prefer visible labels; use checked/onChange when controlled.',
     tags: ['checkbox', 'form', 'input'],
     props: [
@@ -337,7 +337,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Tabs',
     description: 'Tabbed panels for preview, code, props, and token docs.',
     packageName: '@playful/components/tabs',
-    cliCommand: 'npx playful-ui add tabs',
+    cliCommand: 'npx playful-cn add tabs',
     aiPrompt: 'Use StickerTabs for local view switching such as Preview, Code, Props, and Tokens. Keep tab labels short.',
     tags: ['tabs', 'navigation', 'docs'],
     props: [
@@ -368,7 +368,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Color Pickers',
     description: 'Color selection tools with custom swatches and HEX editing.',
     packageName: '@playful/components/color-pickers',
-    cliCommand: 'npx playful-ui add color-pickers',
+    cliCommand: 'npx playful-cn add color-pickers',
     aiPrompt: 'Use SwatchPartyColorPicker for simple palette selection. Use value/onChange for controlled forms and pass a custom palette for brand colors.',
     tags: ['color', 'picker', 'form'],
     props: [
@@ -399,7 +399,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     familyName: 'Toasts',
     description: 'Notification surfaces for app feedback.',
     packageName: '@playful/components/toasts',
-    cliCommand: 'npx playful-ui add toasts',
+    cliCommand: 'npx playful-cn add toasts',
     aiPrompt: 'Use PopToast for short feedback. Choose success, info, warning, or danger tone and keep descriptions one sentence.',
     tags: ['toast', 'notification', 'feedback'],
     props: [
