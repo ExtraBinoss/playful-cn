@@ -1,7 +1,7 @@
 # Component coverage checklist
 
 Working inventory for functional parity with shadcn. A component needs both a
-behavioral/API primitive and the four canonical visual variations below.
+behavioral/API primitive and the three canonical visual variations below.
 
 ## Canonical variations
 
@@ -11,7 +11,7 @@ behavioral/API primitive and the four canonical visual variations below.
 | `bubble` | rounded glossy/pill surface with pressure feedback |
 | `sketch` | hand-drawn outline with bold offset shadow |
 
-`4/4` means all four skins share the same public API and behavior. Extra skins
+`3/3` means all three skins share the same public API and behavior. Extra skins
 such as `soft-candy` do not replace a canonical skin.
 
 ## Current snapshot (2026-07-12)
@@ -25,12 +25,12 @@ such as `soft-candy` do not replace a canonical skin.
 - [x] **Textarea, Input Group, Input OTP**: 3/3 canonical skins with shared
   APIs, character limits, counters, and docs registration.
 - [x] **Label, Field**: shared accessible form composition primitives.
-- [~] **Card, Badge, Tabs, Tooltip, Toast**: base behavior exists, but the four
-  canonical skins and/or parity audit are incomplete.
+- [x] **Card, Badge, Alert, Empty, Skeleton, Spinner, Progress**: 3/3 canonical
+  skins, shared primitives, pure SVG defaults, motion, and docs registration.
 - [~] **Extensions**: IconButton, SearchInput, and ColorPicker exist but are
-  outside the shadcn list and are not yet 4/4.
+  outside the shadcn list and are not yet 3/3.
 
-Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
+Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 `[ ]` not implemented.
 
 ## New components
@@ -44,18 +44,18 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 ## All components
 
 - [ ] Accordion
-- [ ] Alert
+- [x] Alert — 3/3
 - [ ] Alert Dialog
 - [ ] Aspect Ratio
 - [ ] Attachment
 - [ ] Avatar
-- [~] Badge
+- [x] Badge — 3/3
 - [ ] Breadcrumb
 - [ ] Bubble
 - [x] Button — 4/4
 - [ ] Button Group
 - [ ] Calendar
-- [~] Card
+- [x] Card — 3/3
 - [ ] Carousel
 - [ ] Chart
 - [x] Checkbox — 4/4
@@ -69,7 +69,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Direction
 - [ ] Drawer
 - [ ] Dropdown Menu
-- [ ] Empty
+- [x] Empty — 3/3
 - [x] Field
 - [ ] Hover Card
 - [x] Input — 4/4
@@ -86,7 +86,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Navigation Menu
 - [ ] Pagination
 - [ ] Popover
-- [ ] Progress
+- [x] Progress — 3/3
 - [x] Radio Group — 4/4
 - [ ] Resizable
 - [ ] Scroll Area
@@ -94,10 +94,10 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Separator
 - [ ] Sheet
 - [ ] Sidebar
-- [ ] Skeleton
+- [x] Skeleton — 3/3
 - [ ] Slider
 - [ ] Sonner
-- [ ] Spinner
+- [x] Spinner — 3/3
 - [x] Switch — 4/4
 - [ ] Table
 - [~] Tabs
@@ -113,16 +113,13 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Match shadcn reference semantics, keyboard/focus behavior, ARIA,
   disabled/loading/error states, and controlled/uncontrolled usage.
 - [ ] Implement sticker, bubble, and sketch on the shared primitive.
-- [ ] Export and register all four variations.
+- [ ] Export and register all three variations.
 - [ ] Document/demo every variation with representative props.
 - [ ] Add interaction/type tests; `npm run check` and `npm run build` pass.
 - [ ] Change this entry to `[x]` only after every item above is true.
 
 ## Recommended focus order
 
-1. Checkbox, Switch, Radio Group.
-2. Label, Field, Textarea, Input Group, Input OTP.
-3. Card, Badge, Alert, Empty, Skeleton, Spinner, Progress.
 4. Dialog, Alert Dialog, Drawer, Sheet, Popover, Hover Card, menus.
 5. Tabs, Accordion, Collapsible, Carousel, Calendar, Date Picker, navigation/data.
 6. Attachment, Bubble, Marker, Message, Message Scroller.

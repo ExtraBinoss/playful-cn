@@ -1,0 +1,5 @@
+import * as m from 'motion/react-m'
+import type { HTMLMotionProps } from 'motion/react'
+import { cn } from '../../../lib/styling/cn'
+export type PlayfulProgressProps = Omit<HTMLMotionProps<'div'>, 'ref'> & { value?: number; max?: number; label?: string; showValue?: boolean }
+export function ProgressBase({ variation, value = 0, max = 100, label, showValue = false, className, ...props }: PlayfulProgressProps & { variation: 'sticker' | 'bubble' | 'sketch' }) { const safeValue = Math.min(Math.max(value, 0), max); const percent = max ? safeValue / max * 100 : 0; return <div className={cn('pc-progress', `pc-progress-${variation}`, className)} {...props}><div className="pc-progress-head">{label ? <span>{label}</span> : <span />}{showValue ? <strong>{Math.round(percent)}%</strong> : null}</div><div className="pc-progress-track" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={max} aria-valuenow={safeValue}><m.span className="pc-progress-fill" initial={{ width: 0 }} animate={{ width: `${percent}%` }} transition={{ type: 'spring', stiffness: 100, damping: 18 }} /></div></div> }

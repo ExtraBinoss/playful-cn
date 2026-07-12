@@ -38,6 +38,10 @@ import {
   StickerPopButton,
   StickerTabs,
   SwatchPartyColorPicker,
+  StickerCard, BubbleCard, SketchCard, StickerBadge, BubbleBadge, SketchBadge,
+  StickerAlert, BubbleAlert, SketchAlert, StickerEmpty, BubbleEmpty, SketchEmpty,
+  StickerSkeleton, BubbleSkeleton, SketchSkeleton, StickerSpinner, BubbleSpinner, SketchSpinner,
+  StickerProgress, BubbleProgress, SketchProgress,
 } from '../playful'
 
 const buttonExamples = [
@@ -83,6 +87,27 @@ export function VariationPreview({ componentName }: { componentName: string }) {
           </p>
         </FeatureStickerCard>
       )
+    case 'StickerCard': return <StickerCard className="max-w-sm" interactive><strong>Sticker card</strong><p>Chunky surface, ready to compose.</p></StickerCard>
+    case 'BubbleCard': return <BubbleCard className="max-w-sm" interactive><strong>Bubble card</strong><p>Soft, glossy and responsive.</p></BubbleCard>
+    case 'SketchCard': return <SketchCard className="max-w-sm" interactive><strong>Sketch card</strong><p>Hand-drawn framed surface.</p></SketchCard>
+    case 'StickerBadge': return <StickerBadge>New</StickerBadge>
+    case 'BubbleBadge': return <BubbleBadge>Online</BubbleBadge>
+    case 'SketchBadge': return <SketchBadge>Draft</SketchBadge>
+    case 'StickerAlert': return <StickerAlert title="Heads up">A playful alert with context.</StickerAlert>
+    case 'BubbleAlert': return <BubbleAlert title="All good">Everything is up to date.</BubbleAlert>
+    case 'SketchAlert': return <SketchAlert title="Note">Review this detail before continuing.</SketchAlert>
+    case 'StickerEmpty': return <StickerEmpty title="No projects yet" description="Create one to get started." />
+    case 'BubbleEmpty': return <BubbleEmpty title="No results" description="Try another search." />
+    case 'SketchEmpty': return <SketchEmpty title="Nothing here" description="This space is ready for your content." />
+    case 'StickerSkeleton': return <StickerSkeleton lines={3} />
+    case 'BubbleSkeleton': return <BubbleSkeleton lines={3} />
+    case 'SketchSkeleton': return <SketchSkeleton lines={3} />
+    case 'StickerSpinner': return <StickerSpinner label="Loading sticker" />
+    case 'BubbleSpinner': return <BubbleSpinner label="Loading bubble" />
+    case 'SketchSpinner': return <SketchSpinner label="Loading sketch" />
+    case 'StickerProgress': return <StickerProgress value={68} label="Uploading" showValue />
+    case 'BubbleProgress': return <BubbleProgress value={42} label="Syncing" showValue />
+    case 'SketchProgress': return <SketchProgress value={84} label="Finishing" showValue />
     case 'StickerFieldInput':
       return (
         <StickerFieldInput

@@ -466,6 +466,49 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
   },
 ]
 
+const collectionFamilies = createCollectionFamilies()
+for (const family of collectionFamilies) {
+  const existingIndex = componentRegistry.findIndex((entry) => entry.familySlug === family.familySlug)
+  if (existingIndex >= 0) componentRegistry.splice(existingIndex, 1)
+}
+componentRegistry.push(...collectionFamilies)
+
+function createCollectionFamilies(): Array<ComponentFamilyDoc> {
+  const skins = ['sticker', 'bubble', 'sketch'] as const
+  const definitions = [
+    ['cards', 'Cards', 'Framed surfaces with playful hover motion.', 'Card', 'cards', ['children', 'interactive']],
+    ['badges', 'Badges', 'Compact labels for status, metadata, and release notes.', 'Badge', 'badges', ['children', 'icon']],
+    ['alerts', 'Alerts', 'Accessible feedback panels for important context.', 'Alert', 'alerts', ['title', 'description', 'dismissible']],
+    ['empties', 'Empty states', 'Friendly guidance for lists and views without content.', 'Empty', 'empties', ['title', 'description', 'action']],
+    ['skeletons', 'Skeletons', 'Reduced-motion friendly loading placeholders.', 'Skeleton', 'skeletons', ['lines']],
+    ['spinners', 'Spinners', 'Small loading indicators with a pure SVG default.', 'Spinner', 'spinners', ['label', 'size', 'icon']],
+    ['progresses', 'Progress', 'Animated determinate progress indicators.', 'Progress', 'progresses', ['value', 'max', 'label', 'showValue']],
+  ] as const
+  return definitions.map(([familySlug, familyName, description, baseName, folder, propNames]) => ({
+    familySlug,
+    familyName,
+    description,
+    packageName: `@playful/components/${folder}`,
+    cliCommand: `npx playful-cn add ${folder}`,
+    aiPrompt: `Use the ${baseName} collection with the matching sticker, bubble, or sketch skin. Keep the semantic API intact and provide custom icons through the icon slot when needed.`,
+    tags: [familySlug, 'playful', 'motion'],
+    props: propNames.map((name) => ({ name, type: name === 'icon' || name === 'action' ? 'ReactNode' : 'component prop', description: `Configures the ${name} slot or behavior.` })),
+    variations: skins.map((skin) => ({
+      slug: skin,
+      name: `${skin[0].toUpperCase()}${skin.slice(1)} ${familyName}`,
+      description: `${skin[0].toUpperCase()}${skin.slice(1)} visual skin for ${familyName.toLowerCase()}.`,
+      componentName: `${skin[0].toUpperCase()}${skin.slice(1)}${baseName}`,
+      importPath: `@/components/playful/${folder}/${skin}`,
+      coreVariant: skin,
+      category: 'core' as const,
+      tags: [familySlug, skin, 'core'],
+      status: 'ready' as const,
+      tokens: ['--pc-color-pink', '--pc-border-color', '--pc-duration-normal'],
+      props: propNames.map((name) => ({ name, type: name === 'icon' || name === 'action' ? 'ReactNode' : 'component prop', description: `Configures the ${name} slot or behavior.` })),
+    })),
+  }))
+}
+
 export function getComponentFamily(familySlug: string) {
   return componentRegistry.find((family) => family.familySlug === familySlug)
 }

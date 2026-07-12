@@ -18,14 +18,49 @@
     "familyName": "Badges",
     "description": "Compact tags for statuses, labels, and release notes.",
     "tags": ["badge", "status", "label"],
-    "variations": ["feature-sticker"]
+    "variations": ["sticker", "bubble", "sketch", "feature-sticker"]
   },
   {
     "familySlug": "cards",
     "familyName": "Cards",
     "description": "Framed surfaces for previews, docs, and feature callouts.",
     "tags": ["card", "surface", "preview"],
-    "variations": ["feature-sticker"]
+    "variations": ["sticker", "bubble", "sketch", "feature-sticker"]
+  },
+  {
+    "familySlug": "alerts",
+    "familyName": "Alerts",
+    "description": "Accessible feedback panels for important context.",
+    "tags": ["alert", "feedback", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "empties",
+    "familyName": "Empty states",
+    "description": "Friendly guidance for lists and views without content.",
+    "tags": ["empty", "state", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "skeletons",
+    "familyName": "Skeletons",
+    "description": "Reduced-motion friendly loading placeholders.",
+    "tags": ["skeleton", "loading", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "spinners",
+    "familyName": "Spinners",
+    "description": "Small loading indicators with a pure SVG default.",
+    "tags": ["spinner", "loading", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "progresses",
+    "familyName": "Progress",
+    "description": "Animated determinate progress indicators.",
+    "tags": ["progress", "loading", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
   },
   {
     "familySlug": "inputs",

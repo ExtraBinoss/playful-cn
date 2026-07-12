@@ -1,4 +1,4 @@
-export * from './feature-sticker'
+export * from './empty-base'
 export * from './sticker'
 export * from './bubble'
 export * from './sketch'
