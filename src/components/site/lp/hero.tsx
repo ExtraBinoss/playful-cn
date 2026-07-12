@@ -5,7 +5,6 @@ import {
   FeatureStickerBadge,
   FeatureStickerCard,
   MintToggleSwitch,
-  NeonGradientButton,
   PopToast,
   StickerPopButton,
   SwatchPartyColorPicker,
@@ -26,9 +25,9 @@ export function Hero() {
           <StickerPopButton rightIcon={<ArrowRight size={18} />}>
             Browse components
           </StickerPopButton>
-          <NeonGradientButton>
+          <StickerPopButton>
             View tokens
-          </NeonGradientButton>
+          </StickerPopButton>
         </div>
       </div>
 
@@ -62,9 +61,9 @@ export function Hero() {
           >
             Bubble CTA
           </BubbleGumButton>
-          <NeonGradientButton>
+          <StickerPopButton>
             Gradient
-          </NeonGradientButton>
+          </StickerPopButton>
         </div>
       </div>
     </section>

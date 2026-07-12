@@ -9,12 +9,7 @@ import {
   CandyFieldInput,
   FeatureStickerBadge,
   FeatureStickerCard,
-  GlowFieldInput,
-  GlowCheckbox,
-  GlowRadioGroup,
-  GlowSwitch,
   MintToggleSwitch,
-  NeonGradientButton,
   PopToast,
   PopoverTipTooltip,
   QuietGhostButton,
@@ -51,8 +46,6 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       )
     case 'BubbleGumButton':
       return <BubbleGumButton>Bubble action</BubbleGumButton>
-    case 'NeonGradientButton':
-      return <NeonGradientButton size="lg">Upgrade now</NeonGradientButton>
     case 'SoftCandyButton':
       return <SoftCandyButton>Save draft</SoftCandyButton>
     case 'SketchOutlineButton':
@@ -90,8 +83,6 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <CandyFieldInput icon={<Search />} placeholder="Search components..." />
     case 'BubbleFieldInput':
       return <BubbleFieldInput icon={<Search />} placeholder="Search people..." />
-    case 'GlowFieldInput':
-      return <GlowFieldInput icon={<Search />} placeholder="Search the galaxy..." />
     case 'SketchFieldInput':
       return <SketchFieldInput icon={<Search />} placeholder="Search projects..." />
     case 'MintToggleSwitch':
@@ -102,24 +93,18 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <StickerCheckbox defaultChecked label="Sticker choice" icon={<span>✦</span>} />
     case 'BubbleCheckbox':
       return <BubbleCheckbox defaultChecked label="Bubble choice" />
-    case 'GlowCheckbox':
-      return <GlowCheckbox defaultChecked label="Glow choice" />
     case 'SketchCheckbox':
       return <SketchCheckbox defaultChecked label="Sketch choice" />
     case 'StickerSwitch':
       return <StickerSwitch defaultChecked aria-label="Sticker switch" />
     case 'BubbleSwitch':
       return <BubbleSwitch defaultChecked aria-label="Bubble switch" />
-    case 'GlowSwitch':
-      return <GlowSwitch defaultChecked aria-label="Glow switch" />
     case 'SketchSwitch':
       return <SketchSwitch defaultChecked aria-label="Sketch switch" />
     case 'StickerRadioGroup':
       return <StickerRadioGroup defaultValue="sticker" options={radioOptions} />
     case 'BubbleRadioGroup':
       return <BubbleRadioGroup defaultValue="bubble" options={radioOptions} />
-    case 'GlowRadioGroup':
-      return <GlowRadioGroup defaultValue="glow" options={radioOptions} />
     case 'SketchRadioGroup':
       return <SketchRadioGroup defaultValue="sketch" options={radioOptions} />
     case 'StickerTabs':
@@ -231,8 +216,6 @@ function getButtonComponent(componentName: string) {
       return StickerPopButton
     case 'BubbleGumButton':
       return BubbleGumButton
-    case 'NeonGradientButton':
-      return NeonGradientButton
     case 'SoftCandyButton':
       return SoftCandyButton
     case 'SketchOutlineButton':
@@ -252,8 +235,6 @@ function getInputComponent(componentName: string) {
       return CandyFieldInput
     case 'BubbleFieldInput':
       return BubbleFieldInput
-    case 'GlowFieldInput':
-      return GlowFieldInput
     case 'SketchFieldInput':
       return SketchFieldInput
     default:
@@ -279,14 +260,6 @@ function getCorePair(componentName: string) {
         input: BubbleFieldInput,
         label: 'Bubble action',
         placeholder: 'Bubble field',
-      }
-    case 'NeonGradientButton':
-    case 'GlowFieldInput':
-      return {
-        button: NeonGradientButton,
-        input: GlowFieldInput,
-        label: 'Glow action',
-        placeholder: 'Glow field',
       }
     case 'SketchOutlineButton':
     case 'SketchFieldInput':

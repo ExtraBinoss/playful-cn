@@ -1,6 +1,5 @@
 export * from './checkbox'
 export * from './sticker-checkbox'
 export * from './bubble-checkbox'
-export * from './glow-checkbox'
 export * from './sketch-checkbox'
 export * from './star-check'

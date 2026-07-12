@@ -13,7 +13,7 @@ const buttonProps = [
 const inputProps = [
   { name: 'inputSize', type: 'sm | md | lg | xl', defaultValue: 'md', description: 'Control height, padding, and text size.' },
   { name: 'tone', type: 'default | success | error | warning | info | neutral', defaultValue: 'default', description: 'Semantic state color for the same visual variation.' },
-  { name: 'motionPreset', type: 'none | lift | squish | glow', defaultValue: 'lift', description: 'Focus and hover animation preset.' },
+  { name: 'motionPreset', type: 'none | lift | squish', defaultValue: 'lift', description: 'Focus and hover animation preset.' },
   { name: 'invalid', type: 'boolean', defaultValue: 'false', description: 'Marks the field invalid and applies the error tone.' },
   { name: 'icon', type: 'ReactNode', description: 'Optional icon slot from any icon library.' },
   { name: 'iconPosition', type: 'left | right', defaultValue: 'left', description: 'Places the icon inside the field.' },
@@ -32,10 +32,10 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
   {
     familySlug: 'buttons',
     familyName: 'Buttons',
-    description: 'CTA components built on the shared sticker, bubble, glow, and sketch visual vocabulary.',
+    description: 'CTA components built on the shared sticker, bubble, and sketch visual vocabulary.',
     packageName: '@playful/components/buttons',
     cliCommand: 'npx playful-cn add buttons',
-    aiPrompt: 'Use Playful Components core button variations: StickerPopButton, BubbleGumButton, NeonGradientButton, and SketchOutlineButton. Pick tone="success" for positive actions, tone="error" for destructive actions, loading for pending actions, and QuietGhostButton for low-emphasis button-only actions. Keep className overrides scoped with CSS variables.',
+    aiPrompt: 'Use Playful Components core button variations: StickerPopButton, BubbleGumButton, and SketchOutlineButton. Pick tone="success" for positive actions, tone="error" for destructive actions, loading for pending actions, and QuietGhostButton for low-emphasis button-only actions. Keep className overrides scoped with CSS variables.',
     tags: ['button', 'cta', 'motion'],
     props: buttonProps,
     variations: [
@@ -63,19 +63,6 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
         tags: ['button', 'bubble', 'core', 'pill'],
         status: 'ready',
         tokens: ['--pc-color-blue', '--pc-button-inset-shadow', '--pc-radius-full'],
-        props: buttonProps,
-      },
-      {
-        slug: 'glow',
-        name: 'Neon Gradient Button',
-        description: 'High-energy gradient action for hero and upgrade flows.',
-        componentName: 'NeonGradientButton',
-        importPath: '@/components/playful/buttons/neon-gradient',
-        coreVariant: 'glow',
-        category: 'core',
-        tags: ['button', 'glow', 'core', 'gradient'],
-        status: 'ready',
-        tokens: ['--pc-color-pink', '--pc-color-purple', '--pc-color-blue'],
         props: buttonProps,
       },
       {
@@ -209,10 +196,10 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
   {
     familySlug: 'inputs',
     familyName: 'Inputs',
-    description: 'Text fields built on the shared sticker, bubble, glow, and sketch visual vocabulary.',
+    description: 'Text fields built on the shared sticker, bubble, and sketch visual vocabulary.',
     packageName: '@playful/components/inputs',
     cliCommand: 'npx playful-cn add inputs',
-    aiPrompt: 'Use Playful Components core input variations: StickerFieldInput, BubbleFieldInput, GlowFieldInput, and SketchFieldInput. CandyFieldInput remains a backward-compatible alias for StickerFieldInput. Pick tone="success" for accepted values, tone="error" or invalid for validation errors, and provide label plus hint/error when the field needs context. Keep native input props and use inputSize for sizing.',
+    aiPrompt: 'Use Playful Components core input variations: StickerFieldInput, BubbleFieldInput, and SketchFieldInput. CandyFieldInput remains a backward-compatible alias for StickerFieldInput. Pick tone="success" for accepted values, tone="error" or invalid for validation errors, and provide label plus hint/error when the field needs context. Keep native input props and use inputSize for sizing.',
     tags: ['input', 'form', 'field', 'motion'],
     props: inputProps,
     variations: [
@@ -243,19 +230,6 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
         props: inputProps,
       },
       {
-        slug: 'glow',
-        name: 'Glow Field Input',
-        description: 'Dark gradient-border input for expressive search and command fields.',
-        componentName: 'GlowFieldInput',
-        importPath: '@/components/playful/inputs/glow-field',
-        coreVariant: 'glow',
-        category: 'core',
-        tags: ['input', 'glow', 'core', 'gradient'],
-        status: 'ready',
-        tokens: ['--pc-color-pink', '--pc-color-purple', '--pc-color-blue'],
-        props: inputProps,
-      },
-      {
         slug: 'sketch',
         name: 'Sketch Field Input',
         description: 'Hand-cut outline input with a bold offset shadow.',
@@ -276,7 +250,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     description: 'Accessible on/off controls with a shared motion primitive and four playful skins.',
     packageName: '@playful/components/switches',
     cliCommand: 'npx playful-cn add switches',
-    aiPrompt: 'Use StickerSwitch, BubbleSwitch, GlowSwitch, or SketchSwitch for boolean settings. Provide aria-label when no visible label exists, and use checked/onChange for controlled state.',
+    aiPrompt: 'Use StickerSwitch, BubbleSwitch, or SketchSwitch for boolean settings. Provide aria-label when no visible label exists, and use checked/onChange for controlled state.',
     tags: ['switch', 'toggle', 'form'],
     props: [
       { name: 'checked', type: 'boolean', description: 'Controlled checked state.' },
@@ -286,8 +260,8 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
       { name: 'icon', type: 'ReactNode', description: 'Optional icon inside the switch thumb.' },
     ],
     variations: [
-      ...['sticker', 'bubble', 'glow', 'sketch'].map((slug) => ({
-        slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Switch`, description: `Accessible ${slug} switch with a playful animated thumb.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}Switch`, importPath: `@/components/playful/switches/${slug}-switch`, coreVariant: slug as 'sticker' | 'bubble' | 'glow' | 'sketch', category: 'core' as const, tags: ['switch', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-full'], props: [
+      ...['sticker', 'bubble', 'sketch'].map((slug) => ({
+        slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Switch`, description: `Accessible ${slug} switch with a playful animated thumb.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}Switch`, importPath: `@/components/playful/switches/${slug}-switch`, coreVariant: slug as 'sticker' | 'bubble' | 'sketch', category: 'core' as const, tags: ['switch', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-full'], props: [
           { name: 'checked / defaultChecked', type: 'boolean', description: 'Controlled or initial state.' },
           { name: 'onChange', type: '(checked: boolean) => void', description: 'Called when the value changes.' },
           { name: 'icon / loading / disabled', type: 'ReactNode | boolean', description: 'Optional thumb icon and pending/disabled states.' },
@@ -301,7 +275,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     description: 'Native checkbox semantics with indeterminate, validation, loading, and four playful skins.',
     packageName: '@playful/components/checkboxes',
     cliCommand: 'npx playful-cn add checkboxes',
-    aiPrompt: 'Use StickerCheckbox, BubbleCheckbox, GlowCheckbox, or SketchCheckbox for opt-in form choices. Prefer visible labels; use checked/onChange when controlled.',
+    aiPrompt: 'Use StickerCheckbox, BubbleCheckbox, or SketchCheckbox for opt-in form choices. Prefer visible labels; use checked/onChange when controlled.',
     tags: ['checkbox', 'form', 'input'],
     props: [
       { name: 'label', type: 'ReactNode', description: 'Optional visible label.' },
@@ -311,8 +285,8 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
       { name: 'icon / loading / invalid', type: 'ReactNode | boolean', description: 'Optional icon and form feedback states.' },
     ],
     variations: [
-      ...['sticker', 'bubble', 'glow', 'sketch'].map((slug) => ({
-        slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Checkbox`, description: `Accessible ${slug} checkbox with native input behavior.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}Checkbox`, importPath: `@/components/playful/checkboxes/${slug}-checkbox`, coreVariant: slug as 'sticker' | 'bubble' | 'glow' | 'sketch', category: 'core' as const, tags: ['checkbox', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-md'], props: [
+      ...['sticker', 'bubble', 'sketch'].map((slug) => ({
+        slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Checkbox`, description: `Accessible ${slug} checkbox with native input behavior.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}Checkbox`, importPath: `@/components/playful/checkboxes/${slug}-checkbox`, coreVariant: slug as 'sticker' | 'bubble' | 'sketch', category: 'core' as const, tags: ['checkbox', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-md'], props: [
           { name: 'label / description', type: 'ReactNode', description: 'Visible option copy.' },
           { name: 'checked / defaultChecked', type: 'boolean', description: 'Controlled or initial state.' },
           { name: 'indeterminate / loading / invalid / icon', type: 'boolean | ReactNode', description: 'Mixed, pending, validation, and icon states.' },
@@ -326,7 +300,7 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
     description: 'Single-choice groups with native radio semantics, roving keyboard navigation, and playful skins.',
     packageName: '@playful/components/radio-groups',
     cliCommand: 'npx playful-cn add radio-groups',
-    aiPrompt: 'Use StickerRadioGroup, BubbleRadioGroup, GlowRadioGroup, or SketchRadioGroup for one-of-many choices. Provide options with value and label, and use value/onChange for controlled state.',
+    aiPrompt: 'Use StickerRadioGroup, BubbleRadioGroup, or SketchRadioGroup for one-of-many choices. Provide options with value and label, and use value/onChange for controlled state.',
     tags: ['radio', 'form', 'choice'],
     props: [
       { name: 'options', type: 'PlayfulRadioOption[]', description: 'Radio choices with optional descriptions, icons, and disabled states.' },
@@ -334,8 +308,8 @@ export const componentRegistry: Array<ComponentFamilyDoc> = [
       { name: 'orientation', type: 'horizontal | vertical', defaultValue: 'vertical', description: 'Layout and arrow-key direction.' },
       { name: 'invalid / loading', type: 'boolean', description: 'Form feedback and pending states.' },
     ],
-    variations: [...['sticker', 'bubble', 'glow', 'sketch'].map((slug) => ({
-      slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Radio Group`, description: `Accessible ${slug} single-choice group.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}RadioGroup`, importPath: `@/components/playful/radio-groups/${slug}-radio-group`, coreVariant: slug as 'sticker' | 'bubble' | 'glow' | 'sketch', category: 'core' as const, tags: ['radio', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-md'], props: [
+    variations: [...['sticker', 'bubble', 'sketch'].map((slug) => ({
+      slug, name: `${slug[0].toUpperCase()}${slug.slice(1)} Radio Group`, description: `Accessible ${slug} single-choice group.`, componentName: `${slug[0].toUpperCase()}${slug.slice(1)}RadioGroup`, importPath: `@/components/playful/radio-groups/${slug}-radio-group`, coreVariant: slug as 'sticker' | 'bubble' | 'sketch', category: 'core' as const, tags: ['radio', slug, 'form'], status: 'ready' as const, tokens: ['--pc-control-accent', '--pc-border-color', '--pc-radius-md'], props: [
         { name: 'options', type: 'PlayfulRadioOption[]', description: 'Radio choices with optional descriptions and icons.' },
         { name: 'value / defaultValue', type: 'string', description: 'Controlled or initial selection.' },
         { name: 'onChange / orientation', type: 'function | string', description: 'Selection callback and layout direction.' },
@@ -445,11 +419,9 @@ export function getComponentVariation(familySlug: string, variationSlug: string)
   const legacySlugs: Record<string, string> = {
     'sticker-pop': 'sticker',
     'bubble-gum': 'bubble',
-    'neon-gradient': 'glow',
     'sketch-outline': 'sketch',
     'candy-field': 'sticker',
     'bubble-field': 'bubble',
-    'glow-field': 'glow',
     'sketch-field': 'sketch',
   }
   const resolvedSlug = legacySlugs[variationSlug] ?? variationSlug

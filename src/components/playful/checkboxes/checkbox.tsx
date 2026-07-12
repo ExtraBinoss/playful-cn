@@ -36,7 +36,7 @@ export function CheckboxBase({
   disabled,
   onChange,
   ...props
-}: PlayfulCheckboxProps & { variant: 'sticker' | 'bubble' | 'glow' | 'sketch' }) {
+}: PlayfulCheckboxProps & { variant: 'sticker' | 'bubble' | 'sketch' }) {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [isChecked, setChecked] = useControllableState({
     value: checked,

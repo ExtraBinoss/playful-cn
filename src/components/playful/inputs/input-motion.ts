@@ -16,8 +16,4 @@ export const inputMotionPresets = {
     whileHover: { scaleX: 1.01, scaleY: 0.99 },
     whileFocus: { scaleX: 1.015, scaleY: 0.985 },
   },
-  glow: {
-    whileHover: { y: -1 },
-    whileFocus: { scale: 1.01 },
-  },
 } satisfies Record<PlayfulInputMotion, InputMotionConfig>

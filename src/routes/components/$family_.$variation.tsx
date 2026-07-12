@@ -10,8 +10,6 @@ import {
   BubbleFieldInput,
   BubbleGumButton,
   FeatureStickerCard,
-  GlowFieldInput,
-  NeonGradientButton,
   QuietGhostButton,
   SketchOutlineButton,
   SketchFieldInput,
@@ -376,8 +374,6 @@ function getButtonComponent(componentName: string) {
       return StickerPopButton
     case 'BubbleGumButton':
       return BubbleGumButton
-    case 'NeonGradientButton':
-      return NeonGradientButton
     case 'SoftCandyButton':
       return SoftCandyButton
     case 'SketchOutlineButton':
@@ -395,8 +391,6 @@ function getInputComponent(componentName: string) {
       return StickerFieldInput
     case 'BubbleFieldInput':
       return BubbleFieldInput
-    case 'GlowFieldInput':
-      return GlowFieldInput
     case 'SketchFieldInput':
       return SketchFieldInput
     default:

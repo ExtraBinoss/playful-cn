@@ -12,7 +12,7 @@ export type PlayfulSwitchProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, '
   onChange?: (checked: boolean) => void
 }
 
-export function SwitchBase({ variant, checked, defaultChecked = false, loading = false, label, icon, className, disabled, onChange, onClick, children, ...props }: PlayfulSwitchProps & { variant: 'sticker' | 'bubble' | 'glow' | 'sketch' }) {
+export function SwitchBase({ variant, checked, defaultChecked = false, loading = false, label, icon, className, disabled, onChange, onClick, children, ...props }: PlayfulSwitchProps & { variant: 'sticker' | 'bubble' | 'sketch' }) {
   const [isChecked, setChecked] = useControllableState({ value: checked, defaultValue: defaultChecked, onChange })
   const isDisabled = disabled || loading
 
@@ -29,12 +29,12 @@ export function SwitchBase({ variant, checked, defaultChecked = false, loading =
           if (!isDisabled) setChecked(!isChecked)
           onClick?.(event)
         }}
-        whileHover={variant === 'bubble' ? { scaleX: 1.04, scaleY: 0.96 } : variant === 'glow' ? { y: -2, scale: 1.02 } : variant === 'sketch' ? { rotate: 1 } : { y: -2 }}
+        whileHover={variant === 'bubble' ? { scaleX: 1.04, scaleY: 0.96 } : variant === 'sketch' ? { rotate: 1 } : { y: -2 }}
         whileTap={variant === 'bubble' ? { scaleX: 0.94, scaleY: 1.06 } : { scale: 0.96 }}
         transition={{ type: 'spring', stiffness: 520, damping: 30 }}
         {...props}
       >
-        <m.span className="pc-switch-thumb" aria-hidden whileTap={{ scale: 0.84 }} transition={{ type: 'spring', stiffness: 600, damping: 24 }}>{loading ? <span className="pc-control-loader" /> : icon ?? null}</m.span>
+        <m.span className="pc-switch-thumb" aria-hidden animate={{ x: isChecked ? 30.4 : 0 }} transition={{ type: 'spring', stiffness: 600, damping: 24 }}>{loading ? <span className="pc-control-loader" /> : icon ?? null}</m.span>
         {children}
       </m.button>
       {label ? <span className="pc-switch-label">{label}</span> : null}

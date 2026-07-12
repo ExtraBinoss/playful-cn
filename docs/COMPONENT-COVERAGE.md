@@ -9,7 +9,6 @@ behavioral/API primitive and the four canonical visual variations below.
 | --- | --- |
 | `sticker` | chunky surface, offset shadow, candy accents |
 | `bubble` | rounded glossy/pill surface with pressure feedback |
-| `glow` | energetic gradient and glow treatment |
 | `sketch` | hand-drawn outline with bold offset shadow |
 
 `4/4` means all four skins share the same public API and behavior. Extra skins
@@ -17,10 +16,10 @@ such as `soft-candy` do not replace a canonical skin.
 
 ## Current snapshot (2026-07-12)
 
-- [x] **Button — 4/4**: sticker-pop, bubble-gum, neon-gradient,
-  sketch-outline (plus soft-candy and quiet-ghost).
-- [x] **Input — 4/4**: sticker-field, bubble-field, glow-field,
-  sketch-field (plus candy-field).
+- [x] **Button — 3/3**: sticker-pop, bubble-gum, sketch-outline (plus
+  soft-candy and quiet-ghost).
+- [x] **Input — 3/3**: sticker-field, bubble-field, sketch-field (plus
+  candy-field).
 - [x] **Checkbox, Radio Group, Switch**: 4/4 canonical skins with shared
   behavior, keyboard support, loading/error states, and docs registration.
 - [~] **Card, Badge, Tabs, Tooltip, Toast**: base behavior exists, but the four
@@ -110,7 +109,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 
 - [ ] Match shadcn reference semantics, keyboard/focus behavior, ARIA,
   disabled/loading/error states, and controlled/uncontrolled usage.
-- [ ] Implement sticker, bubble, glow, and sketch on the shared primitive.
+- [ ] Implement sticker, bubble, and sketch on the shared primitive.
 - [ ] Export and register all four variations.
 - [ ] Document/demo every variation with representative props.
 - [ ] Add interaction/type tests; `npm run check` and `npm run build` pass.

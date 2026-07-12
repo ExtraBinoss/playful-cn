@@ -15,7 +15,7 @@ export type PlayfulRadioGroupProps = Omit<HTMLAttributes<HTMLDivElement>, 'onCha
   onChange?: (value: string) => void
 }
 
-export function RadioGroupBase({ variant, options, value, defaultValue, name, orientation = 'vertical', invalid = false, loading = false, className, onChange, ...props }: PlayfulRadioGroupProps & { variant: 'sticker' | 'bubble' | 'glow' | 'sketch' }) {
+export function RadioGroupBase({ variant, options, value, defaultValue, name, orientation = 'vertical', invalid = false, loading = false, className, onChange, ...props }: PlayfulRadioGroupProps & { variant: 'sticker' | 'bubble' | 'sketch' }) {
   const [selected, setSelected] = useControllableState({ value, defaultValue: defaultValue ?? options[0]?.value ?? '', onChange })
   const itemRefs = React.useRef<Array<HTMLInputElement | null>>([])
   const groupName = name ?? React.useId()

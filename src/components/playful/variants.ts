@@ -1,4 +1,4 @@
-export type PlayfulVisualVariant = 'sticker' | 'bubble' | 'glow' | 'sketch'
+export type PlayfulVisualVariant = 'sticker' | 'bubble' | 'sketch'
 
 export type PlayfulVisualVariantMeta = {
   slug: PlayfulVisualVariant
@@ -9,7 +9,7 @@ export type PlayfulVisualVariantMeta = {
   buttonClassName: `pc-button-${PlayfulVisualVariant}`
   inputClassName: `pc-input-${PlayfulVisualVariant}`
   buttonMotionPreset: 'pop' | 'squish' | 'wiggle'
-  inputMotionPreset: 'lift' | 'squish' | 'glow'
+  inputMotionPreset: 'lift' | 'squish'
   tokens: Array<string>
 }
 
@@ -39,18 +39,6 @@ export const playfulVisualVariants = [
     tokens: ['--pc-color-blue', '--pc-button-inset-shadow', '--pc-radius-full'],
   },
   {
-    slug: 'glow',
-    label: 'Glow',
-    description: 'High-energy gradient controls for expressive search and upgrade flows.',
-    buttonComponent: 'NeonGradientButton',
-    inputComponent: 'GlowFieldInput',
-    buttonClassName: 'pc-button-glow',
-    inputClassName: 'pc-input-glow',
-    buttonMotionPreset: 'pop',
-    inputMotionPreset: 'glow',
-    tokens: ['--pc-color-pink', '--pc-color-purple', '--pc-color-blue'],
-  },
-  {
     slug: 'sketch',
     label: 'Sketch',
     description: 'Hand-cut white controls with bold offset shadows.',
@@ -63,4 +51,3 @@ export const playfulVisualVariants = [
     tokens: ['--pc-color-background-soft', '--pc-border-color', '--pc-radius-lg'],
   },
 ] as const satisfies Array<PlayfulVisualVariantMeta>
-

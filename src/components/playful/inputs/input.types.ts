@@ -9,7 +9,7 @@ export type PlayfulInputTone =
   | 'warning'
   | 'info'
   | 'neutral'
-export type PlayfulInputMotion = 'none' | 'lift' | 'squish' | 'glow'
+export type PlayfulInputMotion = 'none' | 'lift' | 'squish'
 
 export type PlayfulInputBaseProps = Omit<
   HTMLMotionProps<'input'>,
