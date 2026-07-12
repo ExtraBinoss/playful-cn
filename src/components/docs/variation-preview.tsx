@@ -3,10 +3,16 @@ import { SideScroll } from '../SideScroll'
 import {
   BubbleFieldInput,
   BubbleGumButton,
+  BubbleCheckbox,
+  BubbleRadioGroup,
+  BubbleSwitch,
   CandyFieldInput,
   FeatureStickerBadge,
   FeatureStickerCard,
   GlowFieldInput,
+  GlowCheckbox,
+  GlowRadioGroup,
+  GlowSwitch,
   MintToggleSwitch,
   NeonGradientButton,
   PopToast,
@@ -14,8 +20,14 @@ import {
   QuietGhostButton,
   SketchOutlineButton,
   SketchFieldInput,
+  SketchCheckbox,
+  SketchRadioGroup,
+  SketchSwitch,
   SoftCandyButton,
   StickerFieldInput,
+  StickerCheckbox,
+  StickerRadioGroup,
+  StickerSwitch,
   StarCheckCheckbox,
   StickerPopButton,
   StickerTabs,
@@ -86,6 +98,30 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <MintToggleSwitch defaultChecked aria-label="Preview switch" />
     case 'StarCheckCheckbox':
       return <StarCheckCheckbox defaultChecked label="Playful and native" />
+    case 'StickerCheckbox':
+      return <StickerCheckbox defaultChecked label="Sticker choice" icon={<span>✦</span>} />
+    case 'BubbleCheckbox':
+      return <BubbleCheckbox defaultChecked label="Bubble choice" />
+    case 'GlowCheckbox':
+      return <GlowCheckbox defaultChecked label="Glow choice" />
+    case 'SketchCheckbox':
+      return <SketchCheckbox defaultChecked label="Sketch choice" />
+    case 'StickerSwitch':
+      return <StickerSwitch defaultChecked aria-label="Sticker switch" />
+    case 'BubbleSwitch':
+      return <BubbleSwitch defaultChecked aria-label="Bubble switch" />
+    case 'GlowSwitch':
+      return <GlowSwitch defaultChecked aria-label="Glow switch" />
+    case 'SketchSwitch':
+      return <SketchSwitch defaultChecked aria-label="Sketch switch" />
+    case 'StickerRadioGroup':
+      return <StickerRadioGroup defaultValue="sticker" options={radioOptions} />
+    case 'BubbleRadioGroup':
+      return <BubbleRadioGroup defaultValue="bubble" options={radioOptions} />
+    case 'GlowRadioGroup':
+      return <GlowRadioGroup defaultValue="glow" options={radioOptions} />
+    case 'SketchRadioGroup':
+      return <SketchRadioGroup defaultValue="sketch" options={radioOptions} />
     case 'StickerTabs':
       return (
         <StickerTabs
@@ -105,6 +141,11 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return null
   }
 }
+
+const radioOptions = [
+  { value: 'sticker', label: 'Playful', description: 'A colorful choice' },
+  { value: 'bubble', label: 'Focused', description: 'A calm choice' },
+]
 
 export function CorePairPreview({ componentName }: { componentName: string }) {
   const pair = getCorePair(componentName)

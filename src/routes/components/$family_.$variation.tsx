@@ -195,6 +195,7 @@ function getInstallDependencies(familySlug: string) {
     buttons: ['react', 'motion'],
     cards: ['react', 'motion'],
     checkboxes: ['react'],
+    'radio-groups': ['react', 'motion'],
     'color-pickers': ['react', 'motion'],
     inputs: ['react', 'motion'],
     switches: ['react', 'motion'],

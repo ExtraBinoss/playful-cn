@@ -11,11 +11,15 @@ import {
 import { componentRegistry } from '../../lib/docs/registry'
 
 export const Route = createFileRoute('/components/')({
+  validateSearch: (search) => ({
+    collection: typeof search.collection === 'string' ? search.collection : undefined,
+  }),
   component: ComponentsPage,
 })
 
 function ComponentsPage() {
   const [query, setQuery] = React.useState('')
+  const { collection: selectedCollection } = Route.useSearch()
   const deferredQuery = React.useDeferredValue(query.toLowerCase())
   const collections = playfulVisualVariants.map((collection) => ({
     ...collection,
@@ -26,6 +30,7 @@ function ComponentsPage() {
       .filter(({ variation }) => variation.coreVariant === collection.slug),
   }))
   const visibleFamilies = componentRegistry.filter((family) => {
+    if (selectedCollection && !family.variations.some((variation) => variation.coreVariant === selectedCollection)) return false
     if (!deferredQuery) return true
     const haystack = [
       family.familyName,
@@ -73,6 +78,13 @@ function ComponentsPage() {
                 <CorePairPreview componentName={collection.buttonComponent} />
               </div>
               <h2 className="m-0 text-xl font-black">{collection.label}</h2>
+              <Link
+                className="pc-variation-doc-link mt-3 w-fit"
+                to="/components"
+                search={{ collection: collection.slug }}
+              >
+                Open full collection
+              </Link>
               <p className="pc-variation-description">
                 {collection.description}
               </p>

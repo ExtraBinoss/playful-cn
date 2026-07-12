@@ -21,7 +21,6 @@ export function FeatureStickerCard({
     <m.div
       className={cn('pc-card pc-card-feature-sticker', className)}
       whileHover={interactive ? { y: -2, rotate: -0.2 } : undefined}
-      whileTap={interactive ? { y: 1, scale: 0.99 } : undefined}
       {...props}
     >
       {children}

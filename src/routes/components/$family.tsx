@@ -42,7 +42,7 @@ function ComponentFamilyPage() {
 
       <div className="pc-variation-grid mt-4">
         {family.variations.map((variation) => (
-          <FeatureStickerCard className="pc-variation-card" key={variation.slug}>
+          <FeatureStickerCard className="pc-variation-card" key={variation.slug} interactive>
             <div className="pc-variation-preview">
               <VariationPreview componentName={variation.componentName} />
             </div>

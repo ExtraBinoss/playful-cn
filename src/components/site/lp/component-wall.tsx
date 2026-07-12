@@ -9,6 +9,7 @@ import {
   StickerTabs,
   SwatchPartyColorPicker,
 } from '../../playful'
+import { Link } from '@tanstack/react-router'
 
 export function ComponentWall() {
   return (
@@ -20,6 +21,7 @@ export function ComponentWall() {
         </h2>
       </div>
       <div className="pc-grid">
+        <Link className="no-underline" to="/components/$family" params={{ family: 'buttons' }}>
         <FeatureStickerCard interactive>
           <FeatureStickerBadge>Buttons</FeatureStickerBadge>
           <div className="mt-4 pc-row">
@@ -29,6 +31,8 @@ export function ComponentWall() {
             </SoftCandyButton>
           </div>
         </FeatureStickerCard>
+        </Link>
+        <Link className="no-underline" to="/components/$family" params={{ family: 'inputs' }}>
         <FeatureStickerCard interactive>
           <FeatureStickerBadge>Forms</FeatureStickerBadge>
           <div className="mt-4 grid gap-3">
@@ -36,12 +40,16 @@ export function ComponentWall() {
             <StarCheckCheckbox defaultChecked label="Accessible by default" />
           </div>
         </FeatureStickerCard>
+        </Link>
+        <Link className="no-underline" to="/components/$family" params={{ family: 'color-pickers' }}>
         <FeatureStickerCard interactive>
           <FeatureStickerBadge>Color</FeatureStickerBadge>
           <div className="mt-4">
             <SwatchPartyColorPicker showPreview={false} showHexInput={false} />
           </div>
         </FeatureStickerCard>
+        </Link>
+        <Link className="no-underline" to="/components">
         <FeatureStickerCard interactive>
           <FeatureStickerBadge>Docs</FeatureStickerBadge>
           <div className="mt-4">
@@ -60,6 +68,7 @@ export function ComponentWall() {
             </PopoverTipTooltip>
           </p>
         </FeatureStickerCard>
+        </Link>
       </div>
     </section>
   )
