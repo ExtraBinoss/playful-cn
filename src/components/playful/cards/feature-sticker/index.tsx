@@ -17,10 +17,10 @@ export function FeatureStickerCard({
   children,
   ...props
 }: FeatureStickerCardProps) {
+  void interactive
   return (
     <m.div
       className={cn('pc-card pc-card-feature-sticker', className)}
-      whileHover={interactive ? { y: -2, rotate: -0.2 } : undefined}
       {...props}
     >
       {children}
