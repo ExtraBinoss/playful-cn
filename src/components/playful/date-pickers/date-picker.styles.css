@@ -1,0 +1,26 @@
+.pc-datepicker {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.pc-datepicker-trigger {
+  border: var(--pc-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.pc-datepicker-calendar-wrapper {
+  padding: 0.25rem;
+}
+
+.pc-datepicker-calendar-wrapper .pc-calendar {
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  box-shadow: none;
+}

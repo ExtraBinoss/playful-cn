@@ -1,0 +1,154 @@
+.pc-carousel {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  padding-bottom: 2.5rem;
+}
+
+.pc-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  border: var(--pc-border-strong);
+}
+
+.pc-carousel-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+.pc-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pc-color-surface-soft);
+  padding: 2rem;
+}
+
+.pc-carousel-empty { display: grid; min-height: 12rem; place-items: center; border: var(--pc-border-strong); color: var(--pc-ink-soft); font-weight: 800; }
+
+.pc-carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 1.25rem));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: var(--pc-border-strong);
+  cursor: pointer;
+  outline: none;
+  z-index: 10;
+  transition: transform var(--pc-duration-fast) ease, background var(--pc-duration-fast) ease;
+}
+
+.pc-carousel-prev {
+  left: -1.25rem;
+}
+
+.pc-carousel-next {
+  right: -1.25rem;
+}
+
+.pc-carousel-dots {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pc-carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: var(--pc-border-strong);
+  background: var(--pc-color-surface);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform var(--pc-duration-fast) ease, background var(--pc-duration-fast) ease;
+}
+
+.pc-carousel-nav-btn:focus-visible,
+.pc-carousel-dot:focus-visible {
+  box-shadow: 0 0 0 4px var(--pc-bg), 0 0 0 7px var(--pc-line);
+}
+
+/* Sticker Variant */
+.pc-carousel-sticker .pc-carousel-viewport {
+  border-radius: var(--pc-radius-lg);
+  box-shadow: var(--pc-shadow-sticker);
+  background: var(--pc-color-surface);
+}
+
+.pc-carousel-sticker .pc-carousel-nav-btn {
+  border-radius: var(--pc-radius-full);
+  background: var(--pc-color-yellow);
+  box-shadow: 2px 2px 0 var(--pc-line);
+}
+
+.pc-carousel-sticker .pc-carousel-nav-btn:hover {
+  transform: translateY(calc(-50% - 1.25rem)) scale(1.05);
+}
+
+.pc-carousel-sticker .pc-carousel-dot {
+  border-radius: var(--pc-radius-full);
+}
+
+.pc-carousel-sticker .pc-carousel-dot.is-active {
+  background: var(--pc-color-pink);
+  transform: scale(1.2);
+}
+
+/* Bubble Variant */
+.pc-carousel-bubble .pc-carousel-viewport {
+  border-radius: var(--pc-radius-xl);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+  box-shadow: 0 8px 30px rgb(56 189 248 / 0.12);
+}
+
+.pc-carousel-bubble .pc-carousel-nav-btn {
+  border-radius: var(--pc-radius-full);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+  background: var(--pc-color-surface);
+  box-shadow: 0 4px 10px rgb(56 189 248 / 0.15);
+}
+
+.pc-carousel-bubble .pc-carousel-dot {
+  border-radius: var(--pc-radius-full);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+}
+
+.pc-carousel-bubble .pc-carousel-dot.is-active {
+  background: var(--pc-color-blue);
+  width: 1.5rem;
+  border-radius: var(--pc-radius-full);
+}
+
+/* Sketch Variant */
+.pc-carousel-sketch .pc-carousel-viewport {
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-md);
+  box-shadow: 4px 4px 0 var(--pc-line);
+}
+
+.pc-carousel-sketch .pc-carousel-nav-btn {
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-xs);
+  background: var(--pc-color-surface);
+  box-shadow: 2px 2px 0 var(--pc-line);
+}
+
+.pc-carousel-sketch .pc-carousel-dot {
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-xs);
+}
+
+.pc-carousel-sketch .pc-carousel-dot.is-active {
+  background: var(--pc-color-ink);
+}

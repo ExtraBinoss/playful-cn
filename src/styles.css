@@ -20,6 +20,17 @@
 @import "./components/playful/inputs/form-controls.focus.css";
 @import "./components/playful/inputs/form-controls.group.css";
 @import "./components/playful/inputs/form-controls.resize.css";
+@import "./components/playful/tabs/tabs.styles.css";
+@import "./components/playful/accordions/accordion.styles.css";
+@import "./components/playful/collapsibles/collapsible.styles.css";
+@import "./components/playful/carousels/carousel.styles.css";
+@import "./components/playful/calendars/calendar.styles.css";
+@import "./components/playful/date-pickers/date-picker.styles.css";
+@import "./components/playful/breadcrumbs/breadcrumb.styles.css";
+@import "./components/playful/paginations/pagination.styles.css";
+@import "./components/playful/tables/table.styles.css";
+@import "./components/playful/navigation-menus/navigation-menu.styles.css";
+@import "./components/playful/data-tables/data-table.styles.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 

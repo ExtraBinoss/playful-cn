@@ -1,0 +1,108 @@
+.pc-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.pc-accordion-item {
+  border: var(--pc-border-strong);
+  overflow: hidden;
+  transition: transform var(--pc-duration-fast) ease, box-shadow var(--pc-duration-fast) ease;
+}
+
+.pc-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-weight: 800;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: var(--pc-ink);
+}
+
+.pc-accordion-trigger-text {
+  flex: 1;
+}
+
+.pc-accordion-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pc-ink-soft);
+}
+
+.pc-accordion-content {
+  padding: 0 1.25rem 1.25rem;
+  color: var(--pc-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Sticker Accordion */
+.pc-accordion-sticker {
+  gap: 0.75rem;
+}
+
+.pc-accordion-sticker .pc-accordion-item {
+  border-radius: var(--pc-radius-md);
+  background: var(--pc-color-surface);
+  box-shadow: var(--pc-shadow-sticker);
+}
+
+.pc-accordion-sticker .pc-accordion-item.is-open {
+  box-shadow: 2px 2px 0 var(--pc-line);
+  transform: translate(2px, 2px);
+}
+
+.pc-accordion-sticker .pc-accordion-header {
+  background: var(--pc-color-surface);
+  color: var(--pc-color-ink);
+}
+
+.pc-accordion-sticker .pc-accordion-header:hover {
+  background: var(--pc-color-surface-soft);
+}
+
+/* Bubble Accordion */
+.pc-accordion-bubble {
+  gap: 0.5rem;
+}
+
+.pc-accordion-bubble .pc-accordion-item {
+  border-radius: var(--pc-radius-lg);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+  background: color-mix(in srgb, var(--pc-color-blue) 4%, var(--pc-color-surface));
+  box-shadow: 0 4px 12px rgb(56 189 248 / 0.05);
+}
+
+.pc-accordion-bubble .pc-accordion-item.is-open {
+  background: color-mix(in srgb, var(--pc-color-blue) 8%, var(--pc-color-surface));
+  box-shadow: 0 8px 24px rgb(56 189 248 / 0.1);
+}
+
+.pc-accordion-bubble .pc-accordion-header {
+  font-size: 1.05rem;
+}
+
+/* Sketch Accordion */
+.pc-accordion-sketch {
+  gap: 0.5rem;
+}
+
+.pc-accordion-sketch .pc-accordion-item {
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-sm);
+  background: var(--pc-color-surface);
+  box-shadow: 3px 3px 0 var(--pc-line);
+}
+
+.pc-accordion-sketch .pc-accordion-item.is-open {
+  box-shadow: 1px 1px 0 var(--pc-line);
+  transform: translate(2px, 2px);
+}

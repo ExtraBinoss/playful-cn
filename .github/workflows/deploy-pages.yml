@@ -1,0 +1,55 @@
+name: Deploy documentation to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate registry
+        run: npm run check:registry
+      - name: Check CLI
+        run: |
+          npm run build:cli
+          node packages/cli/dist/index.js list --registry-url "file://${{ github.workspace }}/registry/index.json"
+          node packages/cli/dist/index.js diff buttons --registry-url "file://${{ github.workspace }}/registry/index.json"
+      - name: Build static site
+        run: npm run build:pages
+      - name: Prepare Pages artifact
+        run: touch .output/public/.nojekyll
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

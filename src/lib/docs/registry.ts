@@ -490,6 +490,17 @@ function createCollectionFamilies(): Array<ComponentFamilyDoc> {
     ['popovers', 'Popovers', 'Anchored interactive content with keyboard dismissal.', 'Popover', 'popovers', ['trigger', 'title', 'side', 'open']],
     ['hover-cards', 'Hover Cards', 'Preview panels revealed on hover or focus.', 'HoverCard', 'hover-cards', ['trigger', 'title', 'description']],
     ['menus', 'Menus', 'Keyboard-friendly action menus with disabled items.', 'Menu', 'menus', ['trigger', 'items', 'open']],
+    ['tabs', 'Tabs', 'Keyboard-friendly interactive tabs with smooth transitions.', 'Tabs', 'tabs', ['items', 'value', 'defaultValue', 'onChange']],
+    ['accordions', 'Accordions', 'Animated accordion sections for clean text presentation.', 'Accordion', 'accordions', ['items', 'type', 'value', 'defaultValue', 'onChange']],
+    ['collapsibles', 'Collapsibles', 'Trigger-activated expandable layouts.', 'Collapsible', 'collapsibles', ['open', 'defaultOpen', 'onOpenChange', 'trigger', 'children']],
+    ['carousels', 'Carousels', 'Smooth animated image or content sliders.', 'Carousel', 'carousels', ['items', 'activeIndex', 'defaultActiveIndex', 'onActiveIndexChange']],
+    ['calendars', 'Calendars', 'Full monthly calendar grid for scheduling and dates.', 'Calendar', 'calendars', ['value', 'defaultValue', 'onChange']],
+    ['date-pickers', 'Date Pickers', 'Popup calendar input fields for picking dates.', 'DatePicker', 'date-pickers', ['value', 'defaultValue', 'onChange', 'placeholder']],
+    ['breadcrumbs', 'Breadcrumbs', 'Wayfinding path navigation breadcrumb trails.', 'Breadcrumb', 'breadcrumbs', ['items', 'separator']],
+    ['paginations', 'Paginations', 'Numbered pagination bars for page traversal.', 'Pagination', 'paginations', ['totalPages', 'currentPage', 'onPageChange']],
+    ['tables', 'Tables', 'Styled grid data tables with responsive rows.', 'Table', 'tables', ['headers', 'rows']],
+    ['navigation-menus', 'Navigation Menus', 'Responsive wayfinding navigation with active route semantics.', 'NavigationMenu', 'navigation-menus', ['items', 'label']],
+    ['data-tables', 'Data Tables', 'Typed column and row rendering for structured data.', 'DataTable', 'data-tables', ['columns', 'rows', 'caption']],
   ] as const
   return definitions.map(([familySlug, familyName, description, baseName, folder, propNames]) => ({
     familySlug,

@@ -46,6 +46,17 @@ import {
   StickerDrawer, BubbleDrawer, SketchDrawer, StickerSheet, BubbleSheet, SketchSheet,
   StickerPopover, BubblePopover, SketchPopover, StickerHoverCard, BubbleHoverCard, SketchHoverCard,
   StickerMenu, BubbleMenu, SketchMenu,
+  BubbleTabs, SketchTabs,
+  StickerAccordion, BubbleAccordion, SketchAccordion,
+  StickerCollapsible, BubbleCollapsible, SketchCollapsible,
+  StickerCarousel, BubbleCarousel, SketchCarousel,
+  StickerCalendar, BubbleCalendar, SketchCalendar,
+  StickerDatePicker, BubbleDatePicker, SketchDatePicker,
+  StickerBreadcrumb, BubbleBreadcrumb, SketchBreadcrumb,
+  StickerPagination, BubblePagination, SketchPagination,
+  StickerTable, BubbleTable, SketchTable,
+  StickerNavigationMenu, BubbleNavigationMenu, SketchNavigationMenu,
+  StickerDataTable, BubbleDataTable, SketchDataTable,
 } from '../playful'
 
 const buttonExamples = [
@@ -133,6 +144,66 @@ export function VariationPreview({ componentName }: { componentName: string }) {
     case 'StickerMenu': return <StickerMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Rename' }, { label: 'Delete', disabled: true }]} />
     case 'BubbleMenu': return <BubbleMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Share' }, { label: 'Archive' }]} />
     case 'SketchMenu': return <SketchMenu trigger={<button type="button" className="pc-doc-demo-trigger">Actions</button>} items={[{ label: 'Duplicate' }, { label: 'Delete' }]} />
+    case 'StickerTabs':
+      return <StickerTabs items={[{ value: '1', label: 'Tab A', content: <p className="m-0 text-sm">Content A: Custom tabs look chunky and feel extremely snappy.</p> }, { value: '2', label: 'Tab B', content: <p className="m-0 text-sm">Content B: Snappy transitions keep interactions lively.</p> }]} />
+    case 'BubbleTabs':
+      return <BubbleTabs items={[{ value: '1', label: 'First', content: <p className="m-0 text-sm">Bubble layout indicator slides with squishy spring physics.</p> }, { value: '2', label: 'Second', content: <p className="m-0 text-sm">Each tab switch is responsive and glossy.</p> }]} />
+    case 'SketchTabs':
+      return <SketchTabs items={[{ value: '1', label: 'Intro', content: <p className="m-0 text-sm">Hand-drawn offset tab indicators represent raw sketch layouts.</p> }, { value: '2', label: 'Specs', content: <p className="m-0 text-sm">Clean dashed lines look organic.</p> }]} />
+    case 'StickerAccordion':
+      return <StickerAccordion items={[{ value: '1', trigger: 'Access Rules', content: 'Chunky accordions have bold borders.' }, { value: '2', trigger: 'Details', content: 'You can toggle multiple rows concurrently.' }]} />
+    case 'BubbleAccordion':
+      return <BubbleAccordion items={[{ value: '1', trigger: 'Glossy Animation', content: 'Smooth easing and pill layouts.' }, { value: '2', trigger: 'More Info', content: 'Details are revealed on expanding.' }]} />
+    case 'SketchAccordion':
+      return <SketchAccordion items={[{ value: '1', trigger: 'Handmade Outline', content: 'Dashed boundaries for that classic sketchbook style.' }, { value: '2', trigger: 'More Info', content: 'Dashed line animation indicator.' }]} />
+    case 'StickerCollapsible':
+      return <StickerCollapsible trigger="Toggle Info">Sticker pop panels can collapse or expand instantly.</StickerCollapsible>
+    case 'BubbleCollapsible':
+      return <BubbleCollapsible trigger="Toggle Settings">Bubble options slide down with spring easing.</BubbleCollapsible>
+    case 'SketchCollapsible':
+      return <SketchCollapsible trigger="Toggle Drawing">Sketch collapsible outlines toggle with custom animation.</SketchCollapsible>
+    case 'StickerCarousel':
+      return <StickerCarousel items={[<div key="1" className="font-bold">Slide A</div>, <div key="2" className="font-bold">Slide B</div>, <div key="3" className="font-bold">Slide C</div>]} />
+    case 'BubbleCarousel':
+      return <BubbleCarousel items={[<div key="1" className="text-blue-500 font-bold">Slide X</div>, <div key="2" className="text-blue-500 font-bold">Slide Y</div>, <div key="3" className="text-blue-500 font-bold">Slide Z</div>]} />
+    case 'SketchCarousel':
+      return <SketchCarousel items={[<div key="1" className="italic">Slide 1</div>, <div key="2" className="italic">Slide 2</div>, <div key="3" className="italic">Slide 3</div>]} />
+    case 'StickerCalendar':
+      return <StickerCalendar />
+    case 'BubbleCalendar':
+      return <BubbleCalendar />
+    case 'SketchCalendar':
+      return <SketchCalendar />
+    case 'StickerDatePicker':
+      return <StickerDatePicker />
+    case 'BubbleDatePicker':
+      return <BubbleDatePicker />
+    case 'SketchDatePicker':
+      return <SketchDatePicker />
+    case 'StickerBreadcrumb':
+      return <StickerBreadcrumb items={[{ label: 'Home', href: '#' }, { label: 'Library', href: '#' }, { label: 'Sticker' }]} />
+    case 'BubbleBreadcrumb':
+      return <BubbleBreadcrumb items={[{ label: 'Home', href: '#' }, { label: 'App', href: '#' }, { label: 'Bubble' }]} />
+    case 'SketchBreadcrumb':
+      return <SketchBreadcrumb items={[{ label: 'Home', href: '#' }, { label: 'Projects', href: '#' }, { label: 'Sketch' }]} />
+    case 'StickerPagination':
+      return <StickerPagination totalPages={5} currentPage={3} onPageChange={() => {}} />
+    case 'BubblePagination':
+      return <BubblePagination totalPages={5} currentPage={3} onPageChange={() => {}} />
+    case 'SketchPagination':
+      return <SketchPagination totalPages={5} currentPage={3} onPageChange={() => {}} />
+    case 'StickerTable':
+      return <StickerTable headers={['Name', 'Role']} rows={[['Anna', 'Lead Engineer'], ['Mark', 'Product Owner']]} />
+    case 'BubbleTable':
+      return <BubbleTable headers={['Project', 'Progress']} rows={[['UI Refactor', '80%'], ['CLI Tool', '40%']]} />
+    case 'SketchTable':
+      return <SketchTable headers={['Item', 'Qty']} rows={[['Stylus', '2'], ['Sketchbook', '5']]} />
+    case 'StickerNavigationMenu': return <StickerNavigationMenu items={[{ label: 'Overview', href: '#', active: true }, { label: 'Settings', href: '#' }]} />
+    case 'BubbleNavigationMenu': return <BubbleNavigationMenu items={[{ label: 'Home', href: '#', active: true }, { label: 'Library', href: '#' }]} />
+    case 'SketchNavigationMenu': return <SketchNavigationMenu items={[{ label: 'Projects', href: '#', active: true }, { label: 'Notes', href: '#' }]} />
+    case 'StickerDataTable': return <StickerDataTable caption="Team" columns={[{ key: 'name', header: 'Name' }, { key: 'role', header: 'Role' }]} rows={[{ name: 'Anna', role: 'Lead' }, { name: 'Mark', role: 'Design' }]} />
+    case 'BubbleDataTable': return <BubbleDataTable caption="Delivery" columns={[{ key: 'project', header: 'Project' }, { key: 'progress', header: 'Progress' }]} rows={[{ project: 'Playful UI', progress: '80%' }, { project: 'CLI', progress: '40%' }]} />
+    case 'SketchDataTable': return <SketchDataTable caption="Inventory" columns={[{ key: 'item', header: 'Item' }, { key: 'qty', header: 'Qty' }]} rows={[{ item: 'Stylus', qty: '2' }, { item: 'Paper', qty: '5' }]} />
     case 'StickerFieldInput':
       return (
         <StickerFieldInput

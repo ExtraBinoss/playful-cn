@@ -205,6 +205,23 @@ function getInstallDependencies(familySlug: string) {
     tabs: ['react', 'motion'],
     tooltips: ['react', 'motion'],
     toasts: ['react', 'motion'],
+    dialogs: ['react', 'motion'],
+    'alert-dialogs': ['react', 'motion'],
+    drawers: ['react', 'motion'],
+    sheets: ['react', 'motion'],
+    popovers: ['react', 'motion'],
+    'hover-cards': ['react', 'motion'],
+    menus: ['react', 'motion'],
+    accordions: ['react', 'motion'],
+    collapsibles: ['react', 'motion'],
+    carousels: ['react', 'motion'],
+    calendars: ['react'],
+    'date-pickers': ['react', 'motion'],
+    breadcrumbs: ['react'],
+    paginations: ['react'],
+    tables: ['react'],
+    'navigation-menus': ['react'],
+    'data-tables': ['react'],
   }
 
   return dependenciesByFamily[familySlug] ?? ['react']

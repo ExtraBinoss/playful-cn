@@ -9,10 +9,11 @@ import tailwindcss from '@tailwindcss/vite'
 import { nitro } from 'nitro/vite'
 
 const config = defineConfig({
+  base: process.env.GITHUB_PAGES === 'true' ? '/playful-cn/' : '/',
   resolve: { tsconfigPaths: true },
   plugins: [
     devtools(),
-    nitro({ rollupConfig: { external: [/^@sentry\//] } }),
+    nitro({ preset: process.env.GITHUB_PAGES === 'true' ? 'github-pages' : undefined, rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),

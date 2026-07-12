@@ -1,5 +1,54 @@
 [
   {
+    "familySlug": "dialogs",
+    "familyName": "Dialogs",
+    "description": "Modal conversations with focus management and escape-to-close.",
+    "tags": ["dialog", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "alert-dialogs",
+    "familyName": "Alert Dialogs",
+    "description": "Modal confirmations for destructive or consequential actions.",
+    "tags": ["alert-dialog", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "drawers",
+    "familyName": "Drawers",
+    "description": "Side-anchored modal panels for focused workflows.",
+    "tags": ["drawer", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "sheets",
+    "familyName": "Sheets",
+    "description": "Responsive modal surfaces for secondary content.",
+    "tags": ["sheet", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "popovers",
+    "familyName": "Popovers",
+    "description": "Anchored interactive content with keyboard dismissal.",
+    "tags": ["popover", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "hover-cards",
+    "familyName": "Hover Cards",
+    "description": "Preview panels revealed on hover or focus.",
+    "tags": ["hover-card", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "menus",
+    "familyName": "Menus",
+    "description": "Keyboard-friendly action menus with injectable icons.",
+    "tags": ["menu", "overlay", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
     "familySlug": "buttons",
     "familyName": "Buttons",
     "description": "CTA components built on the shared sticker, bubble, glow, and sketch visual vocabulary.",
@@ -89,6 +138,76 @@
     "description": "Tabbed panels for preview, code, props, and token docs.",
     "tags": ["tabs", "navigation", "docs"],
     "variations": ["sticker-tabs"]
+  },
+  {
+    "familySlug": "accordions",
+    "familyName": "Accordions",
+    "description": "Animated accordion sections for clean text presentation.",
+    "tags": ["accordion", "disclosure", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "collapsibles",
+    "familyName": "Collapsibles",
+    "description": "Trigger-activated expandable layouts.",
+    "tags": ["collapsible", "disclosure", "motion"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "carousels",
+    "familyName": "Carousels",
+    "description": "Smooth animated image or content sliders.",
+    "tags": ["carousel", "motion", "content"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "calendars",
+    "familyName": "Calendars",
+    "description": "Full monthly calendar grid for scheduling and dates.",
+    "tags": ["calendar", "date", "picker"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "date-pickers",
+    "familyName": "Date Pickers",
+    "description": "Popup calendar input fields for picking dates.",
+    "tags": ["date-picker", "calendar", "form"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "breadcrumbs",
+    "familyName": "Breadcrumbs",
+    "description": "Wayfinding path navigation breadcrumb trails.",
+    "tags": ["breadcrumb", "navigation", "wayfinding"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "paginations",
+    "familyName": "Paginations",
+    "description": "Numbered pagination bars for page traversal.",
+    "tags": ["pagination", "navigation", "pages"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "tables",
+    "familyName": "Tables",
+    "description": "Styled grid data tables with responsive rows.",
+    "tags": ["table", "data", "grid"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "navigation-menus",
+    "familyName": "Navigation Menus",
+    "description": "Responsive wayfinding navigation with active route semantics.",
+    "tags": ["navigation", "menu", "wayfinding"],
+    "variations": ["sticker", "bubble", "sketch"]
+  },
+  {
+    "familySlug": "data-tables",
+    "familyName": "Data Tables",
+    "description": "Typed column and row rendering for structured data.",
+    "tags": ["data", "table", "grid"],
+    "variations": ["sticker", "bubble", "sketch"]
   },
   {
     "familySlug": "color-pickers",

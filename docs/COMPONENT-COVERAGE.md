@@ -45,28 +45,28 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 
 ## All components
 
-- [ ] Accordion
+- [x] Accordion — 3/3
 - [x] Alert — 3/3
 - [x] Alert Dialog — 3/3
 - [ ] Aspect Ratio
 - [ ] Attachment
 - [ ] Avatar
 - [x] Badge — 3/3
-- [ ] Breadcrumb
+- [x] Breadcrumb — 3/3
 - [ ] Bubble
 - [x] Button — 4/4
 - [ ] Button Group
-- [ ] Calendar
+- [x] Calendar — 3/3
 - [x] Card — 3/3
-- [ ] Carousel
+- [x] Carousel — 3/3
 - [ ] Chart
 - [x] Checkbox — 4/4
-- [ ] Collapsible
+- [x] Collapsible — 3/3
 - [ ] Combobox
 - [ ] Command
 - [ ] Context Menu
-- [ ] Data Table
-- [ ] Date Picker
+- [x] Data Table — 3/3
+- [x] Date Picker — 3/3
 - [x] Dialog — 3/3
 - [ ] Direction
 - [x] Drawer — 3/3
@@ -85,8 +85,8 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 - [ ] Message
 - [ ] Message Scroller
 - [ ] Native Select
-- [ ] Navigation Menu
-- [ ] Pagination
+- [x] Navigation Menu — 3/3
+- [x] Pagination — 3/3
 - [x] Popover — 3/3
 - [x] Progress — 3/3
 - [x] Radio Group — 4/4
@@ -101,8 +101,8 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 3/3/parity;
 - [ ] Sonner
 - [x] Spinner — 3/3
 - [x] Switch — 4/4
-- [ ] Table
-- [~] Tabs
+- [x] Table — 3/3
+- [x] Tabs — 3/3
 - [x] Textarea — 3/3
 - [~] Toast
 - [ ] Toggle

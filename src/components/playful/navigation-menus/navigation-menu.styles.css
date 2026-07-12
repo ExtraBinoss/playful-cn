@@ -1,0 +1,10 @@
+.pc-navigation-menu ul { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.pc-navigation-menu a { display: inline-flex; align-items: center; gap: 0.45rem; border: 2px solid transparent; color: var(--pc-ink-soft); padding: 0.55rem 0.8rem; font-weight: 900; text-decoration: none; transition: transform var(--pc-duration-fast) ease, background var(--pc-duration-fast) ease, color var(--pc-duration-fast) ease; }
+.pc-navigation-menu a:hover, .pc-navigation-menu a:focus-visible { color: var(--pc-ink); transform: translateY(-1px); outline: none; }
+.pc-navigation-icon { display: inline-flex; width: 1rem; height: 1rem; }
+.pc-navigation-menu-sticker a { border-radius: var(--pc-radius-sm); background: var(--pc-color-surface); box-shadow: 2px 2px 0 var(--pc-line); }
+.pc-navigation-menu-sticker a.is-active { background: var(--pc-color-yellow); }
+.pc-navigation-menu-bubble a { border-radius: var(--pc-radius-full); background: color-mix(in srgb, var(--pc-color-blue) 10%, var(--pc-color-surface)); }
+.pc-navigation-menu-bubble a.is-active { background: var(--pc-color-blue); color: var(--pc-color-on-accent); }
+.pc-navigation-menu-sketch a { border: 2px dashed var(--pc-line); border-radius: var(--pc-radius-xs); background: var(--pc-color-background-soft); box-shadow: 3px 3px 0 var(--pc-line); }
+.pc-navigation-menu-sketch a.is-active { background: var(--pc-color-pink); }

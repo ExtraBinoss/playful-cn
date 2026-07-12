@@ -1,0 +1,80 @@
+.pc-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--pc-border-strong);
+  background: var(--pc-color-surface);
+}
+
+.pc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.pc-table-th {
+  padding: 0.75rem 1rem;
+  font-weight: 900;
+  color: var(--pc-ink);
+  border-bottom: var(--pc-border-strong);
+  background: var(--pc-color-surface-soft);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.pc-table-td {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: var(--pc-ink-soft);
+  border-bottom: 2px solid var(--pc-border-color);
+}
+
+.pc-table-tr:last-child .pc-table-td {
+  border-bottom: none;
+}
+
+/* Sticker Table */
+.pc-table-container-sticker {
+  border-radius: var(--pc-radius-lg);
+  box-shadow: var(--pc-shadow-sticker);
+}
+
+.pc-table-container-sticker .pc-table-tr:hover {
+  background: color-mix(in srgb, var(--pc-color-yellow) 8%, var(--pc-color-surface));
+}
+
+/* Bubble Table */
+.pc-table-container-bubble {
+  border-radius: var(--pc-radius-xl);
+  border-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+  box-shadow: 0 8px 30px rgb(56 189 248 / 0.08);
+}
+
+.pc-table-container-bubble .pc-table-th {
+  background: color-mix(in srgb, var(--pc-color-blue) 8%, var(--pc-color-surface));
+  border-bottom-color: color-mix(in srgb, var(--pc-color-blue) 40%, var(--pc-border-color));
+}
+
+.pc-table-container-bubble .pc-table-td {
+  border-bottom-color: color-mix(in srgb, var(--pc-color-blue) 15%, var(--pc-border-color));
+}
+
+.pc-table-container-bubble .pc-table-tr:hover {
+  background: color-mix(in srgb, var(--pc-color-blue) 4%, var(--pc-color-surface));
+}
+
+/* Sketch Table */
+.pc-table-container-sketch {
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-md);
+  box-shadow: 4px 4px 0 var(--pc-line);
+}
+
+.pc-table-container-sketch .pc-table-th {
+  border-bottom: 2px dashed var(--pc-line);
+}
+
+.pc-table-container-sketch .pc-table-td {
+  border-bottom: 2px dashed var(--pc-border-color);
+}

@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronRight } from 'lucide-react'
 import * as m from 'motion/react-m'
 import { cn } from '../../../lib/styling/cn'
+import { PlayfulArrowIcon } from '../icons'
 
 export type PlayfulOverlayProps = {
-  trigger?: React.ReactElement
+  trigger?: React.ReactElement<any>
   title?: React.ReactNode
   description?: React.ReactNode
   children?: React.ReactNode
@@ -96,4 +96,4 @@ export function OverlayBase({ mode, variation, trigger, title, description, chil
 
 export type PlayfulMenuItem = { label: React.ReactNode; icon?: React.ReactNode; onSelect?: () => void; disabled?: boolean }
 export type PlayfulMenuProps = Omit<PlayfulOverlayProps, 'children'> & { items: Array<PlayfulMenuItem> }
-export function MenuBase({ variation, items, ...props }: PlayfulMenuProps & { variation: 'sticker' | 'bubble' | 'sketch' }) { return <OverlayBase mode="menu" variation={variation} {...props}>{items.map((item, index) => <button key={index} type="button" role="menuitem" disabled={item.disabled} onClick={() => { item.onSelect?.(); props.onOpenChange?.(false) }}><span className="pc-menu-item-icon" aria-hidden>{item.icon ?? <ChevronRight size={16} strokeWidth={2.5} />}</span><span>{item.label}</span></button>)}</OverlayBase> }
+export function MenuBase({ variation, items, ...props }: PlayfulMenuProps & { variation: 'sticker' | 'bubble' | 'sketch' }) { return <OverlayBase mode="menu" variation={variation} {...props}>{items.map((item, index) => <button key={index} type="button" role="menuitem" disabled={item.disabled} onClick={() => { item.onSelect?.(); props.onOpenChange?.(false) }}><span className="pc-menu-item-icon" aria-hidden>{item.icon ?? <PlayfulArrowIcon />}</span><span>{item.label}</span></button>)}</OverlayBase> }

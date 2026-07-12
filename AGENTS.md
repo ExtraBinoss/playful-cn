@@ -25,6 +25,6 @@ Before adding or declaring a component complete, consult
   `src/components/docs/variation-preview.tsx`, and appears in the collection
   filters on `/components`.
 - CSS must be scoped to the components like avoid putting everything into components.css
-
+- Lucide-react is only here to send Icons to components, everything else should be done via SVGs, components themselves don't import anything from lucide-react.
 The target is functional parity with the current shadcn component behavior,
 while preserving this library's playful visual language and motion system.

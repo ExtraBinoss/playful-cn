@@ -1,0 +1,109 @@
+.pc-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pc-tabs-list {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border-bottom: 2px solid var(--pc-line);
+}
+
+.pc-tabs-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 800;
+  color: var(--pc-ink-soft);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  isolation: isolate;
+  transition: color var(--pc-duration-fast) ease;
+}
+
+.pc-tabs-trigger:hover {
+  color: var(--pc-ink);
+}
+
+.pc-tabs-trigger[aria-selected="true"] {
+  color: var(--pc-ink);
+}
+
+.pc-tabs-indicator {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.pc-tabs-trigger > span:not(.pc-tabs-indicator) { z-index: 1; }
+.pc-tabs-trigger:focus-visible { box-shadow: 0 0 0 4px var(--pc-bg), 0 0 0 7px var(--pc-line); }
+
+.pc-tabs-panel {
+  padding: 1rem 0;
+}
+
+/* Sticker Tabs */
+.pc-tabs-sticker .pc-tabs-list {
+  border-bottom: var(--pc-border-strong);
+  background: var(--pc-color-surface-soft);
+  border-radius: var(--pc-radius-md);
+  padding: 0.4rem;
+}
+
+.pc-tabs-sticker .pc-tabs-trigger {
+  border-radius: var(--pc-radius-sm);
+}
+
+.pc-tabs-sticker .pc-tabs-indicator {
+  background: var(--pc-color-yellow);
+  border: var(--pc-border-strong);
+  border-radius: var(--pc-radius-sm);
+  box-shadow: 2px 2px 0 var(--pc-line);
+}
+
+/* Bubble Tabs */
+.pc-tabs-bubble .pc-tabs-list {
+  border-bottom: none;
+  background: color-mix(in srgb, var(--pc-color-blue) 10%, var(--pc-color-surface));
+  border-radius: var(--pc-radius-full);
+  padding: 0.3rem;
+}
+
+.pc-tabs-bubble .pc-tabs-trigger {
+  border-radius: var(--pc-radius-full);
+}
+
+.pc-tabs-bubble .pc-tabs-indicator {
+  background: var(--pc-color-blue);
+  border-radius: var(--pc-radius-full);
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12);
+}
+
+.pc-tabs-bubble .pc-tabs-trigger[aria-selected="true"] {
+  color: #fff;
+}
+
+/* Sketch Tabs */
+.pc-tabs-sketch .pc-tabs-list {
+  border-bottom: 2px dashed var(--pc-line);
+  background: transparent;
+  padding: 0.25rem;
+}
+
+.pc-tabs-sketch .pc-tabs-trigger {
+  border-radius: var(--pc-radius-xs);
+}
+
+.pc-tabs-sketch .pc-tabs-indicator {
+  background: var(--pc-color-surface);
+  border: 2px dashed var(--pc-line);
+  border-radius: var(--pc-radius-xs);
+  box-shadow: 3px 3px 0 var(--pc-line);
+}

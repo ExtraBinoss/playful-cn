@@ -9,6 +9,7 @@ export function getRouter() {
 
   const router = createTanStackRouter({
     routeTree,
+    basepath: import.meta.env.BASE_URL === '/playful-cn/' ? '/playful-cn' : '/',
     context,
     scrollRestoration: true,
     defaultPreload: 'intent',

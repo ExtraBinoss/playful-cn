@@ -11,7 +11,37 @@
 		"name": "styles",
 		"files": [
 			"src/styles/tokens.css",
-			"src/styles/components.css"
+			"src/styles/components.css",
+			"src/components/playful/buttons/buttons.styles.css",
+			"src/components/playful/badges/badges.styles.css",
+			"src/components/playful/cards/cards.styles.css",
+			"src/components/playful/alerts/alerts.styles.css",
+			"src/components/playful/empties/empties.styles.css",
+			"src/components/playful/skeletons/skeletons.styles.css",
+			"src/components/playful/spinners/spinners.styles.css",
+			"src/components/playful/progresses/progresses.styles.css",
+			"src/components/playful/overlays/overlays.styles.css",
+			"src/components/playful/checkboxes/checkbox.styles.css",
+			"src/components/playful/switches/switch.styles.css",
+			"src/components/playful/radio-groups/radio-group.styles.css",
+			"src/components/playful/inputs/form-controls.styles.css",
+			"src/components/playful/inputs/form-controls.counter.css",
+			"src/components/playful/inputs/form-controls.otp-responsive.css",
+			"src/components/playful/inputs/form-controls.textarea-tuning.css",
+			"src/components/playful/inputs/form-controls.focus.css",
+			"src/components/playful/inputs/form-controls.group.css",
+			"src/components/playful/inputs/form-controls.resize.css",
+			"src/components/playful/tabs/tabs.styles.css",
+			"src/components/playful/accordions/accordion.styles.css",
+			"src/components/playful/collapsibles/collapsible.styles.css",
+			"src/components/playful/carousels/carousel.styles.css",
+			"src/components/playful/calendars/calendar.styles.css",
+			"src/components/playful/date-pickers/date-picker.styles.css",
+			"src/components/playful/breadcrumbs/breadcrumb.styles.css",
+			"src/components/playful/paginations/pagination.styles.css",
+			"src/components/playful/tables/table.styles.css",
+			"src/components/playful/navigation-menus/navigation-menu.styles.css",
+			"src/components/playful/data-tables/data-table.styles.css"
 		]
 	},
 	"items": [
@@ -96,14 +126,6 @@
 			"registryDependencies": ["button-base"]
 		},
 		{
-			"name": "buttons/neon-gradient",
-			"type": "component",
-			"title": "Neon Gradient Button",
-			"files": ["src/components/playful/buttons/neon-gradient/index.tsx"],
-			"dependencies": ["motion"],
-			"registryDependencies": ["button-base"]
-		},
-		{
 			"name": "buttons/sketch-outline",
 			"type": "component",
 			"title": "Sketch Outline Button",
@@ -136,7 +158,6 @@
 			"registryDependencies": [
 				"buttons/sticker-pop",
 				"buttons/bubble-gum",
-				"buttons/neon-gradient",
 				"buttons/sketch-outline",
 				"buttons/soft-candy",
 				"buttons/quiet-ghost"
@@ -215,14 +236,6 @@
 			"registryDependencies": ["input-base"]
 		},
 		{
-			"name": "inputs/glow-field",
-			"type": "component",
-			"title": "Glow Field Input",
-			"files": ["src/components/playful/inputs/glow-field/index.tsx"],
-			"dependencies": ["motion"],
-			"registryDependencies": ["input-base"]
-		},
-		{
 			"name": "inputs/sketch-field",
 			"type": "component",
 			"title": "Sketch Field Input",
@@ -247,18 +260,9 @@
 			"registryDependencies": [
 				"inputs/sticker-field",
 				"inputs/bubble-field",
-				"inputs/glow-field",
 				"inputs/sketch-field",
 				"inputs/candy-field"
 			]
-		},
-		{
-			"name": "checkbox",
-			"type": "component",
-			"title": "Checkbox",
-			"files": ["src/components/playful/checkbox/index.tsx"],
-			"dependencies": [],
-			"registryDependencies": ["cn", "use-controllable-state"]
 		},
 		{
 			"name": "checkboxes/star-check",
