@@ -1,5 +1,5 @@
 import { cn } from '../../../lib/styling/cn'
-import type { PlayfulButtonTone } from '../button'
+import type { PlayfulButtonTone } from '../buttons'
 
 export type PlayfulBadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
   variant?: 'pill' | 'sticker' | 'dot' | 'soft' | 'outline'

@@ -62,7 +62,7 @@
 			"name": "icon-button",
 			"type": "component",
 			"title": "Icon Button",
-			"files": ["src/components/playful/icon-button/index.tsx"],
+			"files": ["src/components/playful/buttons/icon-button/index.tsx"],
 			"dependencies": ["motion"],
 			"registryDependencies": ["cn", "button", "animation-variants"]
 		},
@@ -71,10 +71,10 @@
 			"type": "component",
 			"title": "Button",
 			"files": [
-				"src/components/playful/button/button.tsx",
-				"src/components/playful/button/button.styles.ts",
-				"src/components/playful/button/button.types.ts",
-				"src/components/playful/button/index.ts"
+				"src/components/playful/buttons/button.tsx",
+				"src/components/playful/buttons/button.styles.ts",
+				"src/components/playful/buttons/button.types.ts",
+				"src/components/playful/buttons/index.ts"
 			],
 			"dependencies": ["motion"],
 			"registryDependencies": ["cn"]
@@ -194,7 +194,7 @@
 			"name": "input",
 			"type": "component",
 			"title": "Input",
-			"files": ["src/components/playful/input/index.tsx"],
+			"files": ["src/components/playful/inputs/input.tsx"],
 			"dependencies": [],
 			"registryDependencies": ["cn"]
 		},
@@ -396,7 +396,7 @@
 			"name": "search-input",
 			"type": "component",
 			"title": "Search Input",
-			"files": ["src/components/playful/search-input/index.tsx"],
+			"files": ["src/components/playful/inputs/search-input/index.tsx"],
 			"dependencies": ["motion"],
 			"registryDependencies": ["cn", "icon-button"]
 		}

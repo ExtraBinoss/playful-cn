@@ -1,10 +1,7 @@
 import type { InputHTMLAttributes } from 'react'
 import { cn } from '../../../lib/styling/cn'
 
-export type PlayfulInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'size'
-> & {
+export type PlayfulInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   variant?: 'sticker' | 'soft' | 'underline' | 'bubble'
   inputSize?: 'sm' | 'md' | 'lg'
 }

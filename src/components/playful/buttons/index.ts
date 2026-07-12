@@ -1,3 +1,7 @@
+export * from './button'
+export * from './button.docs'
+export * from './button.styles'
+export * from './icon-button'
 export * from './bubble-gum'
 export * from './button.types'
 export * from './neon-gradient'
