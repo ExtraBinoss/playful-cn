@@ -7,12 +7,12 @@
 .pc-overlay-dialog, .pc-overlay-alert-dialog { position: fixed; inset: 0; z-index: 1001; width: min(28rem, calc(100vw - 2rem)); height: fit-content; max-height: calc(100vh - 2rem); margin: auto; overflow: auto; }
 .pc-overlay-dialog.pc-overlay-side-bottom, .pc-overlay-dialog.pc-overlay-side-top,
 .pc-overlay-alert-dialog.pc-overlay-side-bottom, .pc-overlay-alert-dialog.pc-overlay-side-top {
-  top: auto; right: auto; bottom: auto; left: auto; width: min(28rem, calc(100vw - 2rem)); max-width: calc(100vw - 2rem); transform: none;
+  inset: 0; width: min(28rem, calc(100vw - 2rem)); max-width: calc(100vw - 2rem); margin: auto; transform: none;
 }
 .pc-overlay-drawer, .pc-overlay-sheet { position: fixed; z-index: 1001; width: min(28rem, calc(100vw - 2rem)); max-width: min(28rem, 92vw); min-height: 12rem; max-height: calc(100vh - 2rem); overflow: auto; }
-.pc-overlay-drawer.pc-overlay-side-right, .pc-overlay-sheet.pc-overlay-side-right { top: 1rem; right: 1rem; bottom: 1rem; }
-.pc-overlay-drawer.pc-overlay-side-left, .pc-overlay-sheet.pc-overlay-side-left { top: 1rem; bottom: 1rem; left: 1rem; }
-.pc-overlay-drawer.pc-overlay-side-bottom, .pc-overlay-sheet.pc-overlay-side-bottom { right: 1rem; bottom: 1rem; left: 1rem; width: auto; max-width: none; }
+.pc-overlay-drawer.pc-overlay-side-right, .pc-overlay-sheet.pc-overlay-side-right { top: 1rem; right: 1rem; bottom: 1rem; left: auto; }
+.pc-overlay-drawer.pc-overlay-side-left, .pc-overlay-sheet.pc-overlay-side-left { top: 1rem; right: auto; bottom: 1rem; left: 1rem; }
+.pc-overlay-drawer.pc-overlay-side-bottom, .pc-overlay-sheet.pc-overlay-side-bottom { top: auto; right: 1rem; bottom: 1rem; left: 1rem; width: auto; max-width: none; }
 .pc-overlay-popover, .pc-overlay-hover-card, .pc-overlay-menu { top: calc(100% + 0.7rem); left: 0; }
 .pc-overlay-side-top { bottom: calc(100% + 0.7rem); top: auto; }
 .pc-overlay-side-right { left: calc(100% + 0.7rem); top: 0; }
