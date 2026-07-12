@@ -13,9 +13,9 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
     devtools(),
-    nitro({ preset: process.env.GITHUB_PAGES === 'true' ? 'github-pages' : undefined, rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),
     tanstackStart(),
+    nitro({ preset: process.env.GITHUB_PAGES === 'true' ? 'github-pages' : undefined, rollupConfig: { external: [/^@sentry\//] } }),
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
