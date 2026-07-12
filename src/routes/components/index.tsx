@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { ArrowLeft } from 'lucide-react'
 import * as React from 'react'
 import { SideScroll } from '../../components/SideScroll'
-import { CorePairPreview } from '../../components/docs/variation-preview'
+import { CorePairPreview, VariationPreview } from '../../components/docs/variation-preview'
 import {
   FeatureStickerCard,
   PlayfulSearchInput,
   playfulVisualVariants,
+  StickerBreadcrumb,
 } from '../../components/playful'
 import { componentRegistry } from '../../lib/docs/registry'
 
@@ -46,13 +46,25 @@ function ComponentsPage() {
       .toLowerCase()
     return haystack.includes(deferredQuery)
   })
+  const activeCollection = collections.find((collection) => collection.slug === selectedCollection)
+  const collectionComponents = activeCollection?.components.filter(({ family, variation }) => {
+    if (!deferredQuery) return true
+    return [family.familyName, variation.name, variation.description, ...variation.tags].join(' ').toLowerCase().includes(deferredQuery)
+  }) ?? []
+  const basePath = import.meta.env.BASE_URL
+  const breadcrumbItems = activeCollection
+    ? [
+        { label: 'Home', href: basePath },
+        { label: 'Components', href: `${basePath}components/` },
+        { label: activeCollection.label },
+      ]
+    : [{ label: 'Home', href: basePath }, { label: 'Components' }]
 
   return (
     <main className="pc-page pc-section">
-      <Link className="pc-back-link" to="/">
-        <ArrowLeft size={18} />
-        Home
-      </Link>
+      <div className="mb-8">
+        <StickerBreadcrumb items={breadcrumbItems} />
+      </div>
       <p className="pc-kicker">Documentation</p>
       <h1 className="pc-display m-0 text-5xl">Components</h1>
       <p className="max-w-2xl text-lg text-[var(--pc-ink-soft)]">
@@ -78,13 +90,12 @@ function ComponentsPage() {
                 <CorePairPreview componentName={collection.buttonComponent} />
               </div>
               <h2 className="m-0 text-xl font-black">{collection.label}</h2>
-              <Link
+              <a
                 className="pc-variation-doc-link mt-3 w-fit"
-                to="/components"
-                search={{ collection: collection.slug }}
+                href={`${import.meta.env.BASE_URL}components/?collection=${encodeURIComponent(collection.slug)}`}
               >
                 Open full collection
-              </Link>
+              </a>
               <p className="pc-variation-description">
                 {collection.description}
               </p>
@@ -112,6 +123,31 @@ function ComponentsPage() {
         </div>
       </section>
 
+      {activeCollection ? (
+        <section className="mt-10">
+          <p className="pc-kicker m-0">{activeCollection.label} previews</p>
+          <p className="pc-variation-description mt-2">Every component available in this visual collection.</p>
+          <div className="pc-grid mt-4">
+            {collectionComponents.map(({ family, variation }) => (
+              <FeatureStickerCard className="pc-variation-card" key={`${family.familySlug}-${variation.slug}`}>
+                <div className="pc-variation-preview">
+                  <VariationPreview componentName={variation.componentName} />
+                </div>
+                <div>
+                  <p className="pc-kicker m-0">{family.familyName}</p>
+                  <h2 className="m-0 text-xl font-black">{variation.name}</h2>
+                  <p className="pc-variation-description">{variation.description}</p>
+                </div>
+                <Link className="pc-variation-doc-link mt-3 w-fit" to="/components/$family/$variation" params={{ family: family.familySlug, variation: variation.slug }}>
+                  View docs
+                </Link>
+              </FeatureStickerCard>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {!activeCollection ? (
       <section className="mt-10">
         <p className="pc-kicker m-0">Component families</p>
         <div className="pc-grid mt-4">
@@ -153,6 +189,7 @@ function ComponentsPage() {
           })}
         </div>
       </section>
+      ) : null}
     </main>
   )
 }
