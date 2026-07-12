@@ -2,10 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { ArrowLeft } from 'lucide-react'
 import * as React from 'react'
 import { SideScroll } from '../../components/SideScroll'
-import {
-  CorePairPreview,
-  VariationPreview,
-} from '../../components/docs/variation-preview'
+import { CorePairPreview } from '../../components/docs/variation-preview'
 import {
   FeatureStickerCard,
   PlayfulSearchInput,
@@ -20,15 +17,30 @@ export const Route = createFileRoute('/components/')({
 function ComponentsPage() {
   const [query, setQuery] = React.useState('')
   const deferredQuery = React.useDeferredValue(query.toLowerCase())
-  const allComponents = componentRegistry.flatMap((family) =>
-    family.variations.map((variation) => ({ family, variation })),
-  )
   const collections = playfulVisualVariants.map((collection) => ({
     ...collection,
-    components: allComponents.filter(
-      ({ variation }) => variation.coreVariant === collection.slug,
-    ),
+    components: componentRegistry
+      .flatMap((family) =>
+        family.variations.map((variation) => ({ family, variation })),
+      )
+      .filter(({ variation }) => variation.coreVariant === collection.slug),
   }))
+  const visibleFamilies = componentRegistry.filter((family) => {
+    if (!deferredQuery) return true
+    const haystack = [
+      family.familyName,
+      family.description,
+      ...family.tags,
+      ...family.variations.flatMap((variation) => [
+        variation.name,
+        variation.description,
+        ...variation.tags,
+      ]),
+    ]
+      .join(' ')
+      .toLowerCase()
+    return haystack.includes(deferredQuery)
+  })
 
   return (
     <main className="pc-page pc-section">
@@ -39,8 +51,8 @@ function ComponentsPage() {
       <p className="pc-kicker">Documentation</p>
       <h1 className="pc-display m-0 text-5xl">Components</h1>
       <p className="max-w-2xl text-lg text-[var(--pc-ink-soft)]">
-        Browse visual collections first, then every individual component with
-        its own docs, props, tokens, and usage snippet.
+        Browse visual collections first, then component families. Open a family
+        to see its available variations, docs, props, tokens, and usage snippets.
       </p>
       <div className="mt-8 max-w-xl">
         <PlayfulSearchInput
@@ -89,65 +101,39 @@ function ComponentsPage() {
       </section>
 
       <section className="mt-10">
-        <p className="pc-kicker m-0">All components</p>
+        <p className="pc-kicker m-0">Component families</p>
         <div className="pc-grid mt-4">
-          {allComponents.map(({ family, variation }) => {
-            const haystack = [
-              family.familyName,
-              family.description,
-              ...family.tags,
-              variation.name,
-              variation.description,
-              ...variation.tags,
-            ]
-              .join(' ')
-              .toLowerCase()
-            const isDimmed =
-              deferredQuery.length > 0 && !haystack.includes(deferredQuery)
-
+          {visibleFamilies.map((family) => {
+            const previewVariation =
+              family.variations.find((variation) => variation.category === 'core') ??
+              family.variations[0]
             return (
               <Link
                 className="no-underline"
-                key={`${family.familySlug}-${variation.slug}`}
-                to="/components/$family/$variation"
-                params={{
-                  family: family.familySlug,
-                  variation: variation.slug,
-                }}
+                key={family.familySlug}
+                to="/components/$family"
+                params={{ family: family.familySlug }}
               >
-                <FeatureStickerCard
-                  className={[
-                    'h-full transition-opacity',
-                    isDimmed ? 'opacity-35' : undefined,
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                >
+                <FeatureStickerCard className="h-full">
                   <div className="pointer-events-none mb-5 grid min-h-32 place-items-center rounded-[var(--pc-radius-lg)] bg-[var(--pc-surface-soft)] p-4">
-                    <VariationPreview componentName={variation.componentName} />
+                    {previewVariation ? (
+                      <CorePairPreview componentName={previewVariation.componentName} />
+                    ) : null}
                   </div>
-                  <h2 className="m-0 text-xl font-black">{variation.name}</h2>
+                  <h2 className="m-0 text-xl font-black">{family.familyName}</h2>
                   <p className="text-[var(--pc-ink-soft)]">
-                    {variation.description}
+                    {family.description}
                   </p>
                   <SideScroll
                     className="mt-4"
                     viewportClassName="pc-tag-scroll"
-                    aria-label={`${variation.name} tags`}
+                    aria-label={`${family.familyName} variations`}
                   >
-                    <span className="pc-badge pc-badge-outline pc-badge-tag">
-                      {family.familyName}
-                    </span>
-                    {getVisibleTags(family.familyName, variation.tags).map(
-                      (tag) => (
-                        <span
-                          className="pc-badge pc-badge-outline pc-badge-tag"
-                          key={tag}
-                        >
-                          {tag}
-                        </span>
-                      ),
-                    )}
+                    {family.variations.map((variation) => (
+                      <span className="pc-badge pc-badge-outline pc-badge-tag" key={variation.slug}>
+                        {variation.name}
+                      </span>
+                    ))}
                   </SideScroll>
                 </FeatureStickerCard>
               </Link>
@@ -157,13 +143,4 @@ function ComponentsPage() {
       </section>
     </main>
   )
-}
-
-function getVisibleTags(familyName: string, tags: Array<string>) {
-  const normalizedFamily = familyName.toLowerCase().replace(/s$/, '')
-
-  return tags.filter((tag) => {
-    const normalizedTag = tag.toLowerCase().replace(/s$/, '')
-    return normalizedTag !== normalizedFamily
-  })
 }
