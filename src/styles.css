@@ -9,6 +9,7 @@
 @import "./components/playful/inputs/form-controls.otp-responsive.css";
 @import "./components/playful/inputs/form-controls.textarea-tuning.css";
 @import "./components/playful/inputs/form-controls.focus.css";
+@import "./components/playful/inputs/form-controls.group.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
