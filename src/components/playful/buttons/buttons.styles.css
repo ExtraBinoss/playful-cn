@@ -1,0 +1,12 @@
+.pc-button-sticker, .pc-button-sticker-pop { --pc-button-bg: var(--pc-color-pink); --pc-button-fg: var(--pc-color-ink); background: var(--pc-button-bg); box-shadow: var(--pc-button-shadow); }
+.pc-button-bubble, .pc-button-bubble-gum { --pc-button-bg: var(--pc-color-blue); --pc-button-fg: var(--pc-color-on-accent); border-radius: var(--pc-radius-full); background: var(--pc-button-bg); box-shadow: var(--pc-button-inset-shadow); }
+.pc-button-glow, .pc-button-neon-gradient { --pc-button-fg: var(--pc-color-on-strong); background: linear-gradient(135deg, var(--pc-color-pink), var(--pc-color-purple), var(--pc-color-blue)); box-shadow: var(--pc-button-shadow); }
+.pc-button-soft-candy { --pc-button-fg: var(--pc-color-on-accent); background: color-mix(in srgb, var(--pc-color-mint) 32%, var(--pc-color-surface)); border-color: color-mix(in srgb, var(--pc-color-mint) 48%, var(--pc-border-color)); }
+.pc-button-sketch, .pc-button-sketch-outline { --pc-button-fg: var(--pc-color-ink); background: var(--pc-color-surface); box-shadow: var(--pc-button-shadow); }
+.pc-button-quiet-ghost { --pc-button-fg: var(--pc-color-ink); border-color: transparent; background: color-mix(in srgb, var(--pc-color-surface-soft) 74%, transparent); box-shadow: none; }
+.pc-button[data-tone="success"] { --pc-button-bg: var(--pc-color-green); --pc-button-fg: var(--pc-color-on-accent); background: var(--pc-button-bg); }
+.pc-button[data-tone="error"] { --pc-button-bg: var(--pc-color-red); --pc-button-fg: var(--pc-color-on-strong); background: var(--pc-button-bg); }
+.pc-button[data-tone="warning"] { --pc-button-bg: var(--pc-color-yellow); --pc-button-fg: var(--pc-color-on-accent); background: var(--pc-button-bg); }
+.pc-button[data-tone="info"] { --pc-button-bg: var(--pc-color-blue); --pc-button-fg: var(--pc-color-on-accent); background: var(--pc-button-bg); }
+.pc-button[data-tone="neutral"] { --pc-button-bg: color-mix(in srgb, var(--pc-color-ink) 8%, var(--pc-color-surface)); --pc-button-fg: var(--pc-color-ink); background: var(--pc-button-bg); }
+.pc-button-quiet-ghost[data-tone] { background: color-mix(in srgb, var(--pc-button-bg, var(--pc-color-surface-soft)) 16%, transparent); color: var(--pc-button-fg); }

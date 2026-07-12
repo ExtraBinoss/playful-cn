@@ -1,7 +1,15 @@
-.pc-overlay-anchor { position: relative; display: inline-flex; max-width: 100%; }
+.pc-overlay-anchor { position: relative; z-index: 100; display: inline-flex; max-width: 100%; }
+.pc-variation-preview:has(.pc-overlay-anchor) { position: relative; z-index: 10; overflow: visible; }
+.pc-variation-card:has(.pc-overlay-anchor) { position: relative; z-index: 5; }
+.pc-overlay-anchor:has(.pc-overlay-panel) { z-index: 200; }
 .pc-overlay-panel { position: absolute; z-index: 60; width: min(28rem, calc(100vw - 2rem)); border: var(--pc-border-strong); padding: 1.25rem; color: var(--pc-ink); outline: none; }
-.pc-overlay-dialog, .pc-overlay-alert-dialog { position: fixed; top: 50%; left: 50%; z-index: 61; transform: translate(-50%, -50%); }
-.pc-overlay-drawer, .pc-overlay-sheet { position: fixed; z-index: 61; max-width: min(28rem, 92vw); min-height: 12rem; }
+.pc-overlay-floating { position: fixed !important; top: 0; left: 0; transform: none; }
+.pc-overlay-dialog, .pc-overlay-alert-dialog { position: fixed; inset: 0; z-index: 1001; width: min(28rem, calc(100vw - 2rem)); height: fit-content; max-height: calc(100vh - 2rem); margin: auto; overflow: auto; }
+.pc-overlay-dialog.pc-overlay-side-bottom, .pc-overlay-dialog.pc-overlay-side-top,
+.pc-overlay-alert-dialog.pc-overlay-side-bottom, .pc-overlay-alert-dialog.pc-overlay-side-top {
+  top: auto; right: auto; bottom: auto; left: auto; width: min(28rem, calc(100vw - 2rem)); max-width: calc(100vw - 2rem); transform: none;
+}
+.pc-overlay-drawer, .pc-overlay-sheet { position: fixed; z-index: 1001; width: min(28rem, calc(100vw - 2rem)); max-width: min(28rem, 92vw); min-height: 12rem; max-height: calc(100vh - 2rem); overflow: auto; }
 .pc-overlay-drawer.pc-overlay-side-right, .pc-overlay-sheet.pc-overlay-side-right { top: 1rem; right: 1rem; bottom: 1rem; }
 .pc-overlay-drawer.pc-overlay-side-left, .pc-overlay-sheet.pc-overlay-side-left { top: 1rem; bottom: 1rem; left: 1rem; }
 .pc-overlay-drawer.pc-overlay-side-bottom, .pc-overlay-sheet.pc-overlay-side-bottom { right: 1rem; bottom: 1rem; left: 1rem; width: auto; max-width: none; }
@@ -18,8 +26,9 @@
 .pc-overlay-body { margin-top: 1rem; line-height: 1.5; }
 .pc-overlay-close { display: inline-grid; width: 1.8rem; height: 1.8rem; place-items: center; border: 2px solid var(--pc-line); border-radius: 50%; background: var(--pc-color-surface); color: var(--pc-ink); cursor: pointer; font-size: 1.2rem; line-height: 1; }
 .pc-overlay-close:hover { background: var(--pc-color-yellow); }
-.pc-overlay-backdrop { position: fixed; inset: 0; z-index: 60; border: 0; background: rgb(24 24 27 / 0.38); cursor: default; }
+.pc-overlay-backdrop { position: fixed; inset: 0; z-index: 1000; border: 0; background: rgb(24 24 27 / 0.38); cursor: default; }
 .pc-overlay-menu .pc-overlay-body { display: grid; gap: 0.35rem; margin-top: 0; }
-.pc-overlay-menu .pc-overlay-body button { border: 2px solid transparent; border-radius: var(--pc-radius-sm); background: transparent; color: var(--pc-ink); padding: 0.6rem 0.7rem; text-align: left; font-weight: 800; cursor: pointer; }
+.pc-overlay-menu .pc-overlay-body button { display: flex; align-items: center; gap: 0.55rem; width: 100%; border: 2px solid transparent; border-radius: var(--pc-radius-sm); background: transparent; color: var(--pc-ink); padding: 0.6rem 0.7rem; text-align: left; font-weight: 800; cursor: pointer; }
+.pc-menu-item-icon { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; color: var(--pc-purple); }
 .pc-overlay-menu .pc-overlay-body button:hover, .pc-overlay-menu .pc-overlay-body button:focus-visible { border-color: var(--pc-line); background: var(--pc-color-yellow); outline: none; }
 .pc-overlay-menu .pc-overlay-body button:disabled { cursor: not-allowed; opacity: 0.45; }

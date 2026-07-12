@@ -1,0 +1,10 @@
+.pc-empty { display: grid; place-items: center; gap: 0.55rem; min-height: 12rem; padding: 2rem; text-align: center; }
+.pc-empty-sticker { border: var(--pc-border-strong); border-radius: var(--pc-radius-xl); background: var(--pc-color-surface); box-shadow: var(--pc-shadow-sticker); }
+.pc-empty-bubble { border: var(--pc-border-strong); border-radius: var(--pc-radius-xl); background: color-mix(in srgb, var(--pc-color-blue) 12%, var(--pc-color-surface)); }
+.pc-empty-sketch { border: 2px dashed var(--pc-line); border-radius: var(--pc-radius-xl); background: var(--pc-color-background-soft); }
+.pc-empty-icon { display: inline-flex; width: 1.35rem; height: 1.35rem; color: var(--pc-purple); }
+.pc-empty-icon svg { width: 100%; height: 100%; }
+.pc-empty h3, .pc-empty p { margin: 0; }
+.pc-empty h3 { font-size: 1.1rem; font-weight: 900; }
+.pc-empty p { max-width: 28rem; color: var(--pc-ink-soft); font-size: 0.9rem; }
+.pc-empty-action { margin-top: 0.45rem; }

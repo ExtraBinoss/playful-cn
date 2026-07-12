@@ -1,0 +1,7 @@
+.pc-progress { display: grid; gap: 0.45rem; width: 100%; }
+.pc-progress-head { display: flex; justify-content: space-between; color: var(--pc-ink-soft); font-size: 0.8rem; font-weight: 900; }
+.pc-progress-track { height: 0.9rem; overflow: hidden; border: var(--pc-border-strong); background: var(--pc-color-surface-soft); }
+.pc-progress-sticker .pc-progress-track { border-radius: var(--pc-radius-xs); box-shadow: 3px 3px 0 var(--pc-line); }
+.pc-progress-bubble .pc-progress-track { border-radius: var(--pc-radius-full); }
+.pc-progress-sketch .pc-progress-track { border-style: dashed; border-radius: var(--pc-radius-xs); }
+.pc-progress-fill { display: block; height: 100%; min-width: 0.5rem; background: linear-gradient(90deg, var(--pc-color-pink), var(--pc-color-purple), var(--pc-color-blue)); }

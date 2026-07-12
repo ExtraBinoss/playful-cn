@@ -1,0 +1,8 @@
+.pc-spinner { display: inline-flex; color: var(--pc-purple); }
+.pc-spinner svg { width: 100%; height: 100%; }
+.pc-spinner-sm { width: 1.1rem; height: 1.1rem; }
+.pc-spinner-md { width: 1.6rem; height: 1.6rem; }
+.pc-spinner-lg { width: 2.4rem; height: 2.4rem; }
+.pc-spinner-sticker { filter: drop-shadow(2px 2px 0 var(--pc-line)); color: var(--pc-pink); }
+.pc-spinner-bubble { color: var(--pc-blue); }
+.pc-spinner-sketch { color: var(--pc-ink); }

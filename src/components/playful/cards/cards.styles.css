@@ -1,0 +1,5 @@
+.pc-card-feature-sticker { background: var(--pc-color-surface); box-shadow: var(--pc-card-shadow); }
+.pc-card-collection { min-height: 8rem; transition: box-shadow var(--pc-duration-normal) ease, background var(--pc-duration-normal) ease; }
+.pc-card-collection.pc-card-sticker { background: var(--pc-color-surface); box-shadow: var(--pc-shadow-sticker); }
+.pc-card-collection.pc-card-bubble { border-radius: var(--pc-radius-xl); background: color-mix(in srgb, var(--pc-color-blue) 14%, var(--pc-color-surface)); box-shadow: 0 12px 26px rgb(56 189 248 / 0.18); }
+.pc-card-collection.pc-card-sketch { border-style: dashed; background: var(--pc-color-background-soft); box-shadow: 6px 6px 0 color-mix(in srgb, var(--pc-border-color) 86%, transparent); }

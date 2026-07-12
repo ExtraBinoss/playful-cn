@@ -1,0 +1,7 @@
+.pc-skeleton { display: grid; gap: 0.6rem; width: 100%; }
+.pc-skeleton span { display: block; height: 0.9rem; background: linear-gradient(100deg, var(--pc-color-surface-soft) 20%, color-mix(in srgb, var(--pc-color-pink) 24%, var(--pc-color-surface)) 40%, var(--pc-color-surface-soft) 60%); background-size: 220% 100%; animation: pc-skeleton-shimmer 1.5s ease-in-out infinite; }
+.pc-skeleton-sticker span { border: 2px solid var(--pc-line); border-radius: var(--pc-radius-xs); box-shadow: 2px 2px 0 var(--pc-line); }
+.pc-skeleton-bubble span { border-radius: var(--pc-radius-full); }
+.pc-skeleton-sketch span { border: 2px dashed var(--pc-line); border-radius: var(--pc-radius-xs); background-color: var(--pc-color-background-soft); }
+@keyframes pc-skeleton-shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .pc-skeleton span { animation: none; } }
