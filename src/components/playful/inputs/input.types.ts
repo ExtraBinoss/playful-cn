@@ -26,4 +26,5 @@ export type PlayfulInputBaseProps = Omit<
   label?: ReactNode
   hint?: ReactNode
   error?: ReactNode
+  showCount?: boolean
 }

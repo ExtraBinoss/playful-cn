@@ -1,4 +1,5 @@
 import * as m from 'motion/react-m'
+import * as React from 'react'
 import { cn } from '../../../lib/styling/cn'
 import { inputMotionPresets } from './input-motion'
 import type { PlayfulInputBaseProps, PlayfulInputSize } from './input.types'
@@ -26,6 +27,11 @@ export function InputBase({
   label,
   hint,
   error,
+  maxLength,
+  showCount = true,
+  onChange,
+  value,
+  defaultValue,
   className,
   variationClassName,
   id,
@@ -33,6 +39,8 @@ export function InputBase({
   'aria-invalid': ariaInvalid,
   ...props
 }: InputBaseProps) {
+  const [uncontrolledValue, setUncontrolledValue] = React.useState(String(defaultValue ?? ''))
+  const inputValue = value !== undefined ? String(value) : uncontrolledValue
   const message = invalid ? error : hint
   const messageId = id && message ? `${id}-message` : undefined
   const describedBy = [ariaDescribedBy, messageId].filter(Boolean).join(' ')
@@ -64,6 +72,10 @@ export function InputBase({
         data-invalid={invalid ? 'true' : undefined}
         aria-invalid={ariaInvalid ?? (invalid ? true : undefined)}
         aria-describedby={describedBy || undefined}
+        maxLength={maxLength}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={(event) => { setUncontrolledValue(event.currentTarget.value); onChange?.(event) }}
         {...inputMotionPresets[motionPreset]}
         {...props}
       />
@@ -75,7 +87,7 @@ export function InputBase({
     </span>
   )
 
-  if (!label && !message) {
+  if (!label && !message && !(showCount && maxLength !== undefined)) {
     return input
   }
 
@@ -83,13 +95,18 @@ export function InputBase({
     <label className="pc-input-field">
       {label ? <span className="pc-input-label">{label}</span> : null}
       {input}
-      {message ? (
+      {message || (showCount && maxLength !== undefined) ? (
+        <span className="pc-input-message-row">
+        {message ? (
         <span
           id={messageId}
           className="pc-input-message"
           data-tone={invalid ? 'error' : tone}
         >
           {message}
+        </span>
+        ) : <span />}
+        {showCount && maxLength !== undefined ? <span className="pc-input-counter">{inputValue.length}/{maxLength}</span> : null}
         </span>
       ) : null}
     </label>

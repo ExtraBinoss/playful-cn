@@ -2,6 +2,9 @@ import { Search, Sparkles } from 'lucide-react'
 import { SideScroll } from '../SideScroll'
 import {
   BubbleFieldInput,
+  BubbleInputGroup,
+  BubbleInputOTP,
+  BubbleTextarea,
   BubbleGumButton,
   BubbleCheckbox,
   BubbleRadioGroup,
@@ -9,17 +12,25 @@ import {
   CandyFieldInput,
   FeatureStickerBadge,
   FeatureStickerCard,
+  PlayfulField,
+  PlayfulLabel,
   MintToggleSwitch,
   PopToast,
   PopoverTipTooltip,
   QuietGhostButton,
   SketchOutlineButton,
   SketchFieldInput,
+  SketchInputGroup,
+  SketchInputOTP,
+  SketchTextarea,
   SketchCheckbox,
   SketchRadioGroup,
   SketchSwitch,
   SoftCandyButton,
   StickerFieldInput,
+  StickerInputGroup,
+  StickerInputOTP,
+  StickerTextarea,
   StickerCheckbox,
   StickerRadioGroup,
   StickerSwitch,
@@ -85,6 +96,28 @@ export function VariationPreview({ componentName }: { componentName: string }) {
       return <BubbleFieldInput icon={<Search />} placeholder="Search people..." />
     case 'SketchFieldInput':
       return <SketchFieldInput icon={<Search />} placeholder="Search projects..." />
+    case 'PlayfulLabel':
+      return <PlayfulLabel required>Email address</PlayfulLabel>
+    case 'PlayfulField':
+      return <PlayfulField label="Username" description="Pick a public name."><StickerFieldInput placeholder="playful-dev" /></PlayfulField>
+    case 'StickerTextarea':
+      return <StickerTextarea label="Message" maxLength={120} defaultValue="A little note" />
+    case 'BubbleTextarea':
+      return <BubbleTextarea label="Message" maxLength={120} placeholder="Write something..." />
+    case 'SketchTextarea':
+      return <SketchTextarea label="Message" maxLength={120} placeholder="Write something..." />
+    case 'StickerInputGroup':
+      return <StickerInputGroup start="https://" end=".com"><StickerFieldInput placeholder="playful" /></StickerInputGroup>
+    case 'BubbleInputGroup':
+      return <BubbleInputGroup start="€"><BubbleFieldInput placeholder="0.00" /></BubbleInputGroup>
+    case 'SketchInputGroup':
+      return <SketchInputGroup end="kg"><SketchFieldInput placeholder="Weight" /></SketchInputGroup>
+    case 'StickerInputOTP':
+      return <StickerInputOTP defaultValue="248" length={6} separator={<span>·</span>} />
+    case 'BubbleInputOTP':
+      return <BubbleInputOTP defaultValue="248" length={6} separator={<span>·</span>} />
+    case 'SketchInputOTP':
+      return <SketchInputOTP defaultValue="248" length={6} separator={<span>·</span>} />
     case 'MintToggleSwitch':
       return <MintToggleSwitch defaultChecked aria-label="Preview switch" />
     case 'StarCheckCheckbox':

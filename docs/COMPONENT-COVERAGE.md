@@ -22,6 +22,9 @@ such as `soft-candy` do not replace a canonical skin.
   candy-field).
 - [x] **Checkbox, Radio Group, Switch**: 4/4 canonical skins with shared
   behavior, keyboard support, loading/error states, and docs registration.
+- [x] **Textarea, Input Group, Input OTP**: 3/3 canonical skins with shared
+  APIs, character limits, counters, and docs registration.
+- [x] **Label, Field**: shared accessible form composition primitives.
 - [~] **Card, Badge, Tabs, Tooltip, Toast**: base behavior exists, but the four
   canonical skins and/or parity audit are incomplete.
 - [~] **Extensions**: IconButton, SearchInput, and ColorPicker exist but are
@@ -67,14 +70,14 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [ ] Drawer
 - [ ] Dropdown Menu
 - [ ] Empty
-- [ ] Field
+- [x] Field
 - [ ] Hover Card
 - [x] Input — 4/4
-- [ ] Input Group
-- [ ] Input OTP
+- [x] Input Group — 3/3
+- [x] Input OTP — 3/3
 - [ ] Item
 - [ ] Kbd
-- [ ] Label
+- [x] Label
 - [ ] Marker
 - [ ] Menubar
 - [ ] Message
@@ -98,7 +101,7 @@ Legend: `[x]` complete; `[~]` implementation exists but needs 4/4/parity;
 - [x] Switch — 4/4
 - [ ] Table
 - [~] Tabs
-- [ ] Textarea
+- [x] Textarea — 3/3
 - [~] Toast
 - [ ] Toggle
 - [ ] Toggle Group
